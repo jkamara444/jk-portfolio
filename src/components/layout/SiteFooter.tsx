@@ -17,7 +17,7 @@ export function SiteFooter() {
           <a href={site.resumeHref}>Resume</a>
         </nav>
       </div>
-      <span>{site.copyright}</span>
+      <span className={styles.copyright}>{site.copyright}</span>
     </footer>
   );
 }

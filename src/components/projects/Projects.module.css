@@ -30,9 +30,26 @@
   height: 960px;
 }
 
+/* Phone and iPad: heading, blurb, the folder (its tabs stay attached), then the picture under the
+   folder. The left column steps aside so the blurb and the picture can sit either side of it. */
 @media (max-width: 1100px) {
   .left {
-    height: auto;
+    display: contents;
+  }
+
+  .blurb {
+    order: 1;
+  }
+
+  .folder {
+    order: 2;
+  }
+}
+
+/* room above the folder for the pin on the open tab */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .folder {
+    margin-top: 46px;
   }
 }
 
@@ -54,8 +71,9 @@
 
 @media (max-width: 1100px) {
   .figure {
+    order: 3;
     max-width: 380px;
-    margin: 34px auto 0;
+    margin: 14px auto 0;
   }
 }
 
@@ -215,6 +233,7 @@
   font: normal 400 10px var(--jk-serif);
   letter-spacing: 0.08em;
   color: var(--jk-rose-2);
+  white-space: nowrap;
 }
 
 /* the open project is highlighted like a line marked with a pink highlighter */
@@ -246,6 +265,8 @@
 .folder {
   position: relative;
   rotate: -0.35deg;
+  /* lets the tabs react to the folder's own width, see the @container rule below */
+  container-type: inline-size;
 }
 
 @media (min-width: 1101px) {
@@ -380,11 +401,40 @@
   }
 
   .tab {
-    padding: 0 26px 0 18px;
+    padding: 0 20px 0 14px;
+  }
+
+  .tabTitle {
+    font-size: 13.5px;
   }
 
   .tab:last-child {
     margin-right: 0;
+  }
+}
+
+/* Eight tabs need about 880px. When the folder is narrower than that the tabs wrap onto a second
+   row, with the same shapes as on a phone. */
+@container (max-width: 880px) {
+  .tabs {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tab {
+    margin-right: 0;
+    height: 46px;
+    padding: 0 22px 0 16px;
+  }
+
+  .tabActive {
+    height: 46px;
+  }
+
+  .tabActive .pin {
+    display: none;
   }
 }
 
@@ -722,6 +772,12 @@
 /* ---------- phones ---------- */
 
 @media (max-width: 760px) {
+  .browser {
+    width: min(354px, 100%);
+    height: auto;
+    aspect-ratio: 354 / 257;
+  }
+
   .tabs {
     flex-wrap: wrap;
     gap: 6px;

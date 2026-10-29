@@ -56,6 +56,10 @@ import c06Map from "./c06-map.webp";
 import c07FinalProjects from "./c07-final-projects.webp";
 import c07WireProjects from "./c07-wire-projects.webp";
 import c07Wires from "./c07-wires.webp";
+import c08Hero from "./c08-hero.webp";
+import c08Lab4 from "./c08-lab4.webp";
+import c08Lab8 from "./c08-lab8.webp";
+import c08Trail from "./c08-trail.webp";
 import clipPaperClean from "./clip-paper-clean.webp";
 import communityAnitab from "./community-anitab.webp";
 import communityBpm from "./community-bpm.webp";
@@ -74,6 +78,7 @@ import communityTakeoff3 from "./community-takeoff-3.webp";
 import cover04 from "./cover-04.webp";
 import cover06 from "./cover-06.webp";
 import cover07 from "./cover-07.webp";
+import cover08 from "./cover-08.webp";
 import flowerRose from "./flower-rose.webp";
 import flower from "./flower.webp";
 import globeDots from "./globe-dots.webp";
@@ -141,6 +146,10 @@ export const images = {
   c07FinalProjects,
   c07WireProjects,
   c07Wires,
+  c08Hero,
+  c08Lab4,
+  c08Lab8,
+  c08Trail,
   clipPaperClean,
   communityAnitab,
   communityBpm,
@@ -159,6 +168,7 @@ export const images = {
   cover04,
   cover06,
   cover07,
+  cover08,
   flowerRose,
   flower,
   globeDots,

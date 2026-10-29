@@ -51,7 +51,7 @@ export const experiences: Experience[] = [
     id: "brown-cs-ta",
     org: "Brown University CS Department",
     name: "Brown CS Department",
-    role: "Teaching Assistant, Responsible Technology",
+    role: "CS0111 Responsible Tech Teaching Assistant",
     dates: "Sep 2024 – Present",
     where: "Providence, RI",
     kind: "Teaching",
@@ -60,7 +60,7 @@ export const experiences: Experience[] = [
       "Serve as the Responsible Technology TA for CS0111: Computing Foundations: Data, supporting more than 150 students. I design coursework that connects technical concepts to their broader social, ethical, and policy implications.",
     stackLabel: "Focus",
     stack: ["Responsible technology", "Curriculum design"],
-    links: [],
+    links: [{ label: "Read Case Study", href: "/projects/pedagogy", style: "solid" }],
     shortName: "Brown CS TA",
   },
   {

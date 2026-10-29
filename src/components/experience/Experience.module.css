@@ -104,6 +104,14 @@
   pointer-events: none;
   user-select: none;
 }
+/* smaller on a phone so all four digits fit */
+@media (max-width: 640px) {
+  .ghost {
+    font-size: min(170px, 38vw);
+    left: -6px;
+    top: -14px;
+  }
+}
 .panelInner {
   position: relative;
   display: grid;

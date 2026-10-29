@@ -187,7 +187,7 @@ export const necropolitics: CaseStudy = {
     {
       label: "Scope",
       hint: "Where it reached.",
-      heading: "It spans four countries",
+      heading: "Research across 4 countries",
       blocks: [
         {
           type: "world",

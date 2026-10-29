@@ -1,5 +1,6 @@
 import { ActionLinks } from "../ActionLinks";
 import { RichText } from "../RichText";
+import { TabbedPanels } from "../TabbedPanels";
 import type { BlockOf } from "@/data/case-studies/types";
 import styles from "../CaseStudy.module.css";
 
@@ -36,7 +37,7 @@ export function Columns({ block }: { block: BlockOf<"columns"> }) {
 
 export function Challenges({ block }: { block: BlockOf<"challenges"> }) {
   return (
-    <div className={styles.challenges}>
+    <TabbedPanels className={styles.challenges} labels={block.items.map((_, i) => String(i + 1))}>
       {block.items.map((item, i) => (
         <div className={styles.challenge} key={i}>
           <span className={styles.challengeNumber}>{i + 1}</span>
@@ -45,7 +46,7 @@ export function Challenges({ block }: { block: BlockOf<"challenges"> }) {
           </p>
         </div>
       ))}
-    </div>
+    </TabbedPanels>
   );
 }
 
@@ -78,7 +79,7 @@ export function Callout({ block }: { block: BlockOf<"callout"> }) {
 
 export function Notes({ block }: { block: BlockOf<"notes"> }) {
   return (
-    <div className={styles.notes}>
+    <TabbedPanels className={styles.notes} labels={block.notes.map((note) => note.title)} roomy>
       {block.notes.map((note) => (
         <div className={`${styles.note} jk-surface`} key={note.title}>
           <span className={`tape ${styles.noteTape}`} aria-hidden="true" />
@@ -90,6 +91,6 @@ export function Notes({ block }: { block: BlockOf<"notes"> }) {
           ))}
         </div>
       ))}
-    </div>
+    </TabbedPanels>
   );
 }

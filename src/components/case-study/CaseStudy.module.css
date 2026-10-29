@@ -1,4 +1,4 @@
-/* One stylesheet for all seven case-study pages. */
+/* One stylesheet for all the case-study pages. */
 
 .page {
   position: relative;
@@ -89,6 +89,11 @@
   line-height: 1;
 }
 
+/* the dropdown version of the jump links; phones only (see the 640px query below) */
+.contents {
+  display: none;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -168,6 +173,30 @@
 
 .frame img {
   object-fit: cover;
+}
+
+/* a picture that swaps to another one on phones, where the wide version is too small to read */
+.hasPhone {
+  aspect-ratio: var(--ar);
+}
+
+.onPhone {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .hasPhone {
+    aspect-ratio: var(--ar-phone);
+  }
+
+  .onWide {
+    display: none;
+  }
+
+  .onPhone {
+    display: block;
+    object-fit: cover;
+  }
 }
 
 .caption {
@@ -343,6 +372,37 @@
 .columns > div {
   padding-top: 22px;
   border-top: 1px solid var(--jk-line);
+}
+
+/* two columns, each with an optional picture and then its text, ruled like the columns above */
+.figureColumns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 44px;
+}
+
+.figureColumns > div {
+  padding-top: 22px;
+  border-top: 1px solid var(--jk-line);
+}
+
+/* straight under a section heading the first row sits a little closer */
+.heading + .figureBlock > .figureRows > .figureColumns:first-child {
+  margin-top: 36px;
+}
+
+.figureText {
+  margin-top: 18px;
+}
+
+.figureText + .figureText {
+  margin-top: 26px;
+}
+
+/* a text-only column starts right under its rule */
+.figureColumns > div > .figureText:first-child {
+  margin-top: 0;
 }
 
 /* ---------- challenge ---------- */
@@ -529,7 +589,7 @@
   margin-top: 36px;
 }
 
-.tech > div {
+.techGroup {
   padding-top: 20px;
   border-top: 1px solid var(--jk-line);
 }
@@ -655,6 +715,13 @@
 
 .callout :global(.cta) {
   margin-top: 18px;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+}
+
+.callout :global(.btn),
+.callout :global(.btn-ghost) {
+  white-space: nowrap;
 }
 
 /* ---------- scope: a row of globes ---------- */
@@ -829,11 +896,11 @@
   box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.45);
 }
 
-.note:nth-child(1) {
+.notes > :nth-child(1) > .note {
   rotate: -0.5deg;
 }
 
-.note:nth-child(2) {
+.notes > :nth-child(2) > .note {
   rotate: 0.45deg;
 }
 
@@ -1020,6 +1087,18 @@
   height: 96px;
 }
 
+/* ---------- phone-only furniture: swipe hint, tab bar, tab panels ---------- */
+
+.hint,
+.tabs {
+  display: none;
+}
+
+/* above a phone every panel just disappears from the tree and its child lays out in the grid */
+.panel {
+  display: contents;
+}
+
 /* ---------- tablets ---------- */
 
 @media (max-width: 1100px) {
@@ -1072,7 +1151,8 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .columns {
+  .columns,
+  .figureColumns {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
   }
@@ -1095,6 +1175,102 @@
 /* ---------- phones ---------- */
 
 @media (max-width: 640px) {
+  .jump {
+    display: none;
+  }
+
+  /* callout buttons stack and fill the width, so a long label never runs past the box */
+  .callout {
+    padding: 20px 20px 22px;
+  }
+
+  .callout :global(.cta) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  :global(.jk) .callout :global(.btn),
+  :global(.jk) .callout :global(.btn-ghost) {
+    justify-content: center;
+  }
+
+  .contents {
+    display: block;
+    position: relative;
+    z-index: 20;
+    margin-top: 30px;
+  }
+
+  .contents .contentsButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid rgba(var(--jk-fg-rgb), 0.6);
+    border-radius: var(--jk-r-pill);
+    background: transparent;
+    color: var(--jk-paper);
+    font: 400 11px/1.2 var(--jk-sans);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.2s ease;
+  }
+
+  .contentsButton[aria-expanded="true"] {
+    background: rgba(var(--jk-fg-rgb), 0.1);
+  }
+
+  .contentsChevron {
+    flex: none;
+    transition: rotate 0.2s ease;
+  }
+
+  .contentsButton[aria-expanded="true"] .contentsChevron {
+    rotate: 180deg;
+  }
+
+  .contentsList {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    margin: 0;
+    padding: 6px 8px;
+    list-style: none;
+    background: var(--jk-ink);
+    border: 1px solid var(--jk-line);
+    border-radius: 22px;
+    box-shadow: var(--jk-shadow-card);
+  }
+
+  .contentsList li + li {
+    border-top: 1px solid var(--jk-line);
+  }
+
+  .contentsList a {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 14px 12px;
+    text-decoration: none;
+    color: var(--jk-paper);
+    font-size: 11px;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .contentsList i {
+    min-width: 18px;
+    font-style: normal;
+    opacity: 0.7;
+  }
+
   .hero {
     padding-top: 40px;
   }
@@ -1139,5 +1315,324 @@
 
   .globe figcaption b {
     font-size: 17px;
+  }
+}
+
+/* ---------- phones, compact: swipe rails, tabs and short rows ---------- */
+
+@media (max-width: 640px) {
+  .hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 22px 0 0;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--jk-rose-3);
+  }
+
+  .hint svg {
+    rotate: -90deg;
+  }
+
+  /* a row of cards that scrolls sideways and runs out to the screen edges */
+  .swipe {
+    display: flex;
+    gap: 12px;
+    margin: 10px calc(-1 * var(--jk-gutter)) 0;
+    padding: 4px var(--jk-gutter) 12px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--jk-gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .swipe::-webkit-scrollbar {
+    display: none;
+  }
+
+  .swipe > * {
+    flex: 0 0 78%;
+    min-width: 0;
+    scroll-snap-align: start;
+    padding: 16px 16px 18px;
+    border: 1px solid var(--jk-line);
+    border-radius: 18px;
+    background: rgba(var(--jk-rose-rgb), 0.05);
+  }
+
+  /* how I worked: the dot moves from the timeline into the card */
+  .steps.swipe::before {
+    display: none;
+  }
+
+  .swipe > .step::before {
+    position: static;
+    display: block;
+    width: 11px;
+    height: 11px;
+    margin-bottom: 12px;
+    box-shadow: none;
+  }
+
+  .swipe .step .stepTitle {
+    margin-top: 6px;
+    font-size: 18px;
+  }
+
+  .swipe .step .text {
+    margin: 6px 0 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .swipe .step .frame {
+    margin-top: 14px;
+  }
+
+  /* solution */
+  .solution.swipe .label {
+    margin-top: 14px;
+  }
+
+  .solution.swipe .text {
+    margin-top: 6px;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .pair.swipe > div .caption {
+    margin-top: 10px;
+  }
+
+  /* picture columns: each column is a card, and a row marked as a card stays together */
+  .swipeColumns > .figureColumns {
+    display: contents;
+  }
+
+  .swipeColumns > .figureColumns > div,
+  .swipeColumns > .figureCard {
+    flex: 0 0 88%;
+    min-width: 0;
+    scroll-snap-align: start;
+    padding: 16px 16px 18px;
+    border: 1px solid var(--jk-line);
+    border-radius: 18px;
+    background: rgba(var(--jk-rose-rgb), 0.05);
+  }
+
+  .swipeColumns > .figureCard {
+    display: block;
+    margin: 0;
+  }
+
+  .swipeColumns > .figureCard > div {
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .swipeColumns > .figureCard > div + div {
+    margin-top: 18px;
+  }
+
+  .swipeColumns .text {
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .swipeColumns .caption {
+    margin-top: 10px;
+  }
+
+  /* tabs: one panel at a time */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 26px 0 16px;
+  }
+
+  .tabsRoomy {
+    margin-bottom: 28px;
+  }
+
+  .tab {
+    appearance: none;
+    padding: 8px 12px;
+    border: 1px solid var(--jk-line);
+    border-radius: var(--jk-r-pill);
+    background: none;
+    color: var(--jk-rose-2);
+    font: inherit;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .tab.tabOn {
+    background: var(--wine);
+    border-color: var(--wine);
+    color: var(--jk-paper-3);
+  }
+
+  .panel {
+    display: none;
+  }
+
+  .panel.panelOn {
+    display: block;
+    animation: tabIn 0.3s ease;
+  }
+
+  @keyframes tabIn {
+    from {
+      opacity: 0;
+      translate: 0 6px;
+    }
+
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  .challenges,
+  .tech,
+  .notes {
+    margin-top: 0;
+  }
+
+  .challenge {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .techGroup {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .techGroup .kicker {
+    display: none;
+  }
+
+  .notes {
+    display: block;
+  }
+
+  .note {
+    padding: 30px 24px 26px;
+  }
+
+  .note h3 {
+    font-size: 21px;
+  }
+
+  .note p {
+    margin-top: 10px;
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+
+  /* more work: short rows with a small picture instead of three tall cards */
+  .moreHeader {
+    margin-top: 56px;
+  }
+
+  .moreGrid {
+    display: block;
+    margin-top: 12px;
+  }
+
+  .moreGrid .moreCard {
+    display: grid;
+    grid-template-columns: 84px minmax(0, 1fr) 14px;
+    grid-template-areas:
+      "ph mt arr"
+      "ph mrow arr";
+    column-gap: 14px;
+    align-items: center;
+    padding: 12px 0;
+    border: 0;
+    border-top: 1px solid var(--jk-line);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: var(--jk-paper);
+  }
+
+  .moreGrid .moreCard:last-child {
+    border-bottom: 1px solid var(--jk-line);
+  }
+
+  .moreGrid .moreCard:hover {
+    translate: none;
+    color: var(--jk-paper);
+  }
+
+  /* the cards keep the dark colours in light mode; a row sits on the page, so it takes the light ones back */
+  :global(html.jk-light) .moreGrid .moreCard.moreCard {
+    --jk-ink: #f3eae7;
+    --jk-paper: #21211e;
+    --jk-paper-2: #4a3f43;
+    --jk-rose-1: #7a4e63;
+    --jk-rose-2: #67535d;
+    --jk-rose-3: #82566b;
+    --jk-fg-rgb: 33, 33, 30;
+    --jk-bg-rgb: 243, 234, 231;
+    --jk-rose-rgb: 138, 98, 115;
+    --jk-rose2-rgb: 138, 98, 115;
+    --jk-line: rgba(111, 75, 94, 0.22);
+  }
+
+  .moreThumb {
+    grid-area: ph;
+    border-radius: 10px;
+  }
+
+  .moreTitle {
+    grid-area: mt;
+    align-self: end;
+    margin: 0;
+    font-size: 17px;
+    color: var(--jk-paper);
+  }
+
+  .moreRow {
+    grid-area: mrow;
+    align-self: start;
+    justify-content: flex-start;
+    gap: 8px;
+    margin: 4px 0 0;
+    color: var(--jk-rose-3);
+  }
+
+  .moreRow span + span::before {
+    content: "\00b7";
+    margin-right: 8px;
+  }
+
+  .moreTags {
+    display: none;
+  }
+
+  .moreGrid .moreCard::after {
+    content: "";
+    grid-area: arr;
+    width: 12px;
+    height: 12px;
+    background: var(--jk-rose-2);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7'/%3E%3Cpath d='M7 7h10v10'/%3E%3C/svg%3E")
+      center / contain no-repeat;
   }
 }

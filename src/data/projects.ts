@@ -10,7 +10,8 @@ export type CaseStudySlug =
   | "ev-battery"
   | "necropolitics"
   | "flock-thesis"
-  | "portfolio";
+  | "portfolio"
+  | "pedagogy";
 
 export function caseStudyPath(slug: CaseStudySlug) {
   return `/projects/${slug}`;
@@ -272,6 +273,32 @@ export const projects: readonly Project[] = [
       image: images.cover07,
       alt: "The home page of this portfolio",
       urlLabel: "this portfolio",
+    },
+  },
+  {
+    slug: "pedagogy",
+    name: "Sociotechnical Pedagogy",
+    title: "Teaching Responsible Tech in CS0111",
+    kind: "project",
+    year: "2024 – Present",
+    tags: ["Curriculum design", "Data ethics", "Pyret", "Teaching"],
+    description:
+      "Two labs I wrote as the Responsible Technology TA for CS0111: Computing Foundations: Data at Brown.",
+    context:
+      "In a data course, the technical goals are cleaning, charting, and summarizing. The social questions arrive at the same moment: whose data is this, what does it leave out, and who decides how it gets used?",
+    role: "Responsible Technology TA: I designed and wrote both labs, from the central questions to the checkpoints and discussion prompts.",
+    outcomesLabel: "What it includes",
+    outcomes: [
+      "Lab 4: students clean and analyze a survey of their own class, then check their work against ChatGPT",
+      "Lab 8: students follow one person’s data trail and connect it to real, publicly reported cases",
+      "TA checkpoints in the middle of each lab so students explain their thinking before moving on",
+      "Supports more than 150 students in the course",
+    ],
+    links: [{ kind: "solid", label: "Read Case Study", href: caseStudyPath("pedagogy") }],
+    cover: {
+      image: images.cover08,
+      alt: "Diagram of the two CS0111 labs",
+      urlLabel: "CS0111 labs",
     },
   },
 ];

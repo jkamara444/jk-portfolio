@@ -115,6 +115,7 @@ export const portfolio: CaseStudy = {
       blocks: [
         {
           type: "pair",
+          swipe: true,
           figures: [
             {
               image: images.c07WireProjects,

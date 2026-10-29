@@ -15,6 +15,8 @@ export interface CaseImage {
   fit?: "contain";
   /** Figure label and caption shown under the picture. */
   caption?: { label: string; text: string };
+  /** A different picture (and proportion) to show on phones, when the wide one is too small to read. */
+  phone?: { image: StaticImageData; ratio: readonly [width: number, height: number] };
 }
 
 export type CaseAction =
@@ -60,8 +62,24 @@ export type CaseBlock =
   | { type: "columns"; items: readonly { label: string; text: RichText }[] }
   /** Three numbered problems. */
   | { type: "challenges"; items: readonly RichText[] }
-  | { type: "pair"; figures: readonly CaseImage[] }
+  /** Two figures side by side. `swipe` turns them into a swipeable row of cards on a phone. */
+  | { type: "pair"; figures: readonly CaseImage[]; swipe?: boolean }
   | { type: "steps"; steps: readonly Step[] }
+  /**
+   * Rows of side-by-side columns where each column can hold a figure, then one or more labelled
+   * texts. On a phone the columns become one swipeable row of cards; a row marked `asCard` stays
+   * together as a single card instead of one card per column.
+   */
+  | {
+      type: "figureColumns";
+      rows: readonly {
+        asCard?: boolean;
+        items: readonly {
+          figure?: CaseImage;
+          texts?: readonly { label?: string; text: RichText }[];
+        }[];
+      }[];
+    }
   /** "Part 01, Part 02..." Each part has a picture, or none. `ruled` puts a line above text-only parts. */
   | { type: "solution"; items: readonly { text: RichText; media?: CaseImage }[]; ruled?: boolean }
   | { type: "wide"; figure: CaseImage }

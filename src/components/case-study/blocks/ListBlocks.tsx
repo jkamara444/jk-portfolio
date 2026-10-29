@@ -3,6 +3,7 @@ import { SmartLink } from "@/components/ui/SmartLink";
 import { cx } from "@/lib/cx";
 import { cssVars } from "@/lib/cssVars";
 import type { BlockOf, TechGroup } from "@/data/case-studies/types";
+import { TabbedPanels } from "../TabbedPanels";
 import styles from "../CaseStudy.module.css";
 
 function Chip({ chip }: { chip: TechGroup["chips"][number] }) {
@@ -17,9 +18,9 @@ function Chip({ chip }: { chip: TechGroup["chips"][number] }) {
 
 export function Tech({ block }: { block: BlockOf<"tech"> }) {
   return (
-    <div className={styles.tech}>
+    <TabbedPanels className={styles.tech} labels={block.groups.map((group) => group.label)}>
       {block.groups.map((group) => (
-        <div key={group.label}>
+        <div className={styles.techGroup} key={group.label}>
           <p className={styles.kicker}>{group.label}</p>
           <div className={styles.chips}>
             {group.chips.map((chip) => (
@@ -28,7 +29,7 @@ export function Tech({ block }: { block: BlockOf<"tech"> }) {
           </div>
         </div>
       ))}
-    </div>
+    </TabbedPanels>
   );
 }
 

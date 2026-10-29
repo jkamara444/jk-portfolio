@@ -1,5 +1,5 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { cx } from "@/lib/cx";
+import { CtaLinks, CtaRow } from "@/components/ui/CtaRow";
 import styles from "./Home.module.css";
 
 export function HomeHero() {
@@ -9,7 +9,7 @@ export function HomeHero() {
         <span>Jasmine</span>
         <span>Kamara</span>
       </h1>
-      <div className={cx("cta", styles.actions)}>
+      <CtaRow className={styles.actions}>
         <p>
           I study Computer Science and Science, Technology and Society at Brown. My work explores
           how data and technology shape society through research, product, and design.
@@ -17,13 +17,15 @@ export function HomeHero() {
         <ButtonLink href="/projects" arrow>
           See my work
         </ButtonLink>
-        <ButtonLink href="/contact" variant="text">
-          Get in touch
-        </ButtonLink>
-        <ButtonLink href="/bio" variant="text">
-          Read my bio
-        </ButtonLink>
-      </div>
+        <CtaLinks>
+          <ButtonLink href="/contact" variant="text">
+            Get in touch
+          </ButtonLink>
+          <ButtonLink href="/bio" variant="text">
+            Read my bio
+          </ButtonLink>
+        </CtaLinks>
+      </CtaRow>
     </main>
   );
 }

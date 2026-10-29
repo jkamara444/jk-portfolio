@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "@/components/ui/Icons";
 import styles from "./About.module.css";
 
-/** Desktop only: a pill pointing at the longer bio, set beside the notecard. */
+/** A pill pointing at the longer bio: beside the notecard on desktop, right under it on a phone. */
 export function BioCallout() {
   return (
     <div className={styles.bioCall}>

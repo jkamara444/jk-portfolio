@@ -2,28 +2,60 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navItems } from "@/data/site";
+import { ArrowUpRight } from "@/components/ui/Icons";
+import { navEntries, site } from "@/data/site";
+import { cssVars } from "@/lib/cssVars";
+import { CaseStudiesMenu } from "./CaseStudiesMenu";
 import styles from "./SiteHeader.module.css";
 
-/** True when `pathname` is the nav item's page or one of its children (case studies sit under Projects). */
-function isCurrent(pathname: string, href: string) {
-  return pathname === href || pathname.startsWith(`${href}/`);
+interface NavLinksProps {
+  /** Id of the nav, so the menu button can point at it. */
+  id: string;
+  /** Whether the phone menu is open. The Case studies list folds back up whenever it changes. */
+  menuOpen: boolean;
+  /** Called when a link inside the nav is tapped (closes the phone menu). */
+  onNavigate: () => void;
 }
 
-export function NavLinks() {
+/** The page links. On a phone this same nav becomes the dropdown panel, with Resume at the bottom. */
+export function NavLinks({ id, menuOpen, onNavigate }: NavLinksProps) {
   const pathname = usePathname();
 
   return (
-    <nav className={styles.links} aria-label="Primary">
-      {navItems.map((item) => (
-        <Link
-          key={item.href}
-          href={item.href}
-          aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
-        >
-          {item.label}
-        </Link>
-      ))}
+    <nav
+      id={id}
+      className={styles.links}
+      aria-label="Primary"
+      onClick={(event) => {
+        if ((event.target as HTMLElement).closest("a")) onNavigate();
+      }}
+    >
+      {navEntries.map((entry, index) =>
+        entry.kind === "link" ? (
+          <Link
+            key={entry.href}
+            href={entry.href}
+            aria-current={pathname === entry.href ? "page" : undefined}
+            style={cssVars({ "--i": index })}
+          >
+            {entry.label}
+          </Link>
+        ) : (
+          <CaseStudiesMenu
+            key={menuOpen ? "menu-open" : "menu-closed"}
+            label={entry.label}
+            style={cssVars({ "--i": index })}
+          />
+        ),
+      )}
+      <a
+        className={styles.resumeInMenu}
+        href={site.resumeHref}
+        style={cssVars({ "--i": navEntries.length })}
+      >
+        Resume
+        <ArrowUpRight />
+      </a>
     </nav>
   );
 }

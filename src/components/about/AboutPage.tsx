@@ -2,11 +2,10 @@ import { images } from "@/assets/images";
 import { PageShell } from "@/components/layout/PageShell";
 import { Bloom } from "@/components/ui/Bloom";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { cx } from "@/lib/cx";
+import { CtaLinks, CtaRow } from "@/components/ui/CtaRow";
 import { AboutSheet } from "./AboutSheet";
 import { BioCallout } from "./BioCallout";
 import { CurrentlyCard } from "./CurrentlyCard";
-import { EducationTimeline } from "./EducationTimeline";
 import { FunFacts } from "./FunFacts";
 import { PortraitCard } from "./PortraitCard";
 import { SkillsSection } from "./SkillsSection";
@@ -14,7 +13,7 @@ import styles from "./About.module.css";
 
 export function AboutPage() {
   return (
-    <PageShell>
+    <PageShell className={styles.page}>
       <main className="jk-main">
         <div className={styles.wrap}>
           <div className={styles.canvas}>
@@ -25,27 +24,24 @@ export function AboutPage() {
               <BioCallout />
               <CurrentlyCard />
             </div>
-            <section className={cx(styles.educationMobile, "jk-surface")} aria-label="Education">
-              <span className="tape" aria-hidden="true" />
-              <h2 className={styles.heading}>education</h2>
-              <EducationTimeline />
-            </section>
             <FunFacts />
           </div>
           <Bloom className={styles.bloom} code={images.bloomCodePink} print={images.halftonePink} />
           <div className={styles.footer}>
             <div className={styles.footerRow}>
-              <div className="cta">
+              <CtaRow>
                 <ButtonLink href="/projects" arrow>
                   See my work
                 </ButtonLink>
-                <ButtonLink href="/contact" variant="text">
-                  Get in touch
-                </ButtonLink>
-                <ButtonLink href="/bio" variant="text">
-                  Read my bio
-                </ButtonLink>
-              </div>
+                <CtaLinks>
+                  <ButtonLink href="/contact" variant="text">
+                    Get in touch
+                  </ButtonLink>
+                  <ButtonLink href="/bio" variant="text">
+                    Read my bio
+                  </ButtonLink>
+                </CtaLinks>
+              </CtaRow>
             </div>
           </div>
         </div>

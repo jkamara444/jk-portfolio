@@ -59,6 +59,26 @@
   align-items: center;
   gap: 22px;
 }
+
+/* Two text links that stay side by side on a phone ("Get in touch" + "Read my bio").
+   On wider screens the wrapper disappears and the links sit in the row as normal. */
+.cta-links {
+  display: contents;
+}
+
+@media (max-width: 640px) {
+  .cta-split {
+    flex-wrap: wrap;
+    gap: 16px 22px;
+  }
+
+  .cta-split .cta-links {
+    display: flex;
+    flex: 0 0 100%;
+    align-items: center;
+    gap: 16px 22px;
+  }
+}
 .jk .btn {
   display: inline-flex;
   align-items: center;

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { images } from "@/assets/images";
 import { PageShell } from "@/components/layout/PageShell";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { CtaLinks, CtaRow } from "@/components/ui/CtaRow";
 import { Sparkle } from "@/components/ui/Sparkle";
 import { ThemedImage } from "@/components/ui/ThemedImage";
 import { bioGreeting, bioParagraphs } from "@/data/bio";
@@ -37,17 +38,19 @@ export function BioPage() {
 
             <Signature />
 
-            <div className={cx("cta", styles.actions)}>
+            <CtaRow className={styles.actions}>
               <ButtonLink href="/projects" arrow>
                 See my work
               </ButtonLink>
-              <ButtonLink href="/contact" variant="text">
-                Get in touch
-              </ButtonLink>
-              <ButtonLink href="/about" variant="text">
-                Back to about
-              </ButtonLink>
-            </div>
+              <CtaLinks>
+                <ButtonLink href="/contact" variant="text">
+                  Get in touch
+                </ButtonLink>
+                <ButtonLink href="/about" variant="text">
+                  Back to about
+                </ButtonLink>
+              </CtaLinks>
+            </CtaRow>
           </div>
 
           <div className={styles.stage}>

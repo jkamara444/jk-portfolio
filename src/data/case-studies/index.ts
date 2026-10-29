@@ -5,6 +5,7 @@ import { flockThesis } from "./flock-thesis";
 import { grapevne } from "./grapevne";
 import { handbook } from "./handbook";
 import { necropolitics } from "./necropolitics";
+import { pedagogy } from "./pedagogy";
 import { portfolio } from "./portfolio";
 import type { CaseStudy } from "./types";
 
@@ -17,4 +18,5 @@ export const caseStudies: Record<CaseStudySlug, CaseStudy> = {
   necropolitics,
   "flock-thesis": flockThesis,
   portfolio,
+  pedagogy,
 };

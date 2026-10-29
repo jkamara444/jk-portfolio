@@ -1,6 +1,7 @@
 import type { Project } from "@/data/projects";
 import type { CaseStudy } from "@/data/case-studies/types";
 import { ActionLinks } from "./ActionLinks";
+import { CaseContents } from "./CaseContents";
 import { TapedFigure } from "./Figure";
 import styles from "./CaseStudy.module.css";
 
@@ -44,6 +45,14 @@ export function CaseHero({ study, project }: CaseHeroProps) {
             </a>
           ))}
         </nav>
+
+        <CaseContents
+          items={study.sections.map((section, i) => ({
+            id: sectionId(i),
+            number: sectionNumber(i),
+            label: section.jumpLabel ?? section.label,
+          }))}
+        />
 
         <div className={styles.actions}>
           <ActionLinks actions={study.actions} />

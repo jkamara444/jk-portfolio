@@ -9,6 +9,9 @@
   margin: 0 var(--jk-gutter);
   padding: 20px 0 18px;
   border-bottom: 1px solid var(--jk-line);
+  /* sits above the page so the Case studies list can open over the content */
+  position: relative;
+  z-index: 40;
 }
 
 .logo {
@@ -72,24 +75,537 @@
   filter: brightness(1.12);
 }
 
+/* Phones: the links fold into a dropdown panel behind a hamburger button. */
+.burger {
+  display: none;
+}
+
+:global(.jk) .resumeInMenu {
+  display: none;
+}
+
 @media (max-width: 640px) {
-  .nav {
+  .logo {
+    font-size: 29px;
+  }
+
+  :global(.jk) .nav {
+    position: relative;
+    z-index: 40;
+    flex-wrap: nowrap;
+    gap: 12px;
     padding: 18px 0 14px;
   }
 
-  .links {
-    gap: 4px 26px;
+  :global(.jk) .end {
+    gap: 6px;
   }
 
-  .end {
-    gap: 12px;
+  :global(.jk) .end .resume {
+    display: none;
+  }
+
+  :global(.jk) .burger {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    margin: 0 -9px 0 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--jk-paper);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  :global(.jk) .burger:active,
+  .nav[data-menu="open"] .burger {
+    background: rgba(var(--jk-rose-rgb), 0.16);
+  }
+
+  .nav[data-menu="open"] .burger {
+    color: var(--jk-rose-1);
+  }
+
+  /* three bars that fold into a cross: the top and bottom bars rotate, the middle one slides away */
+  .bars {
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 16px;
+  }
+
+  .bars i {
+    position: absolute;
+    left: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transform-origin: 50% 50%;
+    transition:
+      top 0.35s cubic-bezier(0.65, 0, 0.25, 1),
+      left 0.35s cubic-bezier(0.65, 0, 0.25, 1),
+      width 0.35s cubic-bezier(0.65, 0, 0.25, 1),
+      rotate 0.45s cubic-bezier(0.34, 1.4, 0.5, 1) 0.08s,
+      opacity 0.2s ease;
+  }
+
+  .bars i:nth-child(1) {
+    top: 0;
+    width: 22px;
+  }
+
+  .bars i:nth-child(2) {
+    top: 7px;
+    left: 8px;
+    width: 14px;
+  }
+
+  .bars i:nth-child(3) {
+    top: 14px;
+    width: 22px;
+  }
+
+  .nav[data-menu="open"] .bars i:nth-child(1) {
+    top: 7px;
+    rotate: 45deg;
+  }
+
+  .nav[data-menu="open"] .bars i:nth-child(2) {
+    left: 22px;
+    width: 0;
+    opacity: 0;
+  }
+
+  .nav[data-menu="open"] .bars i:nth-child(3) {
+    top: 7px;
+    rotate: -45deg;
+  }
+
+  .links {
+    position: absolute;
+    z-index: 60;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0;
+    padding: 4px 22px 22px;
+    border: 1px solid var(--jk-line);
+    border-radius: 22px;
+    background: rgba(var(--jk-bg-rgb), 0.97);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 34px 60px -28px rgba(0, 0, 0, 0.75);
+    transform-origin: 100% 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    translate: 0 -10px;
+    scale: 0.96;
+    transition:
+      opacity 0.25s ease,
+      translate 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+      scale 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+      visibility 0s linear 0.4s;
+  }
+
+  .nav[data-menu="open"] .links {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    translate: 0 0;
+    scale: 1;
+    transition-delay: 0s;
+  }
+
+  .links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 2px;
+    font-size: 12.5px;
+    letter-spacing: 0.18em;
+    border-bottom: 1px solid var(--jk-line);
+    opacity: 0;
+    translate: 0 -6px;
+    transition:
+      opacity 0.3s ease,
+      translate 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+      color 0.2s ease;
+  }
+
+  /* the links arrive one after another */
+  .nav[data-menu="open"] .links a {
+    opacity: 1;
+    translate: 0 0;
+    transition-delay: calc(0.05s + 0.04s * var(--i, 0));
+  }
+
+  .links a[aria-current="page"] {
+    border-bottom: 1px solid var(--jk-line);
+  }
+
+  .links a[aria-current="page"]::after {
+    content: "";
+    flex: none;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--jk-rose-3);
+  }
+
+  :global(.jk) .resumeInMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 15px 22px;
+    border-radius: var(--jk-r-pill);
+    border-bottom: 0;
+    background: var(--wine);
+    color: var(--jk-paper-3);
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  :global(.jk) .resumeInMenu:hover {
+    color: var(--jk-paper-3);
+    filter: brightness(1.12);
+  }
+}
+
+/* ---------- "Case studies" dropdown ----------
+   Wide screens: opens on hover. Touch and keyboard: the button sets data-open. Phone: it is a row in
+   the hamburger panel that opens in place. */
+.dd {
+  position: relative;
+}
+
+:global(.jk) .ddButton {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.2s ease;
+}
+
+:global(.jk) .ddButton:hover,
+:global(.jk) .dd[data-open="true"] .ddButton {
+  color: var(--jk-rose-2);
+}
+
+:global(.jk) .ddButton[data-current="true"] {
+  color: var(--jk-rose-1);
+  border-bottom-color: var(--jk-rose-3);
+}
+
+.ddChevron {
+  flex: none;
+  transition: rotate 0.3s cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+
+:global(.jk) .dd[data-open="true"] .ddChevron {
+  rotate: 180deg;
+}
+
+.ddPanel {
+  position: absolute;
+  z-index: 70;
+  top: 100%;
+  left: 50%;
+  width: max-content;
+  min-width: 270px;
+  padding-top: 14px;
+  translate: -50% 8px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    translate 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0s linear 0.28s;
+}
+
+.ddPanel > ul {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid var(--jk-line);
+  border-radius: 18px;
+  background: rgba(var(--jk-bg-rgb), 0.95);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 30px 56px -26px rgba(0, 0, 0, 0.75);
+}
+
+:global(.jk) .dd[data-open="true"] .ddPanel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  translate: -50% 0;
+  transition-delay: 0s;
+}
+
+@media (hover: hover) and (min-width: 641px) {
+  :global(.jk) .dd:hover .ddPanel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    translate: -50% 0;
+    transition-delay: 0s;
+  }
+
+  :global(.jk) .dd:hover .ddButton {
+    color: var(--jk-rose-2);
+  }
+
+  :global(.jk) .dd:hover .ddChevron {
+    rotate: 180deg;
+  }
+}
+
+:global(.jk) .ddPanel a {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 11px;
+  font-family: var(--jk-serif);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  text-transform: none;
+  white-space: nowrap;
+  color: var(--jk-paper);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.ddNumber {
+  flex: none;
+  width: 1.6em;
+  font-family: var(--jk-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--jk-rose-2);
+}
+
+:global(.jk) .ddPanel a:hover,
+:global(.jk) .ddPanel a:focus-visible {
+  background: rgba(var(--jk-rose-rgb), 0.14);
+  color: var(--jk-rose-1);
+  outline: none;
+}
+
+:global(.jk) .ddPanel a[aria-current="page"] {
+  background: rgba(var(--jk-rose-rgb), 0.1);
+  color: var(--jk-rose-1);
+  border: 0;
+}
+
+.ddAll {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--jk-line);
+}
+
+:global(.jk) .ddPanel .ddAll a {
+  justify-content: space-between;
+  font-family: inherit;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--jk-rose-2);
+}
+
+/* Phones: the dropdown becomes a row of the hamburger panel that expands in place. */
+@media (max-width: 640px) {
+  :global(.jk) .links .dd {
+    display: block;
+  }
+
+  :global(.jk) .ddButton {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 17px 2px;
+    border-bottom: 1px solid var(--jk-line);
+    font-size: 12.5px;
+    letter-spacing: 0.18em;
+    text-align: left;
+    opacity: 0;
+    translate: 0 -6px;
+    transition:
+      opacity 0.3s ease,
+      translate 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+      color 0.2s ease;
+  }
+
+  .nav[data-menu="open"] .ddButton {
+    opacity: 1;
+    translate: 0 0;
+    transition-delay: calc(0.05s + 0.04s * var(--i, 0));
+  }
+
+  :global(.jk) .ddButton[data-current="true"] {
+    border-bottom-color: var(--jk-line);
+  }
+
+  .ddPanel {
+    position: static;
+    width: auto;
+    min-width: 0;
+    padding: 0;
+    translate: none;
+    opacity: 1;
+    visibility: hidden;
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.42s ease,
+      visibility 0s linear 0.42s;
+  }
+
+  :global(.jk) .dd[data-open="true"] .ddPanel {
+    translate: none;
+    max-height: 620px;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      max-height 0.42s ease,
+      visibility 0s;
+  }
+
+  .ddPanel > ul {
+    padding: 4px 0 8px 12px;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  :global(.jk) .ddPanel a {
+    justify-content: flex-start;
+    padding: 12px 2px;
+    border-radius: 0;
+    font-size: 14.5px;
+    border-bottom: 1px solid rgba(var(--jk-rose-rgb), 0.12);
+  }
+
+  :global(.jk) .ddPanel a[aria-current="page"]::after {
+    margin-left: auto;
+  }
+
+  :global(.jk) .ddPanel a:hover,
+  :global(.jk) .ddPanel a:focus-visible,
+  :global(.jk) .ddPanel a[aria-current="page"] {
+    background: none;
+  }
+
+  .ddAll {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  :global(.jk) .ddPanel .ddAll a {
+    justify-content: space-between;
+    border-bottom: 0;
+  }
+}
+
+/* Tablet and small laptop: seven links no longer fit beside the logo, so the nav is two rows:
+   logo on the left and the switch + Resume on the right, then every link spread across the width. */
+@media (min-width: 641px) and (max-width: 1299px) {
+  :global(.jk) .nav {
+    gap: 6px 24px;
+    padding-bottom: 8px;
+  }
+
+  :global(.jk) .logo {
+    order: 1;
+  }
+
+  :global(.jk) .end {
+    order: 2;
+    margin-left: auto;
+  }
+
+  :global(.jk) .links {
+    order: 3;
+    flex: 0 0 100%;
+    justify-content: space-between;
+    gap: 2px 16px;
+  }
+
+  :global(.jk) .ddPanel {
+    left: 0;
+    translate: 0 8px;
+  }
+
+  :global(.jk) .dd[data-open="true"] .ddPanel {
+    translate: 0 0;
+  }
+}
+
+@media (hover: hover) and (min-width: 641px) and (max-width: 1299px) {
+  :global(.jk) .dd:hover .ddPanel {
+    translate: 0 0;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 860px) {
+  :global(.jk) .ddPanel {
+    left: auto;
+    right: 0;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 760px) {
+  :global(.jk) .links {
+    justify-content: center;
+    gap: 2px 22px;
   }
 }
 
 /* Over a full-bleed hero (home): the bar floats on a soft blur + fade instead of a flat edge. */
 .overlay {
   position: relative;
-  z-index: 2;
+  z-index: 40;
 }
 
 .overlay::before,

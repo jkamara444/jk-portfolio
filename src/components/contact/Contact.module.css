@@ -236,7 +236,16 @@
 
 @media (max-width: 900px) {
   .stage {
-    height: 440px;
+    height: 420px;
+  }
+  /* LinkedIn used to sit off the right edge on a phone; both pills come up and into view */
+  :global(.jk) .pill.pink {
+    left: auto !important;
+    right: 22px;
+    top: 142px !important;
+  }
+  :global(.jk) .pill.wine {
+    top: 212px !important;
   }
   :global(.jk) .round.wine {
     left: auto !important;
@@ -257,5 +266,44 @@
   .mailWrap {
     position: relative;
     z-index: 1;
+  }
+}
+
+/* Phones: smaller stickers, so the three pills and the "drag me" seal sit together without crowding. */
+@media (max-width: 640px) {
+  .stage {
+    height: 350px;
+  }
+  :global(.jk) .pill {
+    gap: 8px;
+    padding: 9px 18px;
+    font-size: 15px;
+  }
+  .pill svg {
+    width: 15px;
+    height: 15px;
+  }
+  :global(.jk) .pill.pink {
+    top: 118px !important;
+    right: 26px;
+  }
+  :global(.jk) .pill.wine {
+    top: 176px !important;
+    left: 7% !important;
+  }
+  :global(.jk) .round.wine {
+    width: 74px !important;
+    height: 74px !important;
+    right: 4px;
+    top: 4px !important;
+  }
+  .roundText {
+    font-size: 15px;
+  }
+  .flower {
+    top: 118px;
+  }
+  .flock {
+    top: 156px;
   }
 }

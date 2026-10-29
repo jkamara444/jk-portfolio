@@ -10,17 +10,19 @@ export const site = {
   copyright: "©2026 Jasmine Kamara",
 } as const;
 
-export interface NavItem {
-  label: string;
-  href: string;
-}
+/** One entry in the main navigation: a plain page link, or the Case studies dropdown. */
+export type NavEntry =
+  | { kind: "link"; label: string; href: string }
+  /** Its list is built from the projects, so a new case study shows up here by itself. */
+  | { kind: "caseStudies"; label: string };
 
 /** The main navigation, in display order. */
-export const navItems: readonly NavItem[] = [
-  { label: "About", href: "/about" },
-  { label: "Bio", href: "/bio" },
-  { label: "Experience", href: "/experience" },
-  { label: "Projects & Research", href: "/projects" },
-  { label: "Community", href: "/community" },
-  { label: "Contact", href: "/contact" },
+export const navEntries: readonly NavEntry[] = [
+  { kind: "link", label: "About", href: "/about" },
+  { kind: "link", label: "Bio", href: "/bio" },
+  { kind: "link", label: "Experience", href: "/experience" },
+  { kind: "link", label: "Projects & Research", href: "/projects" },
+  { kind: "caseStudies", label: "Case studies" },
+  { kind: "link", label: "Community", href: "/community" },
+  { kind: "link", label: "Contact", href: "/contact" },
 ];

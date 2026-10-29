@@ -1,7 +1,7 @@
 import { education } from "@/data/about";
 import styles from "./About.module.css";
 
-/** The dotted education timeline. Rendered twice: on the notecard (desktop) and as its own card (mobile). */
+/** The dotted education timeline, written on the notecard at every screen size. */
 export function EducationTimeline() {
   return (
     <ul className={styles.timeline}>

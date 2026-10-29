@@ -1,5 +1,5 @@
 import type { CaseBlock as CaseBlockData } from "@/data/case-studies/types";
-import { Gallery, Pair, SectionFigure, Wide } from "./blocks/MediaBlocks";
+import { FigureColumns, Gallery, Pair, SectionFigure, Wide } from "./blocks/MediaBlocks";
 import { Solution, Steps } from "./blocks/ProcessBlocks";
 import { ChipRow, Stats, Tech, World } from "./blocks/ListBlocks";
 import { Callout, Challenges, Columns, Intro, Lead, Notes, Outcomes } from "./blocks/TextBlocks";
@@ -17,6 +17,8 @@ export function CaseBlock({ block }: { block: CaseBlockData }) {
       return <Challenges block={block} />;
     case "pair":
       return <Pair block={block} />;
+    case "figureColumns":
+      return <FigureColumns block={block} />;
     case "steps":
       return <Steps block={block} />;
     case "solution":

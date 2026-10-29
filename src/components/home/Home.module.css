@@ -162,4 +162,9 @@
   .heroImage {
     opacity: 0.42;
   }
+
+  /* the name, bio and buttons sit lower, further from the nav */
+  .main {
+    padding-top: 84px;
+  }
 }
