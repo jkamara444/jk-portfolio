@@ -6,7 +6,7 @@ import styles from "./About.module.css";
 export function BioCallout() {
   return (
     <div className={styles.bioCall}>
-      <p className={styles.bioCallText}>Want the longer story?</p>
+      <p className={styles.bioCallText}>Learn more about me</p>
       <Link className={styles.bioPill} href="/bio">
         read my bio <ArrowUpRight />
       </Link>

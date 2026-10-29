@@ -60,7 +60,7 @@ export const necropolitics: CaseStudy = {
     },
     {
       label: "Challenge",
-      hint: "The problem",
+      hint: "The problem.",
       heading: "What I wanted to understand",
       blocks: [
         {
@@ -233,10 +233,7 @@ export const necropolitics: CaseStudy = {
             {
               title: "What I learned",
               paragraphs: [
-                "Working across four countries gave me a wider, more geopolitical view of technology.",
-                "I learned to ask whether a technology is intentionally harmful.",
-                "I also learned to ask what systems it participates in, who benefits from it, and whose lives become more vulnerable through it.",
-                "The answers change with a place’s colonial history and its position in global politics.",
+                "Working across four countries gave me a broader, more geopolitical view of technology. I learned to look beyond whether a technology is intentionally harmful and instead pay attention to the systems it becomes part of, the people those systems serve, and the vulnerabilities they can create. Those dynamics look different from place to place, shaped by colonial history, political institutions, and a country’s position in the global order.",
               ],
             },
             {

@@ -9,12 +9,6 @@ export const grapevne: CaseStudy = {
   actions: [
     {
       kind: "solid",
-      label: "Visit Grapevne Website",
-      href: "https://grapevneapp.com/",
-      arrow: true,
-    },
-    {
-      kind: "ghost",
       label: "View on the App Store",
       href: "https://apps.apple.com/us/app/grapevne/id6745459372",
       arrow: true,
@@ -59,7 +53,7 @@ export const grapevne: CaseStudy = {
     },
     {
       label: "Challenge",
-      hint: "The problem",
+      hint: "The problem.",
       heading: "What it took to make it stick",
       blocks: [
         {
@@ -175,7 +169,7 @@ export const grapevne: CaseStudy = {
     },
     {
       label: "Technologies",
-      hint: "Tools and methods",
+      hint: "Tools and methods.",
       heading: "What it’s made of",
       blocks: [
         {
@@ -243,12 +237,6 @@ export const grapevne: CaseStudy = {
     actions: [
       {
         kind: "solid",
-        label: "Visit Grapevne Website",
-        href: "https://grapevneapp.com/",
-        arrow: true,
-      },
-      {
-        kind: "ghost",
         label: "View on the App Store",
         href: "https://apps.apple.com/us/app/grapevne/id6745459372",
         arrow: true,

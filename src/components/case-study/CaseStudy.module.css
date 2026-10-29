@@ -271,6 +271,17 @@
   border-top: 1px solid var(--jk-line);
 }
 
+/* pages without a big opening picture put the first section right under the facts: one rule, not two */
+.facts + .section {
+  margin-top: 0;
+  border-top: 0;
+}
+
+.section,
+.ending {
+  scroll-margin-top: 28px;
+}
+
 .rail {
   align-self: start;
 }
@@ -339,15 +350,31 @@
   max-width: 760px;
 }
 
+/* a link inside a sentence is boxed and carries an arrow, so it reads as a link */
 .inlineLink {
   color: var(--jk-rose-1);
+  padding: 1px 5px 2px;
+  margin: 0 -1px;
+  border-radius: 5px;
+  background: rgba(var(--jk-rose-rgb), 0.2);
   text-decoration: underline;
-  text-decoration-color: rgba(var(--jk-rose-rgb), 0.5);
-  text-underline-offset: 3px;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  box-shadow: inset 0 0 0 1px rgba(var(--jk-rose2-rgb), 0.45);
+}
+
+.inlineLink::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 0.78em;
+  text-decoration: none;
 }
 
 .inlineLink:hover {
   color: var(--jk-paper);
+  background: rgba(var(--jk-rose-rgb), 0.4);
 }
 
 .kicker {
@@ -403,6 +430,56 @@
 /* a text-only column starts right under its rule */
 .figureColumns > div > .figureText:first-child {
   margin-top: 0;
+}
+
+.figureSideBySide .figureText .kicker {
+  margin-bottom: 10px;
+}
+
+/* wide screens: each column of a side-by-side row becomes its own row, figure left and text right */
+@media (min-width: 641px) {
+  .figureColumns.figureSideBySide {
+    display: block;
+  }
+
+  .figureSideBySide > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 40px;
+    align-items: start;
+  }
+
+  .figureSideBySide > div + div {
+    margin-top: 40px;
+  }
+
+  .figureSideBySide > div > .figureText {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+  }
+
+  /* when the text is taller than the picture, the picture and its caption share the extra height */
+  .figureSideBySide > div {
+    align-items: stretch;
+  }
+
+  .figureSideBySide > div > div:first-child:not(.figureText) {
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+
+  /* the row that follows keeps one rule across both of its columns */
+  .figureColumns.figureCard {
+    margin-top: 40px;
+    padding-top: 22px;
+    border-top: 1px solid var(--jk-line);
+  }
+
+  .figureCard > div {
+    padding-top: 0;
+    border-top: 0;
+  }
 }
 
 /* ---------- challenge ---------- */
@@ -610,13 +687,40 @@
   color: var(--jk-paper);
 }
 
+/* a chip that links out says so: underlined title, then a small "Learn more" line */
 .chipLink {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  max-width: 100%;
+  padding: 11px 16px 10px;
+  border-radius: 20px;
+  line-height: 1.45;
   text-decoration: none;
-  box-shadow: inset 0 0 0 1px rgba(var(--jk-rose2-rgb), 0.55);
+  background: rgba(var(--jk-rose-rgb), 0.24);
+  box-shadow: inset 0 0 0 1px rgba(var(--jk-rose2-rgb), 0.85);
+  cursor: pointer;
 }
 
 .chipLink:hover {
-  background: rgba(var(--jk-rose-rgb), 0.28);
+  background: rgba(var(--jk-rose-rgb), 0.4);
+}
+
+.chipTitle {
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--jk-rose2-rgb), 0.7);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.chipGo {
+  display: inline-block;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--jk-rose-1);
+  text-decoration: none;
 }
 
 /* ---------- impact ---------- */
@@ -983,6 +1087,17 @@
   color: var(--jk-rose-3);
 }
 
+/* wide screens: the closing band is centred */
+@media (min-width: 641px) {
+  .ending {
+    text-align: center;
+  }
+
+  .ending :global(.cta) {
+    justify-content: center;
+  }
+}
+
 /* the two in-progress pages breathe a little more around the buttons and the closing band */
 .spacious .actions {
   margin-top: 44px;
@@ -1008,6 +1123,63 @@
 .spacious .endNote {
   margin-top: 30px;
   line-height: 1.7;
+}
+
+/* ---------- funding pill ---------- */
+
+.funding {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 34px;
+  padding: 22px 34px 22px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--jk-rose-rgb), 0.55);
+  background: linear-gradient(
+    100deg,
+    rgba(var(--jk-rose-rgb), 0.16),
+    rgba(var(--jk-rose-rgb), 0.05)
+  );
+}
+
+.fundingBadge {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(var(--jk-rose-rgb), 0.7);
+  color: var(--jk-rose-1);
+  font-size: 20px;
+  background: rgba(var(--jk-rose-rgb), 0.12);
+}
+
+.fundingBody {
+  min-width: 0;
+}
+
+.fundingKicker {
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--jk-rose-3);
+}
+
+.fundingTitle {
+  margin: 6px 0 0;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--jk-paper);
+}
+
+.fundingText {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  font-style: italic;
+  color: var(--jk-rose-2);
 }
 
 /* ---------- more work ---------- */
@@ -1406,6 +1578,22 @@
 
   .pair.swipe > div .caption {
     margin-top: 10px;
+  }
+
+  .funding {
+    gap: 16px;
+    padding: 18px 20px 18px 16px;
+    border-radius: 28px;
+  }
+
+  .fundingBadge {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .fundingTitle {
+    font-size: 18px;
   }
 
   /* picture columns: each column is a card, and a row marked as a card stays together */

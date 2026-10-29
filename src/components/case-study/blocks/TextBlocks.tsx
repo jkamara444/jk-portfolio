@@ -62,6 +62,21 @@ export function Outcomes({ block }: { block: BlockOf<"outcomes"> }) {
   );
 }
 
+export function Funding({ block }: { block: BlockOf<"funding"> }) {
+  return (
+    <div className={styles.funding}>
+      <span className={styles.fundingBadge} aria-hidden="true">
+        ✦
+      </span>
+      <div className={styles.fundingBody}>
+        <span className={styles.fundingKicker}>{block.kicker}</span>
+        <p className={styles.fundingTitle}>{block.title}</p>
+        <p className={styles.fundingText}>{block.text}</p>
+      </div>
+    </div>
+  );
+}
+
 export function Callout({ block }: { block: BlockOf<"callout"> }) {
   return (
     <div className={styles.callout}>

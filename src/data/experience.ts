@@ -40,9 +40,9 @@ export const experiences: Experience[] = [
     summary:
       "Develop the Socially Responsible Computing Handbook, a React-based platform that helps Brown CS faculty and TAs integrate responsible technology into their courses. The platform supports materials used across 18 courses and by more than 400 faculty members and TAs.",
     stackLabel: "Tech stack",
-    stack: ["React"],
+    stack: ["React", "HTML", "CSS", "JavaScript"],
     links: [
-      { label: "Visit Website", href: "#", style: "ghost" },
+      { label: "Visit Website", href: "https://srch.cs.brown.edu/", style: "ghost" },
       { label: "Read Case Study", href: "/projects/handbook", style: "solid" },
     ],
     shortName: "Brown DSI",
@@ -93,7 +93,11 @@ export const experiences: Experience[] = [
     stackLabel: "Tech stack",
     stack: ["Swift", "Firebase", "Figma", "A/B testing"],
     links: [
-      { label: "Visit Website", href: "https://grapevneapp.com/", style: "ghost" },
+      {
+        label: "View on the App Store",
+        href: "https://apps.apple.com/us/app/grapevne/id6745459372",
+        style: "ghost",
+      },
       { label: "Read Case Study", href: "/projects/grapevne", style: "solid" },
     ],
     shortName: "Grapevne",
@@ -108,12 +112,11 @@ export const experiences: Experience[] = [
     kind: "Research",
     year: "2025–26",
     summary:
-      "Conducted research at MIT Station1 under Dr. Ellen Spero and Dr. Christine Ortiz on the future of transportation technology. I modeled the emissions tradeoffs of expanding solid-state battery-powered electric vehicles and translated the findings into policy recommendations.",
+      "Conducted research at MIT Station1 under Dr. Ellen Spero and Dr. Christine Ortiz on the future of electric transportation. I modeled the emissions tradeoffs of expanding solid-state battery-powered electric vehicles and examined the geopolitics of the EV transition, including U.S.-China competition over battery technology and supply chains. I translated these findings into policy recommendations that considered both environmental impact and the political forces shaping EV adoption.",
     stackLabel: "Tech stack",
     stack: ["GCAM", "Python", "Machine learning methods"],
     links: [
       { label: "Read Case Study", href: "/projects/ev-battery", style: "solid" },
-      { label: "Final Research Paper", href: "#", style: "ghost" },
       {
         label: "Request Access",
         href: "mailto:jasmine_kamara@brown.edu?subject=Request%20access%3A%20EV%20Battery%20Emissions%20research%20paper&body=Hi%20Jasmine%2C%20I%27d%20love%20to%20read%20the%20full%20paper.",
@@ -132,7 +135,7 @@ export const experiences: Experience[] = [
     kind: "Industry",
     year: "2026",
     summary:
-      "Returned to Chase for a second summer on an internal consulting-style team. My project focused on improving customer acquisition and understanding the customer journey. I used Snowflake and Adobe Customer Journey Analytics to define journey metrics and build an analytics dashboard that standardized how teams measured customer behavior and identified opportunities to improve acquisition.",
+      "Returned to Chase for a second summer on the Focused Analytic Solutions Team, an internal consulting and analytics team that works across the firm on complex business problems. My project focused on improving customer acquisition and understanding how customers move through Chase’s website and mobile app. I used Snowflake and Adobe Customer Journey Analytics to define journey metrics and build an analytics dashboard that standardized how teams measured customer behavior and identified opportunities to improve acquisition.",
     stackLabel: "Tech stack",
     stack: ["Snowflake", "Adobe Customer Journey Analytics", "SQL"],
     links: [],

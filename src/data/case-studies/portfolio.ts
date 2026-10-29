@@ -16,7 +16,7 @@ export const portfolio: CaseStudy = {
     { label: "Role", value: "Designer and builder" },
     { label: "Timeline", value: "2026" },
     { label: "Tools", value: "Figma, Claude, HTML, CSS, JavaScript" },
-    { label: "Status", value: "Ongoing" },
+    { label: "Status", value: "Complete" },
   ],
   sections: [
     {
@@ -36,7 +36,7 @@ export const portfolio: CaseStudy = {
             },
             {
               label: "My role",
-              text: "Designer and builder. I planned the structure, wireframed every page, designed the screens in Figma, and built the site with Claude supporting the code and backend.",
+              text: "Designer and builder: I planned the structure, wireframed every page, designed the screens in Figma, and built the site with Claude supporting the code and backend.",
             },
           ],
         },
@@ -94,6 +94,10 @@ export const portfolio: CaseStudy = {
             {
               title: "Backend",
               text: "Used Claude to support the backend work that sits behind the pages.",
+            },
+            {
+              title: "Human in the loop",
+              text: "Stayed in the loop on everything Claude produced: refactoring the code myself and running accessibility checks.",
             },
             {
               title: "Refine",
@@ -158,13 +162,13 @@ export const portfolio: CaseStudy = {
             {
               title: "What I learned",
               paragraphs: [
-                "Drawing every page as a wireframe first kept the structure settled while the colors, type, and details kept changing.",
+                "Drawing every page as a wireframe first kept the structure settled while the colors, type, and details kept changing. Building with Claude also taught me where a human in the loop matters most: refactoring the code and checking accessibility myself instead of assuming it was right.",
               ],
             },
             {
               title: "What’s next",
               paragraphs: [
-                "Add the resume and live project links, keep each case study current as the work finishes, and keep refining the details.",
+                "The portfolio is complete. From here I’ll keep each case study current as my research and projects wrap up, and reuse the same process on whatever I build next: wireframes first, then a style guide, then code.",
               ],
             },
           ],

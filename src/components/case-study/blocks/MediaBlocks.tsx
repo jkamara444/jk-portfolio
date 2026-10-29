@@ -58,7 +58,14 @@ export function FigureColumns({ block }: { block: BlockOf<"figureColumns"> }) {
       <SwipeHint />
       <div className={cx(styles.figureRows, styles.swipe, styles.swipeColumns)}>
         {block.rows.map((row, r) => (
-          <div className={cx(styles.figureColumns, row.asCard && styles.figureCard)} key={r}>
+          <div
+            className={cx(
+              styles.figureColumns,
+              row.asCard && styles.figureCard,
+              row.sideBySide && styles.figureSideBySide,
+            )}
+            key={r}
+          >
             {row.items.map((item, i) => (
               <div key={i}>
                 {item.figure && <Figure image={item.figure} />}

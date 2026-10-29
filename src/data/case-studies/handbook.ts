@@ -8,14 +8,19 @@ export const handbook: CaseStudy = {
   subtitle:
     "A web platform helping CS faculty and TAs bring responsible technology into the classroom.",
   actions: [
-    { kind: "solid", label: "Visit Handbook Website", href: "#", arrow: true },
+    {
+      kind: "solid",
+      label: "Visit Handbook Website",
+      href: "https://srch.cs.brown.edu/",
+      arrow: true,
+    },
     { kind: "text", label: "Jump to the results", href: "#s6" },
   ],
   facts: [
     { label: "Role", value: "Developer and designer" },
     { label: "Timeline", value: "2024 – Present" },
     { label: "Partners", value: "Brown CS Department & Data Science Institute" },
-    { label: "Focus", value: "Interface, accessibility, usability, implementation" },
+    { label: "Focus", value: "User interface, accessibility, usability, implementation" },
   ],
   heroFigure: {
     image: images.c01Home,
@@ -41,7 +46,7 @@ export const handbook: CaseStudy = {
             },
             {
               label: "My role",
-              text: "Developer and designer: interface, accessibility, usability, and code.",
+              text: "Developer and designer: user interface, accessibility, usability, and code.",
             },
           ],
         },
@@ -49,7 +54,7 @@ export const handbook: CaseStudy = {
     },
     {
       label: "Challenge",
-      hint: "The problem",
+      hint: "The problem.",
       heading: "What faculty were up against",
       blocks: [
         {
@@ -119,7 +124,7 @@ export const handbook: CaseStudy = {
               },
             },
             {
-              text: "Reworked the interface so resources are easier to find.",
+              text: "Reworked the user interface so resources are easier to find.",
               media: {
                 image: images.c01Nav,
                 alt: "The Handbook navigation open on a phone",
@@ -140,16 +145,19 @@ export const handbook: CaseStudy = {
     },
     {
       label: "Technologies",
-      hint: "Tools and methods",
+      hint: "Tools and methods.",
       heading: "What it’s made of",
       blocks: [
         {
           type: "tech",
           groups: [
-            { label: "Build", chips: ["React"] },
-            { label: "Design", chips: ["Wireframes", "Navigation design"] },
+            { label: "Build", chips: ["React", "HTML", "CSS", "JavaScript"] },
+            { label: "Design", chips: ["Figma", "Photoshop", "Wireframes"] },
             { label: "Research", chips: ["Interviews", "Usability testing"] },
-            { label: "Accessibility", chips: ["Assistive technology testing"] },
+            {
+              label: "Accessibility",
+              chips: ["WCAG guidelines", "Assistive technology testing"],
+            },
           ],
         },
       ],
@@ -167,8 +175,10 @@ export const handbook: CaseStudy = {
           ],
         },
         {
-          type: "outcomes",
-          items: ["The project has received funding from Google Research and PIT-UN."],
+          type: "funding",
+          kicker: "Funded by",
+          title: "Google Research and PIT-UN",
+          text: "Funding that let the team scale from 5 to over 25 students.",
         },
       ],
     },
@@ -201,7 +211,12 @@ export const handbook: CaseStudy = {
     script: "Thanks for reading",
     prompt: "Want to see it live, or talk it through?",
     actions: [
-      { kind: "solid", label: "Visit Handbook Website", href: "#", arrow: true },
+      {
+        kind: "solid",
+        label: "Visit Handbook Website",
+        href: "https://srch.cs.brown.edu/",
+        arrow: true,
+      },
       { kind: "text", label: "Get in touch", href: "/contact" },
     ],
   },

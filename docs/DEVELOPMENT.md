@@ -58,7 +58,9 @@ A component receives typed data and draws it; it doesn't contain page copy.
   The masonry layout, tilt and gradient are worked out automatically.
 - **Projects page**: `src/data/projects.ts`. Each project's title, year, tags and links also feed
   its case study (title, breadcrumb, "Next:" link and the "More work" cards), so they only need
-  changing in one place.
+  changing in one place. The order of the array is the order on the Projects page, in the case
+  study menu and in the numbering. A project's "Methods" row is a list of `methodGroups`, each
+  with an optional label (e.g. Research / Computational).
 - **A case study**: `src/data/case-studies/<slug>.ts`. A case study is a list of sections, and each
   section is a list of typed blocks (`lead`, `columns`, `steps`, `solution`, `stats`, `notes` ...).
   The block types are documented in `types.ts`. To add a new kind of block, add it to the
@@ -66,7 +68,9 @@ A component receives typed data and draws it; it doesn't contain page copy.
   at the places that need updating.
   `figureColumns` is a list of `rows` of figure and/or text columns side by side under one rule (used
   by the teaching-assistant case study); a row marked `asCard` stays together as one card on a phone.
-  Give a figure a `phone` image to swap in a different crop on phones.
+  A row marked `sideBySide` puts each column's figure on the left and its text on the right on a
+  wide screen. Give a figure a `phone` image to swap in a different crop on phones.
+  A `funding` block is the highlighted pill used on the Handbook page for who paid for the work.
 - **Images**: drop the file into `src/assets/images/`, export it from `index.ts`, then use
   `images.yourName`.
 
@@ -126,6 +130,4 @@ store the toggle subscribes to.
 These links are `#` until the real destinations exist. `grep -rn 'href: "#"' src` finds them all.
 
 - **Resume** (header and footer): `resumeHref` in `src/data/site.ts`
-- **Handbook website**: `data/projects.ts`, `data/experience.ts`, `data/case-studies/handbook.ts`
-- **Final research paper**: `data/projects.ts`, `data/experience.ts`, `data/case-studies/ev-battery.ts`
 - **Book a time**: `data/contact.ts`

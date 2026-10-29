@@ -74,6 +74,8 @@ export type CaseBlock =
       type: "figureColumns";
       rows: readonly {
         asCard?: boolean;
+        /** On a wide screen, each column lays out as the figure on the left and its text on the right. */
+        sideBySide?: boolean;
         items: readonly {
           figure?: CaseImage;
           texts?: readonly { label?: string; text: RichText }[];
@@ -88,6 +90,8 @@ export type CaseBlock =
   | { type: "chipRow"; label: string; chips: readonly string[] }
   | { type: "stats"; stats: readonly { value: string; label: string }[] }
   | { type: "outcomes"; items: readonly RichText[] }
+  /** A highlighted pill for who paid for the work: a small label, the funders, and one line of context. */
+  | { type: "funding"; kicker: string; title: string; text: string }
   | { type: "callout"; text: RichText; actions?: readonly CaseAction[] }
   /** Two paper notes with tape on top. */
   | { type: "notes"; notes: readonly { title: string; paragraphs: readonly RichText[] }[] }

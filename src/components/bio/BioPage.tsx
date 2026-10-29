@@ -25,7 +25,7 @@ export function BioPage() {
         </div>
 
         <div className={styles.grid}>
-          <div>
+          <div className={styles.textCol}>
             <h1 className={styles.heading}>
               {bioGreeting.word} <span className={styles.script}>{bioGreeting.script}</span>
             </h1>

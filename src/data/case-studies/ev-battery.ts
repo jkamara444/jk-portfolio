@@ -8,13 +8,13 @@ export const evBattery: CaseStudy = {
   subtitleLead: "Beyond the Tailpipe:",
   subtitle: "modeling the emissions tradeoffs of expanding solid-state battery-powered EVs.",
   actions: [
-    { kind: "solid", label: "Final Research Paper", href: "#", arrow: true },
-    { kind: "ghost", label: "About Station1", href: "https://www.station1.org/", arrow: true },
     {
-      kind: "text",
+      kind: "solid",
       label: "Request Access",
       href: mailtoHref("Request access: EV Battery Emissions research paper"),
+      arrow: true,
     },
+    { kind: "ghost", label: "About Station1", href: "https://www.station1.org/", arrow: true },
     { kind: "text", label: "Jump to the results", href: "#s6" },
   ],
   facts: [
@@ -58,7 +58,7 @@ export const evBattery: CaseStudy = {
     },
     {
       label: "Challenge",
-      hint: "The problem",
+      hint: "The problem.",
       heading: "Why it needed asking",
       blocks: [
         {
@@ -101,7 +101,7 @@ export const evBattery: CaseStudy = {
       blocks: [
         {
           type: "intro",
-          text: "Our team of five prepared with a one-week intensive training at MIT in data science, machine learning, and related methods. We then tracked our writing and coding in Jira using agile principles, and I acted as a kind of product manager to keep the work moving.",
+          text: "Our team of five prepared with a one-week intensive training at MIT in data science, machine learning, and related methods. We then managed our writing and development work in Jira using agile practices, and I took on the product management role, coordinating priorities, tracking progress, and keeping the project moving forward.",
         },
         {
           type: "steps",
@@ -180,7 +180,7 @@ export const evBattery: CaseStudy = {
     },
     {
       label: "Technologies",
-      hint: "Tools and methods",
+      hint: "Tools and methods.",
       heading: "What it’s made of",
       blocks: [
         {
@@ -197,7 +197,7 @@ export const evBattery: CaseStudy = {
               chips: [
                 "Sociotechnical research",
                 {
-                  label: "Socially directed science & technology ↗",
+                  label: "Socially directed science & technology",
                   href: "https://www.station1.org/station1-blog/the-station1-model-of-socially-directed-science-and-technology",
                 },
               ],
@@ -220,13 +220,13 @@ export const evBattery: CaseStudy = {
         },
         {
           type: "callout",
-          text: "For specific emissions findings, see the final paper.",
+          text: "For specific emissions findings, request the final paper.",
           actions: [
-            { kind: "solid", label: "Final Research Paper", href: "#", arrow: true },
             {
-              kind: "text",
+              kind: "solid",
               label: "Request Access",
               href: mailtoHref("Request access: EV Battery Emissions research paper"),
+              arrow: true,
             },
           ],
         },
@@ -261,12 +261,13 @@ export const evBattery: CaseStudy = {
     script: "Thanks for reading",
     prompt: "Want the full paper?",
     actions: [
-      { kind: "solid", label: "Final Research Paper", href: "#", arrow: true },
       {
-        kind: "text",
+        kind: "solid",
         label: "Request Access",
         href: mailtoHref("Request access: EV Battery Emissions research paper"),
+        arrow: true,
       },
+      { kind: "text", label: "Get in touch", href: "/contact" },
     ],
   },
   moreWork: [

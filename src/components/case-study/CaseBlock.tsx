@@ -2,7 +2,16 @@ import type { CaseBlock as CaseBlockData } from "@/data/case-studies/types";
 import { FigureColumns, Gallery, Pair, SectionFigure, Wide } from "./blocks/MediaBlocks";
 import { Solution, Steps } from "./blocks/ProcessBlocks";
 import { ChipRow, Stats, Tech, World } from "./blocks/ListBlocks";
-import { Callout, Challenges, Columns, Intro, Lead, Notes, Outcomes } from "./blocks/TextBlocks";
+import {
+  Callout,
+  Challenges,
+  Columns,
+  Funding,
+  Intro,
+  Lead,
+  Notes,
+  Outcomes,
+} from "./blocks/TextBlocks";
 
 /** Draws one block of a case-study section. Each `type` in the data has one component. */
 export function CaseBlock({ block }: { block: CaseBlockData }) {
@@ -35,6 +44,8 @@ export function CaseBlock({ block }: { block: CaseBlockData }) {
       return <Stats block={block} />;
     case "outcomes":
       return <Outcomes block={block} />;
+    case "funding":
+      return <Funding block={block} />;
     case "callout":
       return <Callout block={block} />;
     case "notes":

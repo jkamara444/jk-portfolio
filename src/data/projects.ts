@@ -52,8 +52,8 @@ export interface Project {
   /** Heading for the list below: "Impact", "Takeaways", "Emerging argument", etc. */
   outcomesLabel: string;
   outcomes: string[];
-  /** Optional fourth row for research projects. */
-  methods?: string;
+  /** Optional fourth row. A group without a label is shown as a single line. */
+  methodGroups?: { label?: string; text: string }[];
   links: ProjectLink[];
   cover: ProjectCover;
 }
@@ -64,8 +64,7 @@ const requestAccessHref = mailtoHref(
 );
 
 /**
- * In display order. Links that point to "#" are placeholders until the real page exists
- * (the Handbook website and the research paper).
+ * In display order. Links that point to "#" are placeholders until the real page exists.
  */
 export const projects: readonly Project[] = [
   {
@@ -79,16 +78,16 @@ export const projects: readonly Project[] = [
       "A React-based handbook built with Brown’s Computer Science Department and Data Science Institute to help faculty and TAs integrate responsible technology and sociotechnical thinking into CS courses.",
     context:
       "Responsible technology can be difficult to incorporate into computer science courses that already have a lot of technical material to cover. The Handbook makes it easier for instructors to find and adapt relevant materials for use in existing assignments.",
-    role: "Developer and designer working across the platform’s interface, accessibility, usability, and implementation.",
+    role: "Developer and designer working across the platform’s user interface, accessibility, usability, and implementation.",
     outcomesLabel: "Impact",
     outcomes: [
       "Supports responsible technology materials across 18 CS courses and 400+ faculty and TAs",
       "Conducted 15+ interviews and usability tests, including accessibility testing with assistive technologies",
-      "Translated user feedback into interface changes, wireframes, and accessibility improvements",
+      "Translated user feedback into user interface changes, wireframes, and accessibility improvements",
       "Received funding from Google Research and PIT-UN, allowing the team to scale from 5 to over 25 students",
     ],
     links: [
-      { kind: "outline", label: "Visit Website", href: "#" },
+      { kind: "outline", label: "Visit Website", href: "https://srch.cs.brown.edu/" },
       { kind: "solid", label: "Read Case Study", href: caseStudyPath("handbook") },
     ],
     cover: {
@@ -117,13 +116,17 @@ export const projects: readonly Project[] = [
       "Secured partnerships with 10+ Ivy League and East Coast universities",
     ],
     links: [
-      { kind: "outline", label: "Visit Website", href: "https://grapevneapp.com/" },
+      {
+        kind: "outline",
+        label: "View on the App Store",
+        href: "https://apps.apple.com/us/app/grapevne/id6745459372",
+      },
       { kind: "solid", label: "Read Case Study", href: caseStudyPath("grapevne") },
     ],
     cover: {
       image: images.c02Swipe,
       alt: "The Grapevne swipe home screen",
-      urlLabel: "grapevneapp.com",
+      urlLabel: "apps.apple.com/us/app/grapevne",
     },
   },
   {
@@ -134,7 +137,7 @@ export const projects: readonly Project[] = [
     year: "2026",
     tags: ["AI governance", "NLP", "RAG", "Python", "scikit-learn"],
     description:
-      "A prompt gateway that identifies risky requests before they reach an LLM and uses semantic similarity to route eligible queries more efficiently. The system was developed through Break Through Tech in collaboration with the Cornell AI Governance Program.",
+      "A prompt gateway that identifies risky requests before they reach an LLM and uses semantic similarity to route eligible queries more efficiently. The project was supported by Cornell’s AI Governance Program and focused on reducing risk while improving model routing efficiency.",
     context:
       "Organizations using LLMs in customer-facing or regulated settings need a way to identify unsafe requests without slowing down the user experience or driving up costs.",
     role: "Built and evaluated the gateway in Python using scikit-learn, retrieval-based methods, and semantic similarity, with a focus on balancing safety and efficiency.",
@@ -144,18 +147,11 @@ export const projects: readonly Project[] = [
       "Reduced input token usage by 30–50% for eligible customer-service queries while maintaining response relevance",
       "Evaluated routing and caching strategies across safety, model performance, token usage, cost, and cache-hit rate",
     ],
-    links: [
-      {
-        kind: "outline",
-        label: "View Code",
-        href: "https://github.com/Break-Through-Tech/AI-Governance-1A-governed-prompt-gateway",
-      },
-      { kind: "solid", label: "Read Case Study", href: caseStudyPath("ai-gateway") },
-    ],
+    links: [{ kind: "solid", label: "Read Case Study", href: caseStudyPath("ai-gateway") }],
     cover: {
       image: images.c03Flow,
       alt: "Diagram of the AI safety gateway",
-      urlLabel: "github.com/Break-Through-Tech",
+      urlLabel: "prompt gateway",
     },
   },
   {
@@ -179,7 +175,6 @@ export const projects: readonly Project[] = [
     ],
     links: [
       { kind: "solid", label: "Read Case Study", href: caseStudyPath("ev-battery") },
-      { kind: "outline", label: "Final Research Paper", href: "#" },
       {
         kind: "request",
         label: "Request Access",
@@ -219,6 +214,32 @@ export const projects: readonly Project[] = [
     },
   },
   {
+    slug: "pedagogy",
+    name: "Sociotechnical Pedagogy",
+    title: "Teaching Responsible Tech in CS0111",
+    kind: "project",
+    year: "2024 – Present",
+    tags: ["Curriculum design", "Data ethics", "Pyret", "Teaching"],
+    description:
+      "Two labs I wrote as the Responsible Technology TA for CS0111: Computing Foundations: Data, an introductory CS course at Brown.",
+    context:
+      "In a data course, the technical goals are data cleaning, exploratory analysis, visualization, and communicating patterns through charts and statistical summaries. The social questions arrive at the same moment: whose data is this, what does it leave out, and who decides how it gets used?",
+    role: "Responsible Technology TA: I designed and wrote both labs, from the central questions to the checkpoints and discussion prompts.",
+    outcomesLabel: "What it includes",
+    outcomes: [
+      "Lab 4: students clean and analyze a survey of their own class, then check their work against ChatGPT",
+      "Lab 8: students follow one person’s data trail and connect it to real, publicly reported cases",
+      "TA checkpoints in the middle of each lab so students explain their thinking before moving on",
+      "Supports more than 150 students in the course",
+    ],
+    links: [{ kind: "solid", label: "Read Case Study", href: caseStudyPath("pedagogy") }],
+    cover: {
+      image: images.cover08,
+      alt: "Diagram of the two CS0111 labs",
+      urlLabel: "CS0111 labs",
+    },
+  },
+  {
     slug: "flock-thesis",
     name: "Flock Safety Thesis",
     title: "Flock Safety and Municipal Surveillance",
@@ -230,14 +251,19 @@ export const projects: readonly Project[] = [
     context:
       "Flock connects its cameras into a shared network, changing how vehicle-location data is accessed and shared across jurisdictions. My research examines what that shift means for who controls the data and how decisions about its use are made by police departments, cities, private companies, and residents.",
     role: "Researcher studying how Flock Safety’s license plate surveillance network is governed and used by local governments and law enforcement. I combine public records research with computational analysis to examine how the system was adopted and how its use has evolved.",
-    outcomesLabel: "Emerging argument",
+    outcomesLabel: "What it examines",
     outcomes: [
-      "License-plate readers used to be local police tools, and Flock has turned them into a privately run, networked system",
-      "That changes who can see vehicle-location data, how far it travels, and who is responsible for it",
-      "The project compares what policies say should happen with how the system is configured and used in practice",
+      "Looks at how vehicle-location data is accessed, shared, and governed across jurisdictions",
+      "Studies how responsibility is divided between police departments, municipalities, and private technology providers",
+      "Compares formal policies with how the technology is configured and used in practice",
     ],
-    methods:
-      "Documentary and discourse analysis, public records research, interviews, pandas, matplotlib, NetworkX",
+    methodGroups: [
+      {
+        label: "Research",
+        text: "Documentary and discourse analysis, public records research, interviews",
+      },
+      { label: "Computational", text: "pandas, matplotlib, NetworkX" },
+    ],
     links: [
       { kind: "solid", label: "View Case Study", href: caseStudyPath("flock-thesis") },
       { kind: "status", label: "In Progress" },
@@ -259,46 +285,23 @@ export const projects: readonly Project[] = [
       "This portfolio brings my research, product, and engineering work into one place. Every project has its own case study, and the pages around them are built to be read in a couple of minutes.",
     context:
       "My work spans research, product, and software, which is hard to show in a single resume line. The site needed to make those connections visible and still let someone jump straight to one project.",
-    role: "Designer and builder: information architecture, wireframes, visual design in Figma, accessibility, and implementation with Claude supporting the code and backend.",
+    role: "Designer and builder responsible for information architecture, wireframes, visual design in Figma, accessibility, and implementation, with Claude supporting code development.",
     outcomesLabel: "What it includes",
     outcomes: [
       "Wireframes for every page",
       "A style guide for color, type, spacing, and buttons, with a dark theme and a light theme",
       "Screens designed in Figma, then built with Claude supporting the code and backend",
     ],
-    methods:
-      "Wireframing, style guide, Figma, Claude-assisted development, HTML, CSS, JavaScript, contrast and keyboard-focus checks",
+    methodGroups: [
+      {
+        text: "Wireframing, style guide, Figma, Claude-assisted development, HTML, CSS, JavaScript, contrast and keyboard-focus checks",
+      },
+    ],
     links: [{ kind: "solid", label: "View Case Study", href: caseStudyPath("portfolio") }],
     cover: {
       image: images.cover07,
       alt: "The home page of this portfolio",
       urlLabel: "this portfolio",
-    },
-  },
-  {
-    slug: "pedagogy",
-    name: "Sociotechnical Pedagogy",
-    title: "Teaching Responsible Tech in CS0111",
-    kind: "project",
-    year: "2024 – Present",
-    tags: ["Curriculum design", "Data ethics", "Pyret", "Teaching"],
-    description:
-      "Two labs I wrote as the Responsible Technology TA for CS0111: Computing Foundations: Data at Brown.",
-    context:
-      "In a data course, the technical goals are cleaning, charting, and summarizing. The social questions arrive at the same moment: whose data is this, what does it leave out, and who decides how it gets used?",
-    role: "Responsible Technology TA: I designed and wrote both labs, from the central questions to the checkpoints and discussion prompts.",
-    outcomesLabel: "What it includes",
-    outcomes: [
-      "Lab 4: students clean and analyze a survey of their own class, then check their work against ChatGPT",
-      "Lab 8: students follow one person’s data trail and connect it to real, publicly reported cases",
-      "TA checkpoints in the middle of each lab so students explain their thinking before moving on",
-      "Supports more than 150 students in the course",
-    ],
-    links: [{ kind: "solid", label: "Read Case Study", href: caseStudyPath("pedagogy") }],
-    cover: {
-      image: images.cover08,
-      alt: "Diagram of the two CS0111 labs",
-      urlLabel: "CS0111 labs",
     },
   },
 ];

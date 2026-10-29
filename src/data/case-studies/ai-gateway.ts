@@ -5,19 +5,11 @@ export const aiGateway: CaseStudy = {
   slug: "ai-gateway",
   eyebrow: "Project",
   subtitle: "A safety-aware routing system for customer-facing AI.",
-  actions: [
-    {
-      kind: "solid",
-      label: "View Code",
-      href: "https://github.com/Break-Through-Tech/AI-Governance-1A-governed-prompt-gateway",
-      arrow: true,
-    },
-    { kind: "text", label: "Jump to the results", href: "#s6" },
-  ],
+  actions: [{ kind: "text", label: "Jump to the results", href: "#s6" }],
   facts: [
     { label: "Role", value: "Built & evaluated the gateway" },
     { label: "Timeline", value: "2026" },
-    { label: "Program", value: "Break Through Tech, with the Cornell AI Governance Program" },
+    { label: "Program", value: "Cornell AI Governance Program" },
     { label: "Stack", value: "Python, scikit-learn, semantic similarity" },
   ],
   heroFigure: {
@@ -36,7 +28,7 @@ export const aiGateway: CaseStudy = {
       blocks: [
         {
           type: "lead",
-          text: "A prompt gateway that identifies risky requests before they reach an LLM and uses semantic similarity to route eligible queries more efficiently. The system was developed through Break Through Tech in collaboration with the Cornell AI Governance Program.",
+          text: "A prompt gateway that identifies risky requests before they reach an LLM and uses semantic similarity to route eligible queries more efficiently. The project was supported by Cornell’s AI Governance Program and focused on reducing risk while improving model routing efficiency.",
         },
         {
           type: "columns",
@@ -55,7 +47,7 @@ export const aiGateway: CaseStudy = {
     },
     {
       label: "Challenge",
-      hint: "The problem",
+      hint: "The problem.",
       heading: "Why every request can’t take the same path",
       blocks: [
         {
@@ -143,7 +135,7 @@ export const aiGateway: CaseStudy = {
     },
     {
       label: "Technologies",
-      hint: "Tools and methods",
+      hint: "Tools and methods.",
       heading: "What it’s made of",
       blocks: [
         {
@@ -208,16 +200,8 @@ export const aiGateway: CaseStudy = {
   ],
   ending: {
     script: "Thanks for reading",
-    prompt: "Want to read the code, or talk through the design?",
-    actions: [
-      {
-        kind: "solid",
-        label: "View Code",
-        href: "https://github.com/Break-Through-Tech/AI-Governance-1A-governed-prompt-gateway",
-        arrow: true,
-      },
-      { kind: "text", label: "Get in touch", href: "/contact" },
-    ],
+    prompt: "Want to talk through the design?",
+    actions: [{ kind: "solid", label: "Get in touch", href: "/contact" }],
   },
   moreWork: [
     { slug: "ev-battery", image: images.cover04 },

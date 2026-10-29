@@ -17,7 +17,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     // suppressHydrationWarning: ThemeScript adds the `jk-light` class before React hydrates.
-    <html lang="en" className={cx(baskerville.variable, pinyon.variable)} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={cx(baskerville.variable, pinyon.variable)}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head>
         <ThemeScript />
       </head>

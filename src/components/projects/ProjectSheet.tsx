@@ -73,9 +73,19 @@ export function ProjectSheet({ project, number }: ProjectSheetProps) {
               ))}
             </ul>
           </Row>
-          {project.methods && (
+          {project.methodGroups && project.methodGroups.length > 0 && (
             <Row number="04" label="Methods" wide>
-              {project.methods}
+              <div className={styles.methodGroups}>
+                {project.methodGroups.map((group) => (
+                  <div
+                    className={group.label ? styles.methodGroup : styles.methodSolo}
+                    key={group.label ?? group.text}
+                  >
+                    {group.label && <span className={styles.methodKey}>{group.label}</span>}
+                    <span>{group.text}</span>
+                  </div>
+                ))}
+              </div>
             </Row>
           )}
         </div>

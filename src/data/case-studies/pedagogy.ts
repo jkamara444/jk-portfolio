@@ -35,14 +35,14 @@ export const pedagogy: CaseStudy = {
       blocks: [
         {
           type: "lead",
-          text: "Two labs I wrote as the Responsible Technology TA for CS0111, Brown’s Computing Foundations: Data course.",
+          text: "Two labs I wrote as the Responsible Technology TA for CS0111: Computing Foundations: Data, an introductory CS course at Brown.",
         },
         {
           type: "columns",
           items: [
             {
               label: "Context",
-              text: "In the labs, the technical goals are cleaning, charting, and summarizing data. The social questions arrive at the same moment: whose data is this, what does it leave out, and who decides how it gets used?",
+              text: "In a data course, the technical goals are data cleaning, exploratory analysis, visualization, and communicating patterns through charts and statistical summaries. The social questions arrive at the same moment: whose data is this, what does it leave out, and who decides how it gets used?",
             },
             {
               label: "My role",
@@ -54,7 +54,7 @@ export const pedagogy: CaseStudy = {
     },
     {
       label: "Challenge",
-      hint: "The problem",
+      hint: "The problem.",
       heading: "What the labs had to do",
       blocks: [
         {
@@ -104,6 +104,7 @@ export const pedagogy: CaseStudy = {
           type: "figureColumns",
           rows: [
             {
+              sideBySide: true,
               items: [
                 {
                   figure: {
@@ -117,6 +118,7 @@ export const pedagogy: CaseStudy = {
                   },
                   texts: [
                     {
+                      label: "Lab 4",
                       text: "Students take a survey about student life at Brown, then analyze the class’s responses in Pyret. The entries are messy, so they decide what to fix with sanitizers and what to fix by hand. They pick a question, either commute time by campus or sleep and late-night food, and chart the answer for a general reader. Then they give the same data to ChatGPT with a single prompt and name at least three things it missed or mishandled, and what Brown knowledge they used that it did not have.",
                     },
                   ],
@@ -130,6 +132,7 @@ export const pedagogy: CaseStudy = {
                   },
                   texts: [
                     {
+                      label: "Lab 8",
                       text: "Groups meet Shamariah, a fictional person whose searches, app activity, locations, purchases, and messages point toward a health condition she has not shared widely. They sort her data by how it was collected, trace one data point through organizations, and combine harmless-looking pieces into an inference. Then each group takes one real, publicly reported case, such as a browsing-data company that resold its users’ histories or a retailer that predicted a customer’s pregnancy, and connects it back to her trail.",
                     },
                   ],
@@ -167,7 +170,7 @@ export const pedagogy: CaseStudy = {
     },
     {
       label: "Technologies",
-      hint: "Tools and methods",
+      hint: "Tools and methods.",
       heading: "What it’s made of",
       blocks: [
         {

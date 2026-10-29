@@ -43,7 +43,7 @@ export const flockThesis: CaseStudy = {
     },
     {
       label: "Challenge",
-      hint: "The problem",
+      hint: "The problem.",
       heading: "What makes this hard to see",
       blocks: [
         {
@@ -124,7 +124,7 @@ export const flockThesis: CaseStudy = {
     },
     {
       label: "Technologies",
-      hint: "Tools and methods",
+      hint: "Tools and methods.",
       heading: "What it’s made of",
       blocks: [
         {
@@ -166,7 +166,7 @@ export const flockThesis: CaseStudy = {
         },
         {
           type: "callout",
-          text: "No final findings or impact numbers yet, because the thesis is still in progress.",
+          text: "Thesis in progress, findings coming soon.",
         },
       ],
     },
