@@ -1,0 +1,303 @@
+.page {
+  position: relative;
+  overflow: clip;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  /* Holds the page open when a filter leaves only a few cards, so the footer does not jump. */
+  min-height: 1585px;
+  padding-bottom: 190px;
+}
+
+.heading {
+  margin-top: 0;
+}
+
+.amp {
+  color: var(--jk-rose-3);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  margin: 40px 0 34px;
+}
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* masonry: each card spans as many 8px rows as it is tall, so the columns pack tight */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 8px;
+  grid-auto-flow: dense;
+  column-gap: 18px;
+  padding: 0 6px;
+}
+
+/* floaty flip card: hover (or tap / focus) turns it over */
+.card {
+  position: relative;
+  grid-column: var(--col);
+  grid-row: span var(--span);
+  height: var(--h);
+  margin-top: var(--oy);
+  perspective: 1200px;
+  rotate: var(--rot);
+  outline: 0;
+  animation: float var(--dur) ease-in-out var(--del) infinite alternate;
+  transition:
+    rotate 0.45s ease,
+    scale 0.45s ease;
+}
+@keyframes float {
+  from {
+    translate: 0 -6px;
+  }
+  to {
+    translate: 0 7px;
+  }
+}
+.card:hover,
+.card:focus {
+  rotate: 0deg;
+  scale: 1.035;
+  z-index: 4;
+  animation-play-state: paused;
+}
+.card:focus-visible .front,
+.card:focus-visible .back {
+  outline: 2px solid var(--jk-paper);
+  outline-offset: 3px;
+}
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.card:hover .cardInner,
+.card:focus .cardInner {
+  transform: rotateY(180deg);
+}
+.front,
+.back {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: var(--jk-r-md);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 26px 44px -26px rgba(0, 0, 0, 0.8);
+}
+.back {
+  transform: rotateY(180deg);
+}
+
+/* photo block */
+.photo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(155deg, var(--p1), var(--p2));
+  color: rgba(33, 33, 30, 0.7);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.pic {
+  object-fit: cover;
+}
+
+/* a logo-style picture: show all of it on a pale mat instead of cropping it */
+.contain {
+  object-fit: contain;
+  background-color: #e9e9e8;
+}
+.photo:has(.pic) .hint {
+  color: var(--jk-paper);
+  background: rgba(33, 33, 30, 0.45);
+  border-color: rgba(var(--jk-fg-rgb), 0.75);
+  opacity: 1;
+}
+.caption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  padding: 9px 14px;
+  border-radius: var(--jk-r-pill);
+  background: rgba(33, 33, 30, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: var(--jk-paper);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* text block */
+.text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px 22px 24px;
+}
+.tag {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--jk-rose-1);
+}
+.title {
+  margin: 10px 0 0;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+.sub {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: var(--jk-rose-2);
+}
+
+/* face skins */
+.card.textOnly .front {
+  border: 1px solid rgba(var(--jk-fg-rgb), 0.5);
+  background: rgba(var(--jk-fg-rgb), 0.05);
+}
+.card.textOnly.featured .front {
+  border-color: var(--jk-paper);
+  background: var(--jk-paper);
+  color: var(--jk-ink);
+}
+.card.textOnly.featured .tag {
+  color: var(--jk-wine-2);
+}
+.card.textOnly.featured .sub {
+  color: var(--jk-taupe);
+}
+.card.withPhoto .back {
+  background: var(--jk-paper);
+  color: var(--jk-ink);
+}
+.card.withPhoto .tag {
+  color: var(--jk-wine-2);
+}
+.card.withPhoto .sub {
+  color: var(--jk-taupe);
+}
+.card.withPhoto .title {
+  font-size: 22px;
+}
+
+/* softer shadows on the light ground */
+:global(html.jk-light) .front,
+:global(html.jk-light) .back {
+  box-shadow: 0 26px 44px -26px rgba(86, 48, 66, 0.5);
+}
+
+/* little "turn me over" mark, top right of every face */
+.hint {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.card.textOnly .front .hint {
+  color: var(--jk-paper-2);
+}
+.card.textOnly.featured .front .hint {
+  color: var(--jk-taupe);
+}
+.card .photo .hint {
+  color: rgba(33, 33, 30, 0.7);
+}
+.card.withPhoto .back .hint {
+  color: var(--jk-taupe);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardInner {
+    transition: none;
+  }
+}
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .card {
+    grid-column: auto;
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: auto;
+    row-gap: 26px;
+  }
+  .card {
+    grid-row: auto;
+    height: min(var(--h), 300px);
+    margin-top: 0;
+  }
+}
+
+.deco {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 330px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.deco .bloom {
+  right: -14px;
+  bottom: -150px;
+  width: 400px;
+  z-index: 0;
+  opacity: 0.95;
+}
+@media (max-width: 1100px) {
+  .deco .bloom {
+    width: 280px;
+    right: -6px;
+    bottom: -100px;
+  }
+}

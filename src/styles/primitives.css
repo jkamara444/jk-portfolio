@@ -1,0 +1,215 @@
+/* ==========================================================
+   Primitives: small building blocks shared by every page.
+   React wrappers live in src/components/ui; the class names stay
+   global because page stylesheets also compose them.
+   ========================================================== */
+
+/* ---------- page body ---------- */
+.jk-main {
+  padding: 40px var(--jk-gutter) 56px;
+}
+@media (max-width: 1100px) {
+  .jk-main {
+    padding: 32px var(--jk-gutter) 48px;
+  }
+}
+
+/* ---------- page header: eyebrow + title ---------- */
+.jk-label {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.jk-eyebrow {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--jk-rose-3);
+}
+.jk-h1 {
+  margin: 16px 0 0;
+  font-weight: 400;
+  font-size: clamp(30px, 2.9vw, 42px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+.jk-grad {
+  background: var(--jk-grad-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--jk-rose-3);
+}
+.jk-desc {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--jk-rose-2);
+}
+@media (max-width: 640px) {
+  .jk-h1 {
+    font-size: min(8.2vw, 32px);
+  }
+}
+
+/* ---------- buttons + links ---------- */
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.jk .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border-radius: var(--jk-r-pill);
+  background: var(--wine);
+  color: var(--jk-paper-3);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.jk .btn:hover {
+  color: var(--jk-paper-3);
+  filter: brightness(1.12);
+}
+.jk .lnk {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid var(--jk-rose-3);
+  padding-bottom: 4px;
+}
+.jk .lnk:hover {
+  color: var(--jk-rose-1);
+}
+
+/* ghost button (outline on dark) */
+.jk .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border: 1px solid var(--jk-rose-1);
+  border-radius: var(--jk-r-pill);
+  color: var(--jk-rose-1);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.jk .btn-ghost:hover {
+  background: rgba(var(--jk-rose-rgb), 0.14);
+  color: var(--jk-paper);
+}
+
+/* ---------- filter pills (Projects, Community, case studies) ---------- */
+.jk-pill {
+  appearance: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  cursor: pointer;
+  padding: 11px 20px;
+  border: 1px solid rgba(var(--jk-fg-rgb), 0.6);
+  border-radius: var(--jk-r-pill);
+  background: transparent;
+  color: var(--jk-paper);
+  font: 400 11px/1.2 var(--jk-sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.2s ease;
+}
+.jk-pill:hover {
+  background: rgba(var(--jk-fg-rgb), 0.1);
+}
+.jk-pill[aria-pressed="true"],
+.jk-pill.is-on {
+  background: var(--wine);
+  border-color: var(--wine);
+  color: var(--jk-paper-3);
+}
+.jk-pill i {
+  font-style: normal;
+  opacity: 0.7;
+}
+
+/* ---------- tag pill + bullet ---------- */
+.jk-tagpill {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 13px;
+  border-radius: var(--jk-r-pill);
+  background: var(--jk-blush-2);
+  color: var(--jk-wine-2);
+}
+.jk-li {
+  position: relative;
+  padding-left: 16px;
+}
+.jk-li + .jk-li {
+  margin-top: 4px;
+}
+.jk-li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--jk-taupe);
+}
+
+/* ---------- surfaces + decoration ---------- */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.spark {
+  position: absolute;
+  color: var(--jk-rose-1);
+  pointer-events: none;
+}
+.spark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.tape {
+  position: absolute;
+  z-index: 3;
+  width: 96px;
+  height: 28px;
+  background: rgba(var(--jk-rose-rgb), 0.82);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+}
+.ph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(165deg, var(--jk-ph-a), var(--jk-ph-b));
+  color: rgba(var(--jk-fg-rgb), 0.85);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}

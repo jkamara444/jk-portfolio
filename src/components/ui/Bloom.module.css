@@ -1,0 +1,101 @@
+/* A flower drawn twice: as code (ASCII-style dots) and as a halftone print that wipes in over it. */
+
+.bloom {
+  position: absolute;
+  pointer-events: none;
+  aspect-ratio: 697 / 684;
+  transform-origin: 50% 94%;
+  animation: sway 13s ease-in-out infinite alternate;
+}
+
+.bloom img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.code {
+  animation: fadeCode 11s ease-in-out infinite;
+}
+
+.print {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 33.3%,
+    #000 66.6%,
+    #000 100%
+  );
+  mask-image: linear-gradient(to bottom, transparent 0, transparent 33.3%, #000 66.6%, #000 100%);
+  -webkit-mask-size: 100% 300%;
+  mask-size: 100% 300%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+  animation: wipePrint 11s ease-in-out infinite;
+}
+
+@keyframes wipePrint {
+  0%,
+  8% {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  44%,
+  66% {
+    -webkit-mask-position: 0 100%;
+    mask-position: 0 100%;
+  }
+  98%,
+  100% {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+
+@keyframes fadeCode {
+  0%,
+  8% {
+    opacity: 0.95;
+  }
+  44%,
+  66% {
+    opacity: 0.18;
+  }
+  98%,
+  100% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes sway {
+  from {
+    rotate: -1.6deg;
+  }
+  to {
+    rotate: 1.6deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bloom,
+  .code,
+  .print {
+    animation: none;
+  }
+
+  .print {
+    -webkit-mask-position: 0 100%;
+    mask-position: 0 100%;
+  }
+
+  .code {
+    opacity: 0.25;
+  }
+}

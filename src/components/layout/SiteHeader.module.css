@@ -1,0 +1,136 @@
+/* Top navigation: monogram, page links, theme switch, resume button. */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+  margin: 0 var(--jk-gutter);
+  padding: 20px 0 18px;
+  border-bottom: 1px solid var(--jk-line);
+}
+
+.logo {
+  font-family: var(--jk-serif);
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 36px;
+}
+
+.links a {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.links a:hover {
+  color: var(--jk-rose-2);
+}
+
+.links a[aria-current="page"] {
+  color: var(--jk-rose-1);
+  border-bottom-color: var(--jk-rose-3);
+}
+
+.end {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+:global(.jk) .resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: var(--jk-r-pill);
+  background: var(--wine);
+  color: var(--jk-paper-3);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+:global(.jk) .resume:hover {
+  color: var(--jk-paper-3);
+  filter: brightness(1.12);
+}
+
+@media (max-width: 640px) {
+  .nav {
+    padding: 18px 0 14px;
+  }
+
+  .links {
+    gap: 4px 26px;
+  }
+
+  .end {
+    gap: 12px;
+  }
+}
+
+/* Over a full-bleed hero (home): the bar floats on a soft blur + fade instead of a flat edge. */
+.overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.overlay::before,
+.overlay::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: calc(-1 * var(--jk-gutter));
+  right: calc(-1 * var(--jk-gutter));
+  top: 0;
+  pointer-events: none;
+}
+
+.overlay::before {
+  bottom: -80px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 50%,
+    rgba(0, 0, 0, 0.5) 72%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(180deg, #000 0%, #000 50%, rgba(0, 0, 0, 0.5) 72%, transparent 100%);
+}
+
+.overlay::after {
+  bottom: -100px;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--jk-bg-rgb), 0.9) 0%,
+    rgba(var(--jk-bg-rgb), 0.8) 42%,
+    rgba(var(--jk-bg-rgb), 0.52) 62%,
+    rgba(var(--jk-bg-rgb), 0.26) 80%,
+    rgba(var(--jk-bg-rgb), 0.08) 92%,
+    rgba(var(--jk-bg-rgb), 0) 100%
+  );
+}
+
+.overlay .links a,
+.overlay .logo {
+  text-shadow: 0 1px 8px rgba(var(--jk-bg-rgb), 0.75);
+}

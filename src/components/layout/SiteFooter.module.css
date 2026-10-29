@@ -1,0 +1,61 @@
+/* Footer: monogram, contact links, copyright. Identical on every page. */
+
+.footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px 40px;
+  margin: 0 var(--jk-gutter);
+  padding: 22px 0 30px;
+  border-top: 1px solid var(--jk-line);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--jk-rose-2);
+}
+
+.identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 40px;
+}
+
+.mark {
+  font-family: var(--jk-serif);
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--jk-paper);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+}
+
+:global(.jk) .links a {
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+  color: var(--jk-paper-2);
+  text-decoration: none;
+}
+
+:global(.jk) .links a:hover {
+  color: var(--jk-rose-1);
+  border-bottom-color: var(--jk-rose-3);
+}
+
+@media (max-width: 640px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

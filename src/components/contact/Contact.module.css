@@ -1,0 +1,261 @@
+.page {
+  overflow: hidden;
+}
+
+/* heading row: eyebrow + title on the left, the open-to line on the right */
+.top {
+  display: flex;
+  align-items: flex-end;
+  align-items: last baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+.open {
+  margin: 0;
+  text-align: right;
+}
+
+/* the moving flower (an animated image): sits behind the stickers, top right */
+.flower {
+  position: absolute;
+  z-index: 0;
+  right: 34px;
+  top: 156px;
+  width: 320px;
+  pointer-events: none;
+}
+.flowerImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.main {
+  position: relative;
+  padding-bottom: 26px;
+}
+/* birds: two cut-outs of the same loop, flying one above the other */
+.flock {
+  position: absolute;
+  z-index: 1;
+  left: 900px;
+  top: 52px;
+  width: 200px;
+  height: 100px;
+  pointer-events: none;
+  animation: fly 10s ease-in-out infinite alternate;
+}
+.bird {
+  position: absolute;
+  display: block;
+  width: 104px;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.birdA {
+  left: -515px;
+  top: -112px;
+  clip-path: inset(0 0 50% 0);
+}
+.birdB {
+  left: -423px;
+  top: -184px;
+  clip-path: inset(50% 0 0 0);
+}
+@keyframes fly {
+  from {
+    translate: -10px 6px;
+  }
+  to {
+    translate: 12px -8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flock {
+    animation: none;
+  }
+}
+/* sticker stage */
+.stage {
+  position: relative;
+  height: 456px;
+  margin: 0;
+}
+:global(.jk) .pill {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 28px;
+  border-radius: var(--jk-r-pill);
+  background: var(--jk-paper);
+  color: var(--jk-ink);
+  font-size: clamp(17px, 2.1vw, 30px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  box-shadow: 0 16px 30px -16px rgba(0, 0, 0, 0.7);
+  transition:
+    scale 0.2s ease,
+    box-shadow 0.2s ease;
+}
+:global(.jk) .pill:hover {
+  scale: 1.035;
+  color: var(--jk-ink);
+}
+:global(.jk) .pill:focus-visible {
+  outline: 2px solid var(--jk-rose-1);
+  outline-offset: 4px;
+}
+:global(.jk) .pill.wine {
+  background: var(--wine);
+  color: var(--jk-paper-3);
+}
+:global(.jk) .pill.wine:hover {
+  color: var(--jk-paper-3);
+}
+:global(.jk) .pill.pink {
+  background: var(--jk-rose-1);
+}
+:global(.jk) .pill[data-dragging="true"] {
+  cursor: grabbing;
+  scale: 1.05;
+  box-shadow: 0 34px 50px -22px rgba(0, 0, 0, 0.8);
+}
+/* A softer shadow on the light ground. */
+:global(html.jk-light) :global(.jk) .pill {
+  box-shadow: 0 16px 30px -16px rgba(86, 48, 66, 0.5);
+}
+.pill svg {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+}
+.round {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: scale 0.2s ease;
+}
+.round:hover {
+  scale: 1.04;
+}
+.round[data-dragging="true"] {
+  cursor: grabbing;
+  scale: 1.07;
+}
+.round.wine {
+  background: var(--wine);
+  color: var(--jk-paper-3);
+}
+.roundText {
+  margin: 3px 0 0;
+  font-family: var(--jk-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+/* email + foot */
+.mailWrap {
+  margin: 0;
+  padding-top: 6px;
+}
+.mailLabel {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--jk-rose-2);
+}
+:global(.jk) .mail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 12px;
+  padding-bottom: 0;
+  font-weight: 400;
+  font-size: clamp(30px, 4.6vw, 66px);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  color: var(--jk-paper);
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+.mailText {
+  min-width: 0;
+}
+.mailGo {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: clamp(44px, 4.2vw, 60px);
+  height: clamp(44px, 4.2vw, 60px);
+  border: 1px solid rgba(var(--jk-fg-rgb), 0.6);
+  border-radius: 50%;
+  color: var(--jk-paper);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    translate 0.2s ease;
+}
+:global(.jk) .mail:hover {
+  border-color: var(--jk-rose-2);
+}
+:global(.jk) .mail:hover .mailGo {
+  background: var(--jk-wine);
+  border-color: var(--jk-wine);
+  translate: 3px -3px;
+}
+:global(.jk) .mail:focus-visible {
+  outline: 2px solid var(--jk-rose-1);
+  outline-offset: 6px;
+}
+
+@media (max-width: 900px) {
+  .stage {
+    height: 440px;
+  }
+  :global(.jk) .round.wine {
+    left: auto !important;
+    right: 6px;
+    top: 8px !important;
+  }
+  .flower {
+    width: 240px;
+    opacity: 0.35;
+  }
+  .flock {
+    left: auto;
+    right: -6px;
+    top: 206px;
+    scale: 0.7;
+    transform-origin: right top;
+  }
+  .mailWrap {
+    position: relative;
+    z-index: 1;
+  }
+}

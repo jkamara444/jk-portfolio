@@ -1,0 +1,56 @@
+/* ==========================================================
+   Base: document defaults and the `.jk` root every page sits in.
+   ========================================================== */
+
+body {
+  margin: 0;
+  background: var(--jk-ink);
+}
+
+/* next/image writes width/height attributes on every <img>; this keeps the
+   image's own aspect ratio unless a rule sets an explicit height. */
+img {
+  height: auto;
+}
+
+.jk,
+.jk *,
+.jk *::before,
+.jk *::after {
+  box-sizing: border-box;
+}
+
+.jk {
+  --wine: var(--jk-wine);
+  background: var(--jk-ink);
+  color: var(--jk-paper);
+  font-family: var(--jk-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.jk a {
+  color: var(--jk-paper-2);
+}
+
+.jk a:hover {
+  color: var(--jk-rose-2);
+}
+
+.jk button {
+  font-family: inherit;
+}
+
+.jk a:focus-visible,
+.jk button:focus-visible {
+  outline: 2px solid var(--jk-paper);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jk *,
+  .jk *::before,
+  .jk *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

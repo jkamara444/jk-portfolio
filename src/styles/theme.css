@@ -1,0 +1,92 @@
+/* ==========================================================
+   Light / dark behaviour that cuts across components.
+   The palette itself lives in tokens.css. Everything here only
+   applies while <html> carries the `jk-light` class.
+   ========================================================== */
+
+/* Colours ease across when the switch flips (the switch itself animates on its own). */
+html.jk-fade *:not([data-theme-toggle]):not([data-theme-toggle] *),
+html.jk-fade *::before,
+html.jk-fade *::after {
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease,
+    border-color 0.5s ease,
+    fill 0.5s ease,
+    stroke 0.5s ease,
+    box-shadow 0.5s ease !important;
+}
+
+/* Images with a light-mode twin: both are real <img> tags and CSS picks one. */
+img.jk-lt {
+  display: none !important;
+}
+
+html.jk-light img.jk-lt {
+  display: block !important;
+}
+
+html.jk-light img.jk-dk {
+  display: none !important;
+}
+
+/* The pale pink dot-art (flowers, birds, blooms) is deepened so it reads on the light ground. */
+html.jk-light .jk-dotart {
+  filter: brightness(0.7) saturate(1.7) contrast(1.15);
+}
+
+/* A surface keeps the dark token set in both modes. Cards, paper, photo captions and browser
+   frames carry their own colours, so their text, borders and fills read the same everywhere. */
+html.jk-light .jk-surface {
+  --jk-ink: #21211e;
+  --jk-paper: #fcf8f6;
+  --jk-paper-2: #e9e0dc;
+  --jk-rose-1: #d7b9c8;
+  --jk-rose-2: #cfb2c2;
+  --jk-rose-3: #b88c9e;
+  --jk-fg-rgb: 244, 238, 235;
+  --jk-bg-rgb: 33, 33, 30;
+  --jk-rose-rgb: 215, 185, 200;
+  --jk-rose2-rgb: 207, 178, 194;
+  --jk-line: rgba(207, 178, 194, 0.28);
+  --jk-grad-title: linear-gradient(180deg, #d3b3c2 0%, #a67e8d 52%, #8a6273 100%);
+  --jk-grad-script: linear-gradient(
+    100deg,
+    #c9a0b3 0%,
+    #f6e9ef 26%,
+    #d9b3c4 50%,
+    #ffffff 68%,
+    #b88c9e 100%
+  );
+}
+
+/* A page can lock itself to the dark palette (the home page does). */
+html.jk-light:has([data-theme-lock="dark"]),
+html.jk-light:has([data-theme-lock="dark"]) body {
+  background: #21211e;
+  color-scheme: dark;
+}
+
+html.jk-light [data-theme-lock="dark"] {
+  --jk-ink: #21211e;
+  --jk-paper: #f4eeeb;
+  --jk-paper-2: #e9e0dc;
+  --jk-rose-1: #d7b9c8;
+  --jk-rose-2: #cfb2c2;
+  --jk-rose-3: #b88c9e;
+  --jk-fg-rgb: 244, 238, 235;
+  --jk-bg-rgb: 33, 33, 30;
+  --jk-rose-rgb: 215, 185, 200;
+  --jk-rose2-rgb: 207, 178, 194;
+  --jk-line: rgba(207, 178, 194, 0.28);
+  --jk-grad-title: linear-gradient(180deg, #d3b3c2 0%, #a67e8d 52%, #8a6273 100%);
+  --jk-grad-script: linear-gradient(
+    100deg,
+    #c9a0b3 0%,
+    #f6e9ef 26%,
+    #d9b3c4 50%,
+    #ffffff 68%,
+    #b88c9e 100%
+  );
+  --jk-shadow-card: 0 40px 80px -30px rgba(0, 0, 0, 0.65);
+}

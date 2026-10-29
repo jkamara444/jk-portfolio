@@ -1,0 +1,116 @@
+/* The heart-shaped light / dark switch. */
+
+:global(.jk) .heart {
+  appearance: none;
+  position: relative;
+  flex: none;
+  width: 32px;
+  height: 28px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:global(.jk) .heart:focus-visible {
+  outline: 2px solid var(--jk-rose-1);
+  outline-offset: 4px;
+}
+
+.svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 28px;
+  overflow: visible;
+  transition:
+    scale 0.25s ease,
+    filter 0.5s ease;
+}
+
+.heart:hover .svg {
+  scale: 1.07;
+}
+
+.heart:active .svg {
+  scale: 0.96;
+}
+
+.path {
+  fill: rgba(255, 255, 255, 0.07);
+  stroke: #9b9699;
+  stroke-width: 2.8;
+  stroke-linejoin: round;
+  transition:
+    fill 0.5s ease,
+    stroke 0.5s ease;
+}
+
+.knob {
+  position: absolute;
+  left: 2.5px;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.42),
+    0 0 0 0.5px rgba(0, 0, 0, 0.08);
+  transition:
+    translate 0.55s cubic-bezier(0.3, 1.45, 0.5, 1),
+    box-shadow 0.5s ease;
+}
+
+:global(html.jk-light) .path {
+  fill: #edb5c9;
+  stroke: #b0728e;
+}
+
+:global(html.jk-light) .svg {
+  filter: drop-shadow(0 3px 5px rgba(176, 114, 142, 0.35));
+}
+
+:global(html.jk-light) .knob {
+  translate: 10.5px 0;
+  box-shadow:
+    0 2px 4px rgba(120, 70, 92, 0.35),
+    0 0 0 0.5px rgba(120, 70, 92, 0.1);
+}
+
+/* The knob squishes as it slides; two keyframes so the animation restarts on each flip. */
+@keyframes squishOn {
+  0% {
+    scale: 1 1;
+  }
+  38% {
+    scale: 1.2 0.86;
+  }
+  100% {
+    scale: 1 1;
+  }
+}
+
+@keyframes squishOff {
+  0% {
+    scale: 1 1;
+  }
+  38% {
+    scale: 1.2 0.86;
+  }
+  100% {
+    scale: 1 1;
+  }
+}
+
+.heart[data-dir="on"] .knob {
+  animation: squishOn 0.55s ease-out;
+}
+
+.heart[data-dir="off"] .knob {
+  animation: squishOff 0.55s ease-out;
+}

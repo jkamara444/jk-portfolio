@@ -1,0 +1,16 @@
+/* The script "JK". Gradient text only paints inside its own box, so the box is padded and pulled
+   back with an equal negative margin, which keeps the J's tail and the K's flick from being cut. */
+
+.monogram {
+  display: inline-block;
+  font-family: var(--jk-script);
+  font-weight: 400;
+  font-size: 1.35em;
+  line-height: 0.9;
+  padding: 0.15em 0.3em 0.4em 0.3em;
+  margin: -0.15em -0.18em -0.3em -0.24em;
+  background: var(--jk-grad-script);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

@@ -1,0 +1,91 @@
+/* ==========================================================
+   Design tokens. Change a value here and the whole site follows.
+   Dark is the default; the light palette is further down and only
+   applies while <html> carries the `jk-light` class.
+   ========================================================== */
+
+:root {
+  /* ground + paper */
+  --jk-ink: #21211e; /* page background */
+  --jk-paper: #f4eeeb; /* main light text, cream cards */
+  --jk-paper-2: #e9e0dc; /* secondary light text, links, torn paper */
+  --jk-paper-3: #fbf6f4; /* text on wine, brightest highlights */
+
+  /* blush: tints that sit on paper */
+  --jk-blush: #eadce3; /* folder tabs */
+  --jk-blush-2: #e6d3dc; /* chips, pill fills, hover */
+  --jk-blush-3: #e7c6d1; /* highlighter, sticky notes */
+
+  /* rose: type + lines on the dark ground */
+  --jk-rose-1: #d7b9c8; /* bright rose: current nav item, taglines */
+  --jk-rose-2: #cfb2c2; /* muted rose: descriptions, meta */
+  --jk-rose-3: #b88c9e; /* labels, numbers, underlines */
+  --jk-rose-4: #9d7583; /* borders on paper */
+
+  /* wine: the accent (page tweak sets --wine, default below) */
+  --jk-wine: #8a6273;
+  --jk-wine-2: #6f4b5e; /* text + icons on paper */
+  --jk-wine-3: #7a5568; /* deeper accent option */
+  --jk-taupe: #493e3e; /* body text on paper */
+  --jk-ph-a: #bdb8b2; /* b&w photo placeholder, light end */
+  --jk-ph-b: #5c5853; /* b&w photo placeholder, dark end */
+
+  /* type families */
+  --jk-sans:
+    var(--font-baskerville), Georgia, "Times New Roman", serif; /* one text family; the sans/serif/mono names are kept as aliases */
+  --jk-serif: var(--font-baskerville), Georgia, serif;
+  --jk-script: var(--font-pinyon), "Snell Roundhand", cursive;
+  --jk-mono: var(--font-baskerville), Georgia, serif;
+
+  /* gradients (text) */
+  --jk-grad-title: linear-gradient(180deg, #d3b3c2 0%, #a67e8d 52%, #8a6273 100%);
+  --jk-grad-script: linear-gradient(
+    100deg,
+    #c9a0b3 0%,
+    #f6e9ef 26%,
+    #d9b3c4 50%,
+    #ffffff 68%,
+    #b88c9e 100%
+  );
+  --jk-grad-script-paper: linear-gradient(100deg, #6f4b5e 0%, #8a6273 50%, #b88c9e 100%);
+
+  /* lines, radii, shadow, spacing */
+  --jk-line: rgba(207, 178, 194, 0.28); /* hairlines on dark */
+  --jk-line-paper: rgba(73, 62, 62, 0.22); /* hairlines on paper */
+  --jk-r-sm: 12px;
+  --jk-r-md: 16px;
+  --jk-r-lg: 24px;
+  --jk-r-pill: 999px;
+  --jk-shadow-card: 0 40px 80px -30px rgba(0, 0, 0, 0.65);
+  --jk-gutter: 40px;
+
+  /* the same colours as r, g, b triplets, for rgba(var(--x), alpha) */
+  --jk-fg-rgb: 244, 238, 235;
+  --jk-bg-rgb: 33, 33, 30;
+  --jk-rose-rgb: 215, 185, 200;
+  --jk-rose2-rgb: 207, 178, 194;
+}
+@media (max-width: 1100px) {
+  :root {
+    --jk-gutter: 24px;
+  }
+}
+
+/* ---------- light palette ---------- */
+html.jk-light {
+  color-scheme: light;
+  --jk-ink: #f3eae7; /* ground: blush cream */
+  --jk-paper: #21211e; /* main text */
+  --jk-paper-2: #4a3f43; /* secondary text, links */
+  --jk-rose-1: #7a4e63; /* bright accent text */
+  --jk-rose-2: #67535d; /* muted text */
+  --jk-rose-3: #82566b; /* labels, numbers, underlines */
+  --jk-fg-rgb: 33, 33, 30;
+  --jk-bg-rgb: 243, 234, 231;
+  --jk-rose-rgb: 138, 98, 115;
+  --jk-rose2-rgb: 138, 98, 115;
+  --jk-line: rgba(111, 75, 94, 0.22);
+  --jk-grad-title: linear-gradient(180deg, #a67e8d 0%, #8a6273 52%, #6f4b5e 100%);
+  --jk-grad-script: linear-gradient(100deg, #6f4b5e 0%, #b5688a 34%, #8a6273 62%, #6f4b5e 100%);
+  --jk-shadow-card: 0 30px 60px -34px rgba(86, 48, 66, 0.45);
+}
