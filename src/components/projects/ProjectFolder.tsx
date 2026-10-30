@@ -1,6 +1,6 @@
 import { cx } from "@/lib/cx";
 import type { CaseStudySlug, Project } from "@/data/projects";
-import { projectNumber } from "./format";
+import { numberOf, projectNumber } from "./format";
 import { ProjectSheet } from "./ProjectSheet";
 import styles from "./Projects.module.css";
 
@@ -16,7 +16,7 @@ export function ProjectFolder({ projects, active, activeIndex, onSelect }: Proje
   return (
     <section className={cx(styles.folder, "jk-surface")} aria-label="Projects">
       <div className={styles.tabs} role="tablist" aria-label="Projects">
-        {projects.map((project, i) => {
+        {projects.map((project) => {
           const selected = project.slug === active.slug;
           return (
             <button
@@ -27,7 +27,7 @@ export function ProjectFolder({ projects, active, activeIndex, onSelect }: Proje
               aria-selected={selected}
               onClick={() => onSelect(project.slug)}
             >
-              <span className={styles.tabNumber}>{projectNumber(i)}</span>
+              <span className={styles.tabNumber}>{numberOf(project)}</span>
               <span className={styles.tabTitle}>{project.name}</span>
               <span className={styles.pin} aria-hidden="true" />
             </button>

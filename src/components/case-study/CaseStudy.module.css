@@ -1820,25 +1820,14 @@
     margin: 0 5px;
   }
 
-  /* hero and closing buttons: stacked, each as wide as the column, so the labels and the link share one axis */
+  /* hero and closing buttons: stacked and left-aligned, so the buttons and the text link all start on
+     the same line */
   .actions,
   .ending :global(.cta) {
     flex-direction: column;
     flex-wrap: nowrap;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 14px;
-  }
-
-  .actions :global(.btn),
-  .actions :global(.btn-ghost),
-  .ending :global(.cta) :global(.btn),
-  .ending :global(.cta) :global(.btn-ghost) {
-    justify-content: center;
-  }
-
-  .actions :global(.lnk),
-  .ending :global(.cta) :global(.lnk) {
-    align-self: center;
   }
 
   /* swiping the challenge slides the next panel in from the side */

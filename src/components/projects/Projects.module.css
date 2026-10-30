@@ -30,7 +30,7 @@
   height: 960px;
 }
 
-/* Phone and iPad: heading, blurb, the folder (its tabs stay attached), then the picture under the
+/* Phone and iPad: heading, blurb, the filter, the folder (its tabs stay attached), then the picture under the
    folder. The left column steps aside so the blurb and the picture can sit either side of it. */
 @media (max-width: 1100px) {
   .left {
@@ -42,7 +42,7 @@
   }
 
   .folder {
-    order: 2;
+    order: 3;
   }
 }
 
@@ -71,7 +71,7 @@
 
 @media (max-width: 1100px) {
   .figure {
-    order: 3;
+    order: 4;
     max-width: 380px;
     margin: 14px auto 0;
   }
@@ -172,10 +172,46 @@
   color: var(--jk-rose-1);
 }
 
+/* filter work: All, Projects, Research */
+
+.filter {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--jk-line);
+}
+
+.filterHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 14px;
+  font-size: 11.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--jk-rose-3);
+}
+
+.filterPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Phone and iPad: the filter sits between the blurb and the folder, with no rule above it */
+@media (max-width: 1100px) {
+  .filter {
+    order: 2;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+}
+
 /* the side index */
 
 .index {
-  margin: 90px 0 0;
+  margin: 22px 0 0;
   max-width: 296px;
 }
 
@@ -860,19 +896,13 @@
 
   .links {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
     padding-left: 0;
     border-left: 0;
   }
 
-  .links > * {
-    justify-content: center;
-    text-align: center;
-  }
-
   .links > .request,
   .links > .status {
-    align-self: center;
     margin-left: 0;
   }
 }

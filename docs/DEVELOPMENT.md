@@ -60,7 +60,8 @@ A component receives typed data and draws it; it doesn't contain page copy.
   its case study (title, breadcrumb, "Next:" link and the "More work" cards), so they only need
   changing in one place. The order of the array is the order on the Projects page, in the case
   study menu and in the numbering. A project's "Methods" row is a list of `methodGroups`, each
-  with an optional label (e.g. Research / Computational).
+  with an optional label (e.g. Research / Computational). Each project's `kind` ("project" or "research") is what the page's
+  All / Projects / Research filter uses.
 - **A case study**: `src/data/case-studies/<slug>.ts`. A case study is a list of sections, and each
   section is a list of typed blocks (`lead`, `columns`, `steps`, `solution`, `stats`, `notes` ...).
   The block types are documented in `types.ts`. To add a new kind of block, add it to the
@@ -107,7 +108,7 @@ store the toggle subscribes to.
   it (CSS); with touch or the keyboard the button opens it, Escape or a tap outside closes it. On a
   phone it opens in place inside the hamburger menu. Between about 640 and 860px the nav drops
   to two rows so all the links still fit.
-- **Phone footer:** one compact row (logo on the left, three links on the right), then the copyright under it. No hairlines.
+- **Phone footer:** one compact row (logo on the left, three links on the right, sharing a baseline), then the copyright under the logo. No hairlines, and the J's swash is nudged in so its tip lines up with the copyright.
 - **About on a phone:** education is written on the paper and scales with it, "read my bio" is a pill
   under the paper, and the skills are a dropdown per group (`SkillsSection.tsx`).
 - **About on iPad (701 to 1100px):** skills run two groups across, then the photo and the note sit
@@ -123,8 +124,8 @@ store the toggle subscribes to.
   that shows one panel at a time (`TabbedPanels.tsx`, the only client component in the case-study
   template). The challenge tabs also change when you swipe sideways (or scroll sideways on a
   trackpad); the other tab bars are tap-only. "More work" becomes a row of three cards you swipe
-  through, like the other rails. The hero and closing buttons stack at full width, with the text
-  link centred under them, and the breadcrumb shrinks so it stays on one line. All of it is the last block in
+  through, like the other rails. The hero and closing buttons stack left-aligned, with the text
+  link under them on the same line, and the breadcrumb shrinks so it stays on one line. All of it is the last block in
   `CaseStudy.module.css`; on wider screens the tab bar and hint are hidden and every panel lays out
   as before.
 

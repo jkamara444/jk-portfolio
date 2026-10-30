@@ -1,6 +1,6 @@
 import { cx } from "@/lib/cx";
 import type { CaseStudySlug, Project } from "@/data/projects";
-import { projectNumber } from "./format";
+import { numberOf } from "./format";
 import styles from "./Projects.module.css";
 
 interface ProjectIndexProps {
@@ -13,7 +13,7 @@ interface ProjectIndexProps {
 export function ProjectIndex({ projects, activeSlug, onSelect }: ProjectIndexProps) {
   return (
     <nav className={styles.index} aria-label="All projects">
-      {projects.map((project, i) => {
+      {projects.map((project) => {
         const active = project.slug === activeSlug;
         return (
           <button
@@ -23,7 +23,7 @@ export function ProjectIndex({ projects, activeSlug, onSelect }: ProjectIndexPro
             aria-current={active ? "true" : undefined}
             onClick={() => onSelect(project.slug)}
           >
-            <span className={styles.indexNumber}>{projectNumber(i)}</span>
+            <span className={styles.indexNumber}>{numberOf(project)}</span>
             <span>{project.name}</span>
             <span className={styles.indexDots} />
             <span className={styles.indexYear}>{project.year}</span>

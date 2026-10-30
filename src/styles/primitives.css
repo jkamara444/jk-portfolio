@@ -156,6 +156,12 @@
   border-color: var(--wine);
   color: var(--jk-paper-3);
 }
+/* small variant for narrow columns */
+.jk-pill.jk-pill--sm {
+  padding: 12px 16px;
+  font-size: 11px;
+  line-height: 1;
+}
 .jk-pill i {
   font-style: normal;
   opacity: 0.7;
