@@ -931,16 +931,19 @@
 
   .bioCall {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 14px;
     order: -1;
     position: static;
     width: auto;
+    text-align: center;
   }
   .bioCallText {
-    padding-left: 2px;
+    padding-left: 0;
+    font-size: 14px;
+    transform-origin: center;
   }
 
   .skills .skillList {

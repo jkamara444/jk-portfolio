@@ -10,13 +10,14 @@ export const pedagogy: CaseStudy = {
     {
       kind: "solid",
       label: "Request to see the labs",
-      href: mailtoHref("Request to see the labs: CS0111 Responsible Tech TA"),
+      href: mailtoHref("Request to see the labs: CS0111 Socially Responsible Computing TA"),
       arrow: true,
     },
+    { kind: "ghost", label: "About SRC", href: "https://responsible.cs.brown.edu/", arrow: true },
     { kind: "text", label: "Jump to the results", href: "#s6" },
   ],
   facts: [
-    { label: "Role", value: "Responsible Technology TA" },
+    { label: "Role", value: "Socially Responsible Computing TA" },
     { label: "Timeline", value: "2024 – Present" },
     { label: "Course", value: "CS0111: Computing Foundations: Data, Brown CS" },
     { label: "Focus", value: "Curriculum design, data ethics" },
@@ -35,18 +36,18 @@ export const pedagogy: CaseStudy = {
       blocks: [
         {
           type: "lead",
-          text: "Two labs I wrote as the Responsible Technology TA for CS0111: Computing Foundations: Data, an introductory CS course at Brown.",
+          text: "Two labs I wrote as the Socially Responsible Computing TA for CS0111: Computing Foundations: Data, an introductory CS course at Brown.",
         },
         {
           type: "columns",
           items: [
             {
               label: "Context",
-              text: "In a data course, the technical goals are data cleaning, exploratory analysis, visualization, and communicating patterns through charts and statistical summaries. The social questions arrive at the same moment: whose data is this, what does it leave out, and who decides how it gets used?",
+              text: "In a data course, the technical work includes data cleaning, exploratory data analysis, data visualization, and statistical analysis. The social questions arrive at the same moment, including whose data we are working with, what it leaves out, and who decides how it gets used.",
             },
             {
               label: "My role",
-              text: "Responsible Technology TA: I designed and wrote both labs, from the central questions to the checkpoints and discussion prompts.",
+              text: "Socially Responsible Computing TA: I designed and wrote 2 labs, from the central questions to the checkpoints and discussion prompts.",
             },
           ],
         },
@@ -60,7 +61,7 @@ export const pedagogy: CaseStudy = {
         {
           type: "challenges",
           items: [
-            "Teach real data skills in one lab, not talk about ethics off to the side of them.",
+            "Teach real data skills alongside the social questions that come with the work, instead of separating ethics into its own discussion.",
             "Make ideas like inference, consent, and contextual integrity concrete enough to argue about in a group.",
             "Get students to question AI output instead of accepting it, using what they know that the tool does not.",
           ],
@@ -133,7 +134,7 @@ export const pedagogy: CaseStudy = {
                   texts: [
                     {
                       label: "Lab 8",
-                      text: "Groups meet Shamariah, a fictional person whose searches, app activity, locations, purchases, and messages point toward a health condition she has not shared widely. They sort her data by how it was collected, trace one data point through organizations, and combine harmless-looking pieces into an inference. Then each group takes one real, publicly reported case, such as a browsing-data company that resold its users’ histories or a retailer that predicted a customer’s pregnancy, and connects it back to her trail.",
+                      text: "Groups meet Shamariah, a fictional person whose searches, app activity, locations, purchases, and messages point toward a health condition she has not shared publicly. They sort her data by how it was collected, trace one data point through organizations, and combine harmless-looking pieces into an inference. Then each group takes one real, publicly reported case, such as a browsing-data company that resold its users’ histories or a retailer that predicted a customer’s pregnancy, and connects it back to her trail.",
                     },
                   ],
                 },
@@ -182,7 +183,6 @@ export const pedagogy: CaseStudy = {
               label: "Concepts",
               chips: ["Inference", "Informed consent", "Contextual integrity", "Data brokers"],
             },
-            { label: "Critique", chips: ["ChatGPT comparison", "Real reported cases"] },
           ],
         },
       ],
@@ -228,11 +228,10 @@ export const pedagogy: CaseStudy = {
   ],
   ending: {
     script: "Thanks for reading",
-    prompt: "Want to see how this connects to the Handbook, or talk it through?",
     actions: [
       {
         kind: "solid",
-        label: "Read the Handbook case study",
+        label: "Read the handbook case study",
         href: "/projects/handbook",
         arrow: true,
       },

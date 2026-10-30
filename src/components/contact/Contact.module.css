@@ -307,3 +307,12 @@
     top: 156px;
   }
 }
+
+/* phones: a smaller line that breaks evenly instead of leaving the "&" at the end */
+@media (max-width: 640px) {
+  .top .open {
+    font-size: 12px;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+}

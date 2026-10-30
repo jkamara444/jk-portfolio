@@ -101,7 +101,7 @@ export const evBattery: CaseStudy = {
       blocks: [
         {
           type: "intro",
-          text: "Our team of five prepared with a one-week intensive training at MIT in data science, machine learning, and related methods. We then managed our writing and development work in Jira using agile practices, and I took on the product management role, coordinating priorities, tracking progress, and keeping the project moving forward.",
+          text: "Our team of five prepared with a one-week intensive training at MIT in data science and machine learning. We then managed our writing and development work in Jira using agile practices, and I took on the product management role, coordinating priorities, tracking progress, and keeping the project moving forward.",
         },
         {
           type: "steps",
@@ -243,7 +243,7 @@ export const evBattery: CaseStudy = {
             {
               title: "What I learned",
               paragraphs: [
-                "I learned that whether a technology is “clean” depends heavily on the infrastructure, energy systems, and supply chains surrounding it. It pushed me to think about climate technologies as systems rather than isolated technical improvements.",
+                "I learned that whether a technology is “clean” depends on the larger system it operates within. It pushed me to look beyond the technology itself when thinking about its climate impact.",
               ],
             },
             {
@@ -259,7 +259,6 @@ export const evBattery: CaseStudy = {
   ],
   ending: {
     script: "Thanks for reading",
-    prompt: "Want the full paper?",
     actions: [
       {
         kind: "solid",

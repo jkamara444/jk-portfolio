@@ -7,7 +7,7 @@ export const portfolio: CaseStudy = {
   spacious: true,
   subtitleLead: "One system, two ways to read it.",
   subtitle:
-    "A portfolio planned in wireframes, designed in Figma, and built with Claude’s help, with a dark and a light theme.",
+    "I started with wireframes, designed the full portfolio in Figma, and used Claude to help bring it to life in both dark and light mode.",
   actions: [
     { kind: "solid", label: "See the home page", href: "/", arrow: true },
     { kind: "text", label: "Jump to the result", href: "#s4" },
@@ -36,7 +36,7 @@ export const portfolio: CaseStudy = {
             },
             {
               label: "My role",
-              text: "Designer and builder: I planned the structure, wireframed every page, designed the screens in Figma, and built the site with Claude supporting the code and backend.",
+              text: "Designer and builder responsible for information architecture, wireframes, visual design in Figma, accessibility, and implementation.",
             },
           ],
         },
@@ -178,7 +178,6 @@ export const portfolio: CaseStudy = {
   ],
   ending: {
     script: "Thanks for reading",
-    prompt: "Want to look around, or talk it through?",
     actions: [
       { kind: "solid", label: "Back to the home page", href: "/", arrow: true },
       { kind: "text", label: "Get in touch", href: "/contact" },

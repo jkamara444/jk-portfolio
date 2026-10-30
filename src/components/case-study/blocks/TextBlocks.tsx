@@ -37,7 +37,11 @@ export function Columns({ block }: { block: BlockOf<"columns"> }) {
 
 export function Challenges({ block }: { block: BlockOf<"challenges"> }) {
   return (
-    <TabbedPanels className={styles.challenges} labels={block.items.map((_, i) => String(i + 1))}>
+    <TabbedPanels
+      className={styles.challenges}
+      labels={block.items.map((_, i) => String(i + 1))}
+      swipe
+    >
       {block.items.map((item, i) => (
         <div className={styles.challenge} key={i}>
           <span className={styles.challengeNumber}>{i + 1}</span>

@@ -67,7 +67,7 @@ export const necropolitics: CaseStudy = {
           type: "challenges",
           items: [
             "Technologies are often treated as neutral even when they operate within unequal racial, colonial, political, and economic systems.",
-            "I wanted to understand how very different technologies could contribute to vulnerability, exclusion, or premature and social death.",
+            "I wanted to understand how very different technologies could produce sociopolitical exclusion and forms of premature or social death.",
             "I also needed a way to connect research across multiple countries without flattening their different histories and contexts.",
           ],
         },
@@ -233,7 +233,7 @@ export const necropolitics: CaseStudy = {
             {
               title: "What I learned",
               paragraphs: [
-                "Working across four countries gave me a broader, more geopolitical view of technology. I learned to look beyond whether a technology is intentionally harmful and instead pay attention to the systems it becomes part of, the people those systems serve, and the vulnerabilities they can create. Those dynamics look different from place to place, shaped by colonial history, political institutions, and a country’s position in the global order.",
+                "Working across four countries gave me a more global view of technology. I learned that its impact depends on the larger political and social systems it becomes part of, which are shaped by each place’s history and position in the global political economy.",
               ],
             },
             {
@@ -249,7 +249,6 @@ export const necropolitics: CaseStudy = {
   ],
   ending: {
     script: "Thanks for reading",
-    prompt: "Want to see the site? Request access.",
     actions: [
       {
         kind: "solid",

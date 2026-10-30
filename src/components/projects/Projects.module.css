@@ -859,7 +859,20 @@
   }
 
   .links {
+    flex-direction: column;
+    align-items: stretch;
     padding-left: 0;
     border-left: 0;
+  }
+
+  .links > * {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .links > .request,
+  .links > .status {
+    align-self: center;
+    margin-left: 0;
   }
 }

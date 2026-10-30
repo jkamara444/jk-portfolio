@@ -17,7 +17,7 @@ export function CaseSectionView({ section, index }: CaseSectionViewProps) {
         <div className={styles.railLabel}>{section.label}</div>
         <p className={styles.railHint}>{section.hint}</p>
       </div>
-      <div className={styles.sectionBody}>
+      <div className={styles.sectionBody} data-case-body="">
         {section.heading && <h2 className={styles.heading}>{section.heading}</h2>}
         {section.blocks.map((block, i) => (
           <CaseBlock block={block} key={i} />

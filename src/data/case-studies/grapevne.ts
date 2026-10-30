@@ -41,7 +41,7 @@ export const grapevne: CaseStudy = {
           items: [
             {
               label: "Context",
-              text: "As an early-stage platform, Grapevne needed to build an engaging MVP while figuring out what would bring users back and help the product spread across college campuses.",
+              text: "As an early-stage platform, we needed to build an engaging MVP while figuring out what would keep users coming back and help Grapevne grow across college campuses.",
             },
             {
               label: "My role",
@@ -61,7 +61,7 @@ export const grapevne: CaseStudy = {
           items: [
             "Grapevne had to turn an early food-sharing idea into a product people would actually return to.",
             "Users needed an easier and more engaging way to discover available food.",
-            "Growth also depended on building adoption at the community and university level, not just acquiring individual users.",
+            "Growth also depended on building adoption at the community and university level, while continuing to bring in individual users.",
           ],
         },
         {
@@ -177,8 +177,8 @@ export const grapevne: CaseStudy = {
           groups: [
             { label: "Build", chips: ["Swift", "Firebase"] },
             { label: "Design", chips: ["Figma prototyping", "Swipe-based home screen"] },
-            { label: "Research", chips: ["User feedback", "Product strategy"] },
-            { label: "Growth", chips: ["A/B testing", "University partnerships"] },
+            { label: "Research", chips: ["User feedback", "Product strategy", "A/B testing"] },
+            { label: "Growth", chips: ["University partnerships"] },
           ],
         },
       ],
@@ -223,7 +223,7 @@ export const grapevne: CaseStudy = {
             {
               title: "What’s next",
               paragraphs: [
-                "Continue improving discovery, retention, and expansion across campuses.",
+                "Continue improving user discovery and retention while expanding to more campuses.",
               ],
             },
           ],
@@ -233,7 +233,6 @@ export const grapevne: CaseStudy = {
   ],
   ending: {
     script: "Thanks for reading",
-    prompt: "Want to try it, or talk more?",
     actions: [
       {
         kind: "solid",

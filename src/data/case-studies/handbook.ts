@@ -14,12 +14,17 @@ export const handbook: CaseStudy = {
       href: "https://srch.cs.brown.edu/",
       arrow: true,
     },
+    { kind: "ghost", label: "About SRC", href: "https://responsible.cs.brown.edu/", arrow: true },
     { kind: "text", label: "Jump to the results", href: "#s6" },
   ],
   facts: [
     { label: "Role", value: "Developer and designer" },
     { label: "Timeline", value: "2024 – Present" },
-    { label: "Partners", value: "Brown CS Department & Data Science Institute" },
+    {
+      label: "Partners",
+      value:
+        "Brown CS Department, Data Science Institute & Center for Technological Responsibility, Reimagination and Redesign (CNTR)",
+    },
     { label: "Focus", value: "User interface, accessibility, usability, implementation" },
   ],
   heroFigure: {
@@ -42,7 +47,7 @@ export const handbook: CaseStudy = {
           items: [
             {
               label: "Context",
-              text: "Responsible technology can be difficult to incorporate into computer science courses that already have a lot of technical material to cover. The Handbook makes it easier for instructors to find and adapt relevant materials for use in existing assignments.",
+              text: "Responsible technology can be difficult to incorporate into computer science courses that already have a lot of technical material to cover. The handbook makes it easier for instructors to find and adapt relevant materials for use in existing assignments.",
             },
             {
               label: "My role",
@@ -60,8 +65,8 @@ export const handbook: CaseStudy = {
         {
           type: "challenges",
           items: [
-            "Faculty and TAs wanted to incorporate responsible technology into technical CS courses but often lacked the time or resources to build material from scratch.",
-            "Existing materials were scattered and could be difficult to adapt to a specific course or assignment.",
+            "Faculty and TAs wanted to bring responsible technology into technical CS courses, but with little time to build new material, they needed resources that were easy to find and adapt.",
+            "SRC content wasn’t always developed with the same technical rigor as the technical material in these courses.",
             "The platform itself needed to be accessible and easy to navigate for a wide range of users.",
           ],
         },
@@ -90,7 +95,7 @@ export const handbook: CaseStudy = {
               text: "Turned feedback into wireframes, clearer navigation, and accessibility fixes.",
               media: {
                 image: images.c01Wireframe,
-                alt: "An early wireframe of the Handbook landing page",
+                alt: "An early wireframe of the handbook landing page",
                 ratio: [4, 3],
               },
             },
@@ -99,7 +104,7 @@ export const handbook: CaseStudy = {
               text: "Built the platform in React with the CS Department and Data Science Institute.",
               media: {
                 image: images.c01Module,
-                alt: "A Handbook module page with key definitions and a primer outline",
+                alt: "A handbook module page with key definitions and a primer outline",
                 ratio: [4, 3],
               },
             },
@@ -119,7 +124,7 @@ export const handbook: CaseStudy = {
               text: "A central place for materials instructors can use directly in CS courses.",
               media: {
                 image: images.c01Platform,
-                alt: "The Handbook curriculum page listing its focus areas",
+                alt: "The handbook curriculum page listing its focus areas",
                 ratio: [4, 3],
               },
             },
@@ -127,7 +132,7 @@ export const handbook: CaseStudy = {
               text: "Reworked the user interface so resources are easier to find.",
               media: {
                 image: images.c01Nav,
-                alt: "The Handbook navigation open on a phone",
+                alt: "The handbook navigation open on a phone",
                 ratio: [4, 3],
               },
             },
@@ -199,7 +204,7 @@ export const handbook: CaseStudy = {
             {
               title: "What’s next",
               paragraphs: [
-                "I’ve moved on from the Handbook. Next, I’m taking the design, development, and product skills I built here into new projects and research.",
+                "I’ve moved on from the handbook. Next, I’m taking the design, development, and product skills I built here into new projects and research.",
               ],
             },
           ],
@@ -209,7 +214,6 @@ export const handbook: CaseStudy = {
   ],
   ending: {
     script: "Thanks for reading",
-    prompt: "Want to see it live, or talk it through?",
     actions: [
       {
         kind: "solid",

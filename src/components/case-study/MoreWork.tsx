@@ -4,6 +4,7 @@ import { projectNumber } from "@/components/projects/format";
 import { caseStudyPath, projects } from "@/data/projects";
 import type { CaseStudy } from "@/data/case-studies/types";
 import styles from "./CaseStudy.module.css";
+import { SwipeHint } from "./SwipeHint";
 
 /** Three other projects to look at next, as small cards. */
 export function MoreWork({ items }: { items: CaseStudy["moreWork"] }) {
@@ -15,6 +16,8 @@ export function MoreWork({ items }: { items: CaseStudy["moreWork"] }) {
           All projects
         </Link>
       </div>
+
+      <SwipeHint />
 
       <div className={styles.moreGrid}>
         {items.map(({ slug, image }) => {

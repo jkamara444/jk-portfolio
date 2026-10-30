@@ -77,7 +77,7 @@ export const projects: readonly Project[] = [
     description:
       "A React-based handbook built with Brown’s Computer Science Department and Data Science Institute to help faculty and TAs integrate responsible technology and sociotechnical thinking into CS courses.",
     context:
-      "Responsible technology can be difficult to incorporate into computer science courses that already have a lot of technical material to cover. The Handbook makes it easier for instructors to find and adapt relevant materials for use in existing assignments.",
+      "Responsible technology can be difficult to incorporate into computer science courses that already have a lot of technical material to cover. The handbook makes it easier for instructors to find and adapt relevant materials for use in existing assignments.",
     role: "Developer and designer working across the platform’s user interface, accessibility, usability, and implementation.",
     outcomesLabel: "Impact",
     outcomes: [
@@ -106,7 +106,7 @@ export const projects: readonly Project[] = [
     description:
       "Grapevne is a social-impact startup incubated at the MIT Martin Trust Center that makes it easier for people and communities to share food.",
     context:
-      "As an early-stage platform, Grapevne needed to build an engaging MVP while figuring out what would bring users back and help the product spread across college campuses.",
+      "As an early-stage platform, we needed to build an engaging MVP while figuring out what would keep users coming back and help Grapevne grow across college campuses.",
     role: "Product and growth: user research, product strategy, Figma prototyping, experimentation, app development, and university partnerships.",
     outcomesLabel: "Impact",
     outcomes: [
@@ -162,7 +162,7 @@ export const projects: readonly Project[] = [
     year: "2025 – 2026",
     tags: ["GCAM", "Python", "Climate policy", "Systems modeling"],
     description:
-      "Research with MIT Station1 examining whether the emissions avoided through greater electric vehicle adoption outweigh the lifecycle emissions associated with producing and disposing of solid-state batteries.",
+      "Research with MIT Station1 comparing the emissions reduced by increased electric vehicle adoption with the emissions created across the production and disposal of solid-state batteries.",
     context:
       "Electric vehicles can reduce emissions from driving, but their overall climate impact depends on how their batteries are produced and how the electricity used to charge them is generated. Our research modeled these effects over time, focusing on EV adoption in the U.S. and China.",
     role: "Sociotechnical researcher: modified Global Change Analysis Model (GCAM) transportation scenarios, analyzed model outputs in Python, and translated the results into policy recommendations.",
@@ -201,9 +201,9 @@ export const projects: readonly Project[] = [
     role: "Researcher and designer: combined archival research, field observations, memorial and site analysis, Africana Studies and Science, Technology and Society scholarship, and interactive storytelling.",
     outcomesLabel: "Takeaways",
     outcomes: [
-      "Examined how architecture, infrastructure, surveillance, and other technologies can distribute risk unevenly and reinforce existing structures of power.",
-      "Connected these questions to slavery and its legacies in Ghana, Indigenous resistance and border surveillance in Mexico, and tourism, extraction, and governance in Indonesia",
-      "Designed and published the research as an interactive digital humanities website",
+      "Examined how technologies can shape who is exposed to risk and how existing structures of power are reinforced.",
+      "Connected these questions to the legacies of slavery in Ghana, Indigenous resistance and border surveillance in Mexico, and the impacts of tourism in Indonesia.",
+      "Designed and published the research as an interactive digital humanities website.",
     ],
     links: [{ kind: "solid", label: "Read Case Study", href: caseStudyPath("necropolitics") }],
     cover: {
@@ -221,10 +221,10 @@ export const projects: readonly Project[] = [
     year: "2024 – Present",
     tags: ["Curriculum design", "Data ethics", "Pyret", "Teaching"],
     description:
-      "Two labs I wrote as the Responsible Technology TA for CS0111: Computing Foundations: Data, an introductory CS course at Brown.",
+      "Two labs I wrote as the Socially Responsible Computing TA for CS0111: Computing Foundations: Data, an introductory CS course at Brown.",
     context:
-      "In a data course, the technical goals are data cleaning, exploratory analysis, visualization, and communicating patterns through charts and statistical summaries. The social questions arrive at the same moment: whose data is this, what does it leave out, and who decides how it gets used?",
-    role: "Responsible Technology TA: I designed and wrote both labs, from the central questions to the checkpoints and discussion prompts.",
+      "In a data course, the technical work includes data cleaning, exploratory data analysis, data visualization, and statistical analysis. The social questions arrive at the same moment, including whose data we are working with, what it leaves out, and who decides how it gets used.",
+    role: "Socially Responsible Computing TA: I designed and wrote 2 labs, from the central questions to the checkpoints and discussion prompts.",
     outcomesLabel: "What it includes",
     outcomes: [
       "Lab 4: students clean and analyze a survey of their own class, then check their work against ChatGPT",
@@ -285,7 +285,7 @@ export const projects: readonly Project[] = [
       "This portfolio brings my research, product, and engineering work into one place. Every project has its own case study, and the pages around them are built to be read in a couple of minutes.",
     context:
       "My work spans research, product, and software, which is hard to show in a single resume line. The site needed to make those connections visible and still let someone jump straight to one project.",
-    role: "Designer and builder responsible for information architecture, wireframes, visual design in Figma, accessibility, and implementation, with Claude supporting code development.",
+    role: "Designer and builder responsible for information architecture, wireframes, visual design in Figma, accessibility, and implementation.",
     outcomesLabel: "What it includes",
     outcomes: [
       "Wireframes for every page",
@@ -293,9 +293,9 @@ export const projects: readonly Project[] = [
       "Screens designed in Figma, then built with Claude supporting the code and backend",
     ],
     methodGroups: [
-      {
-        text: "Wireframing, style guide, Figma, Claude-assisted development, HTML, CSS, JavaScript, contrast and keyboard-focus checks",
-      },
+      { label: "Design", text: "Wireframing, style guide, Figma" },
+      { label: "Build", text: "Claude-assisted development, HTML, CSS, JavaScript" },
+      { label: "Accessibility", text: "Contrast and keyboard-focus checks" },
     ],
     links: [{ kind: "solid", label: "View Case Study", href: caseStudyPath("portfolio") }],
     cover: {

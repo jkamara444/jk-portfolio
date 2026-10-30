@@ -366,15 +366,29 @@
 
 .inlineLink::after {
   content: "\2197";
-  display: inline-block;
-  margin-left: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35em;
+  height: 1.35em;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--jk-rose-1);
+  color: var(--jk-ink);
   font-size: 0.78em;
+  line-height: 1;
+  vertical-align: 0.1em;
   text-decoration: none;
+  transition: translate 0.2s ease;
 }
 
 .inlineLink:hover {
   color: var(--jk-paper);
   background: rgba(var(--jk-rose-rgb), 0.4);
+}
+
+.inlineLink:hover::after {
+  translate: 1px -1px;
 }
 
 .kicker {
@@ -715,12 +729,34 @@
 }
 
 .chipGo {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 9.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--jk-rose-1);
   text-decoration: none;
+}
+
+.chipGo::after {
+  content: "\2197";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: var(--jk-rose-1);
+  color: var(--jk-ink);
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: 1;
+  transition: translate 0.2s ease;
+}
+
+.chipLink:hover .chipGo::after {
+  translate: 1px -1px;
 }
 
 /* ---------- impact ---------- */
@@ -1256,7 +1292,7 @@
 }
 
 .endPad {
-  height: 96px;
+  height: 64px;
 }
 
 /* ---------- phone-only furniture: swipe hint, tab bar, tab panels ---------- */
@@ -1732,95 +1768,113 @@
     line-height: 1.7;
   }
 
-  /* more work: short rows with a small picture instead of three tall cards */
+  /* more work: slides you swipe through, like the other rails */
   .moreHeader {
-    margin-top: 56px;
+    margin-top: 48px;
   }
 
   .moreGrid {
-    display: block;
-    margin-top: 12px;
+    display: flex;
+    gap: 14px;
+    margin: 10px calc(-1 * var(--jk-gutter)) 0;
+    padding: 4px var(--jk-gutter) 14px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--jk-gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .moreGrid::-webkit-scrollbar {
+    display: none;
   }
 
   .moreGrid .moreCard {
-    display: grid;
-    grid-template-columns: 84px minmax(0, 1fr) 14px;
-    grid-template-areas:
-      "ph mt arr"
-      "ph mrow arr";
-    column-gap: 14px;
-    align-items: center;
-    padding: 12px 0;
-    border: 0;
-    border-top: 1px solid var(--jk-line);
-    border-radius: 0;
-    background: none;
-    box-shadow: none;
-    color: var(--jk-paper);
-  }
-
-  .moreGrid .moreCard:last-child {
-    border-bottom: 1px solid var(--jk-line);
+    flex: 0 0 74%;
+    min-width: 0;
+    scroll-snap-align: start;
+    padding: 12px 12px 18px;
   }
 
   .moreGrid .moreCard:hover {
     translate: none;
-    color: var(--jk-paper);
-  }
-
-  /* the cards keep the dark colours in light mode; a row sits on the page, so it takes the light ones back */
-  :global(html.jk-light) .moreGrid .moreCard.moreCard {
-    --jk-ink: #f3eae7;
-    --jk-paper: #21211e;
-    --jk-paper-2: #4a3f43;
-    --jk-rose-1: #7a4e63;
-    --jk-rose-2: #67535d;
-    --jk-rose-3: #82566b;
-    --jk-fg-rgb: 33, 33, 30;
-    --jk-bg-rgb: 243, 234, 231;
-    --jk-rose-rgb: 138, 98, 115;
-    --jk-rose2-rgb: 138, 98, 115;
-    --jk-line: rgba(111, 75, 94, 0.22);
-  }
-
-  .moreThumb {
-    grid-area: ph;
-    border-radius: 10px;
   }
 
   .moreTitle {
-    grid-area: mt;
-    align-self: end;
-    margin: 0;
-    font-size: 17px;
-    color: var(--jk-paper);
+    font-size: 21px;
+  }
+}
+
+/* ---------- phones: breadcrumb, stacked buttons, sliding panels ---------- */
+
+@media (max-width: 640px) {
+  /* breadcrumb and next link: smaller, so each one stays on its line */
+  .bar {
+    gap: 8px 16px;
+    font-size: 9px;
+    letter-spacing: 0.04em;
   }
 
-  .moreRow {
-    grid-area: mrow;
-    align-self: start;
-    justify-content: flex-start;
-    gap: 8px;
-    margin: 4px 0 0;
-    color: var(--jk-rose-3);
+  .bar .separator {
+    margin: 0 5px;
   }
 
-  .moreRow span + span::before {
-    content: "\00b7";
-    margin-right: 8px;
+  /* hero and closing buttons: stacked, each as wide as the column, so the labels and the link share one axis */
+  .actions,
+  .ending :global(.cta) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 14px;
   }
 
-  .moreTags {
-    display: none;
+  .actions :global(.btn),
+  .actions :global(.btn-ghost),
+  .ending :global(.cta) :global(.btn),
+  .ending :global(.cta) :global(.btn-ghost) {
+    justify-content: center;
   }
 
-  .moreGrid .moreCard::after {
-    content: "";
-    grid-area: arr;
-    width: 12px;
-    height: 12px;
-    background: var(--jk-rose-2);
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7'/%3E%3Cpath d='M7 7h10v10'/%3E%3C/svg%3E")
-      center / contain no-repeat;
+  .actions :global(.lnk),
+  .ending :global(.cta) :global(.lnk) {
+    align-self: center;
+  }
+
+  /* swiping the challenge slides the next panel in from the side */
+  .panel.panelOn[data-from="right"] {
+    animation-name: tabInRight;
+  }
+
+  .panel.panelOn[data-from="left"] {
+    animation-name: tabInLeft;
+  }
+
+  @keyframes tabInRight {
+    from {
+      opacity: 0;
+      translate: 28px 0;
+    }
+
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  @keyframes tabInLeft {
+    from {
+      opacity: 0;
+      translate: -28px 0;
+    }
+
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  .endPad {
+    height: 28px;
   }
 }

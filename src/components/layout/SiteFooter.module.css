@@ -52,21 +52,23 @@
   border-bottom-color: var(--jk-rose-3);
 }
 
-/* Phones: logo on its own, three evenly spaced links, then the copyright under a hairline (kept compact). */
+/* Phones: one compact row (logo, three links), then the copyright under it, with no hairlines. */
 @media (max-width: 640px) {
   .footer {
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
     gap: 0;
-    padding: 22px 0 26px;
+    padding: 14px 0 22px;
+    border-top: 0;
   }
 
   .identity {
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
-    align-items: flex-start;
-    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
     width: 100%;
   }
 
@@ -75,22 +77,22 @@
   }
 
   .links {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    justify-content: space-between;
-    gap: 0 12px;
-    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 0 18px;
+    width: auto;
   }
 
   :global(.jk) .links a {
-    padding: 11px 0;
+    padding: 10px 0;
   }
 
   .copyright {
-    margin-top: 4px;
-    padding-top: 14px;
-    border-top: 1px solid var(--jk-line);
-    font-size: 10.5px;
+    margin-top: 6px;
+    padding-top: 0;
+    border-top: 0;
+    font-size: 10px;
     letter-spacing: 0.14em;
   }
 }

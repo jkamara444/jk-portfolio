@@ -12,7 +12,7 @@ function Chip({ chip }: { chip: TechGroup["chips"][number] }) {
   return (
     <SmartLink className={cx(styles.chip, styles.chipLink)} href={chip.href}>
       <span className={styles.chipTitle}>{chip.label}</span>
-      <span className={styles.chipGo}>Learn more ↗</span>
+      <span className={styles.chipGo}>Learn more</span>
     </SmartLink>
   );
 }

@@ -144,9 +144,18 @@ export const aiGateway: CaseStudy = {
             { label: "Build", chips: ["Python", "scikit-learn"] },
             {
               label: "Methods",
-              chips: ["NLP", "Semantic similarity", "Retrieval (RAG)", "Caching"],
+              chips: [
+                "NLP",
+                "Prompt-risk classification",
+                "Semantic similarity",
+                "Retrieval (RAG)",
+                "Semantic caching",
+              ],
             },
-            { label: "Evaluation", chips: ["F1", "Token usage", "Cost", "Cache-hit rate"] },
+            {
+              label: "Evaluation",
+              chips: ["F1", "Safety", "Response quality", "Token usage", "Cost", "Cache-hit rate"],
+            },
             { label: "Governance", chips: ["AI governance", "Risk-based routing"] },
           ],
         },
@@ -200,7 +209,6 @@ export const aiGateway: CaseStudy = {
   ],
   ending: {
     script: "Thanks for reading",
-    prompt: "Want to talk through the design?",
     actions: [{ kind: "solid", label: "Get in touch", href: "/contact" }],
   },
   moreWork: [

@@ -107,7 +107,7 @@ store the toggle subscribes to.
   it (CSS); with touch or the keyboard the button opens it, Escape or a tap outside closes it. On a
   phone it opens in place inside the hamburger menu. Between about 640 and 860px the nav drops
   to two rows so all the links still fit.
-- **Phone footer:** logo, three evenly spaced links, then the copyright under a hairline.
+- **Phone footer:** one compact row (logo on the left, three links on the right), then the copyright under it. No hairlines.
 - **About on a phone:** education is written on the paper and scales with it, "read my bio" is a pill
   under the paper, and the skills are a dropdown per group (`SkillsSection.tsx`).
 - **About on iPad (701 to 1100px):** skills run two groups across, then the photo and the note sit
@@ -121,7 +121,10 @@ store the toggle subscribes to.
   with `swipe: true`) become a row of cards you swipe sideways, with a small "swipe" label above
   (`SwipeHint.tsx`). The challenge numbers, technology groups and reflection notes become a tab bar
   that shows one panel at a time (`TabbedPanels.tsx`, the only client component in the case-study
-  template). "More work" turns into three short rows. All of it is the last block in
+  template). The challenge tabs also change when you swipe sideways (or scroll sideways on a
+  trackpad); the other tab bars are tap-only. "More work" becomes a row of three cards you swipe
+  through, like the other rails. The hero and closing buttons stack at full width, with the text
+  link centred under them, and the breadcrumb shrinks so it stays on one line. All of it is the last block in
   `CaseStudy.module.css`; on wider screens the tab bar and hint are hidden and every panel lays out
   as before.
 
