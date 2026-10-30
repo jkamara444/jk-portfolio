@@ -47,16 +47,6 @@
   outline: 2px solid var(--jk-wine);
   outline-offset: 4px;
 }
-.intro {
-  margin: 16px 0 0;
-  max-width: 20em;
-  font-family: var(--jk-serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 1.4;
-  color: var(--jk-wine-2);
-}
 .photo {
   position: absolute;
   right: 40px;
@@ -317,9 +307,6 @@
     width: min(300px, 70%);
     margin-left: 0;
   }
-  .intro {
-    font-size: 14px;
-  }
 }
 
 .canvas {
@@ -371,11 +358,6 @@
 .sheetContent .squiggle {
   margin-left: 18%;
   width: 52%;
-}
-.sheetContent .intro {
-  max-width: none;
-  font-size: 14px;
-  margin-top: 10px;
 }
 .sheetContent .seal {
   position: absolute;
@@ -825,9 +807,6 @@
     height: 103.4%;
     left: -2%;
   }
-  .sheetContent .intro {
-    font-size: clamp(12px, 3cqw, 14px);
-  }
   .sheetContent .kicker {
     font-size: 2.1cqw;
   }
@@ -884,10 +863,6 @@
   }
   .sheetContent .name {
     font-size: 17cqw;
-  }
-  .sheetContent .intro {
-    font-size: 3.3cqw;
-    margin-top: 2cqw;
   }
   .education {
     margin-top: 4cqw;
@@ -1118,9 +1093,6 @@
   }
   .sheetContent .name {
     margin-top: 3.4cqw;
-  }
-  .sheetContent .intro {
-    display: none;
   }
   .education {
     margin-top: 5.5cqw;

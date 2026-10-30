@@ -31,9 +31,6 @@ export function AboutSheet() {
         >
           <path d="M3 9c10-9 20 9 30 0s20 9 30 0 20 9 30 0 20 9 30 0 20 9 30 0 20 9 30 0 20 9 30 0 20 9 30 0 17 7 24 3" />
         </svg>
-        <p className={styles.intro}>
-          Data, design and research for the places where technology and society meet.
-        </p>
         <Link className={styles.bioLink} href="/bio">
           read my bio <span aria-hidden="true">&rarr;</span>
         </Link>
