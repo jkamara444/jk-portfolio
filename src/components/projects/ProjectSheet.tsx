@@ -34,7 +34,7 @@ function Row({
 /** The graph-paper page: title, summary, context, role, outcomes and links. */
 export function ProjectSheet({ project, number }: ProjectSheetProps) {
   return (
-    <article className={styles.sheet} role="tabpanel" aria-label={project.title}>
+    <div className={styles.sheet} role="tabpanel" aria-label={project.title}>
       <div className={styles.sheetHead}>
         <span className={styles.crumb}>
           [ {number} / {project.kind} ]
@@ -92,6 +92,6 @@ export function ProjectSheet({ project, number }: ProjectSheetProps) {
 
         <ProjectLinks links={project.links} />
       </div>
-    </article>
+    </div>
   );
 }

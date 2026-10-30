@@ -110,6 +110,19 @@
   color: var(--jk-rose-1);
 }
 
+/* touch screens: keep the look, but give the link a taller invisible hit area (24px or more) */
+@media (max-width: 1100px) {
+  .jk .lnk {
+    position: relative;
+  }
+
+  .jk .lnk::after {
+    content: "";
+    position: absolute;
+    inset: -5px -4px;
+  }
+}
+
 /* ghost button (outline on dark) */
 .jk .btn-ghost {
   display: inline-flex;
@@ -165,6 +178,10 @@
 .jk-pill i {
   font-style: normal;
   opacity: 0.7;
+}
+.jk-pill[aria-pressed="true"] i,
+.jk-pill.is-on i {
+  opacity: 1;
 }
 
 /* ---------- tag pill + bullet ---------- */

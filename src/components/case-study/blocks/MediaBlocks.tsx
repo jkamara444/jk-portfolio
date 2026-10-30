@@ -2,24 +2,21 @@ import { cx } from "@/lib/cx";
 import { RichText } from "../RichText";
 import { Caption, Figure, Frame, TapedFigure } from "../Figure";
 import { SwipeHint } from "../SwipeHint";
+import { SwipeRail } from "../SwipeRail";
 import type { BlockOf } from "@/data/case-studies/types";
 import styles from "../CaseStudy.module.css";
 
 export function Pair({ block }: { block: BlockOf<"pair"> }) {
-  const pair = (
-    <div className={cx(styles.pair, block.swipe && styles.swipe)}>
-      {block.figures.map((figure) => (
-        <Figure image={figure} key={figure.alt} />
-      ))}
-    </div>
-  );
+  const figures = block.figures.map((figure) => <Figure image={figure} key={figure.alt} />);
 
-  if (!block.swipe) return pair;
+  if (!block.swipe) return <div className={styles.pair}>{figures}</div>;
 
   return (
     <>
       <SwipeHint />
-      {pair}
+      <SwipeRail className={cx(styles.pair, styles.swipe)} label="Images">
+        {figures}
+      </SwipeRail>
     </>
   );
 }
@@ -56,7 +53,10 @@ export function FigureColumns({ block }: { block: BlockOf<"figureColumns"> }) {
   return (
     <div className={styles.figureBlock}>
       <SwipeHint />
-      <div className={cx(styles.figureRows, styles.swipe, styles.swipeColumns)}>
+      <SwipeRail
+        className={cx(styles.figureRows, styles.swipe, styles.swipeColumns)}
+        label="Details"
+      >
         {block.rows.map((row, r) => (
           <div
             className={cx(
@@ -81,7 +81,7 @@ export function FigureColumns({ block }: { block: BlockOf<"figureColumns"> }) {
             ))}
           </div>
         ))}
-      </div>
+      </SwipeRail>
     </div>
   );
 }

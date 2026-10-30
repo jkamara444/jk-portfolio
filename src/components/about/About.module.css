@@ -1058,6 +1058,27 @@
     justify-self: center;
     width: min(100%, 320px);
   }
+
+  /* "read my bio" is the same pill as on a phone and desktop, in the right column beside the photo
+     (the small text link inside the paper is hidden) */
+  :global(.jk) .sheetContent a.bioLink {
+    display: none;
+  }
+  .bioCall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    position: static;
+    width: auto;
+    text-align: center;
+  }
+  .bioCallText {
+    padding-left: 0;
+    font-size: 14px;
+    transform-origin: center;
+  }
   .pile {
     flex-wrap: nowrap;
     gap: 0;
@@ -1145,6 +1166,9 @@ html:global(.jk-light) .photo {
 }
 html:global(.jk-light) .photoFlower {
   filter: drop-shadow(0 10px 12px rgba(86, 48, 66, 0.3));
+}
+html:global(.jk-light) .skills .skillGroup h3 {
+  background: #7f5f6c;
 }
 html:global(.jk-light) .skills .skill:nth-child(4n + 1) {
   background: linear-gradient(transparent 58%, rgba(231, 198, 209, 0.95) 58% 92%, transparent 92%);

@@ -62,19 +62,24 @@ import c08Lab8 from "./c08-lab8.webp";
 import c08Trail from "./c08-trail.webp";
 import clipPaperClean from "./clip-paper-clean.webp";
 import communityAnitab from "./community-anitab.webp";
+import communityBloomberg from "./community-bloomberg.webp";
 import communityBpm from "./community-bpm.webp";
 import communityBt from "./community-bt.webp";
 import communityCrowdstrike from "./community-crowdstrike.webp";
 import communityCsc from "./community-csc.webp";
 import communityDasie from "./community-dasie.webp";
 import communityJpm from "./community-jpm.webp";
+import communityJpmAbp from "./community-jpm-abp.webp";
 import communityKessler from "./community-kessler.webp";
+import communityKittens from "./community-kittens.webp";
+import communityKittensStill from "./community-kittens-still.webp";
 import communityLeague from "./community-league.webp";
 import communityMlt from "./community-mlt.webp";
 import communityNrf from "./community-nrf.webp";
 import communitySeo from "./community-seo.webp";
 import communityStation1 from "./community-station1.webp";
 import communityTakeoff3 from "./community-takeoff-3.webp";
+import communityWharton from "./community-wharton.webp";
 import cover04 from "./cover-04.webp";
 import cover06 from "./cover-06.webp";
 import cover07 from "./cover-07.webp";
@@ -82,12 +87,9 @@ import cover08 from "./cover-08.webp";
 import flowerRose from "./flower-rose.webp";
 import flower from "./flower.webp";
 import globeDots from "./globe-dots.webp";
-import graphTile from "./graph-tile.png";
 import halftonePink from "./halftone-pink.webp";
 import handbookCurriculum from "./handbook-curriculum.webp";
 import inkFlower from "./ink-flower.png";
-import pinRose from "./pin-rose.webp";
-import portraitJk from "./portrait-jk.webp";
 import raftHomeHd from "./raft-home-hd.webp";
 import waxSealJRose from "./wax-seal-j-rose.webp";
 
@@ -152,19 +154,24 @@ export const images = {
   c08Trail,
   clipPaperClean,
   communityAnitab,
+  communityBloomberg,
   communityBpm,
   communityBt,
   communityCrowdstrike,
   communityCsc,
   communityDasie,
   communityJpm,
+  communityJpmAbp,
   communityKessler,
+  communityKittens,
+  communityKittensStill,
   communityLeague,
   communityMlt,
   communityNrf,
   communitySeo,
   communityStation1,
   communityTakeoff3,
+  communityWharton,
   cover04,
   cover06,
   cover07,
@@ -172,12 +179,9 @@ export const images = {
   flowerRose,
   flower,
   globeDots,
-  graphTile,
   halftonePink,
   handbookCurriculum,
   inkFlower,
-  pinRose,
-  portraitJk,
   raftHomeHd,
   waxSealJRose,
 } as const;

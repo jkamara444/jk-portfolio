@@ -53,8 +53,8 @@
 }
 
 /* Phones: the logo on the left and the three links on the right sharing one baseline, the copyright
-   under the logo, no hairlines. The J's swash hangs left of the mark, so the mark is nudged in until
-   the swash tip lines up with the copyright's first letter. */
+   under the links, flush right, no hairlines. The J's swash hangs left of the mark, so the mark is
+   nudged in until the swash tip lines up with the page's left edge. */
 @media (max-width: 640px) {
   .footer {
     flex-direction: column;
@@ -96,10 +96,12 @@
   }
 
   .copyright {
+    align-self: flex-end;
     margin-top: 12px;
     padding-top: 0;
     border-top: 0;
     font-size: 10px;
     letter-spacing: 0.14em;
+    text-align: right;
   }
 }

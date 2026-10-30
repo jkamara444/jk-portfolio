@@ -14,6 +14,7 @@ html.jk-fade *::after {
     border-color 0.5s ease,
     fill 0.5s ease,
     stroke 0.5s ease,
+    stop-color 0.5s ease,
     box-shadow 0.5s ease !important;
 }
 
@@ -89,4 +90,11 @@ html.jk-light [data-theme-lock="dark"] {
     #b88c9e 100%
   );
   --jk-shadow-card: 0 40px 80px -30px rgba(0, 0, 0, 0.65);
+  --mk0: #e3a7c4;
+  --mk1: #fce6f1;
+  --mk2: #f0b9d5;
+  --mk3: #ffffff;
+  --mk4: #d58bb0;
+  --mkShadow: #000000;
+  --mkShadowA: 0.4;
 }

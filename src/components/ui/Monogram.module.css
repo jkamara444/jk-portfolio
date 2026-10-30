@@ -1,16 +1,20 @@
-/* The script "JK". Gradient text only paints inside its own box, so the box is padded and pulled
-   back with an equal negative margin, which keeps the J's tail and the K's flick from being cut. */
+/* The JK mark (see Monogram.tsx). It is as tall as 1.3 x the font-size of whatever holds it, with a
+   hair of margin so the header and footer keep the height they had with the old text mark. */
 
 .monogram {
-  display: inline-block;
-  font-family: var(--jk-script);
-  font-weight: 400;
-  font-size: 1.35em;
-  line-height: 0.9;
-  padding: 0.15em 0.3em 0.4em 0.3em;
-  margin: -0.15em -0.18em -0.3em -0.24em;
-  background: var(--jk-grad-script);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  display: block;
+  height: 1.3em;
+  width: auto;
+  aspect-ratio: 790 / 450;
+  margin: 0.0265em 0 0.0265em -0.03em;
+  overflow: visible;
+}
+
+/* The hidden sprite that holds the artwork. Not display:none, or the gradient and filters stop working. */
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
 }

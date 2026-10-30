@@ -301,3 +301,28 @@
     bottom: -100px;
   }
 }
+
+/* glitter kittens: the bloom's left-hand twin, flipped so they face the other way */
+.deco .kittens {
+  position: absolute;
+  left: 10px;
+  bottom: 2px;
+  width: 340px;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 0.95;
+}
+@media (max-width: 1100px) {
+  .deco .kittens {
+    width: 250px;
+    left: 8px;
+  }
+}
+@media (max-width: 640px) {
+  .deco .kittens {
+    width: 230px;
+  }
+}

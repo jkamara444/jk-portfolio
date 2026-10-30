@@ -106,11 +106,11 @@ export function ExperienceTimeline() {
             key={item.id}
             className={cx(styles.dot, i === index && styles.on)}
             aria-pressed={i === index}
-            aria-label={`${item.org}, ${item.dates}`}
+            aria-label={`${item.year} ${item.shortName}: ${item.org}, ${item.dates}`}
             onClick={() => go(i)}
           >
             <i aria-hidden="true" />
-            <b className={styles.dotYear}>{item.year}</b>
+            <b className={styles.dotYear}>{item.year}</b>{" "}
             <span className={styles.dotLabel}>{item.shortName}</span>
           </button>
         ))}

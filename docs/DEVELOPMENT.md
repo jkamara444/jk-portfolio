@@ -86,6 +86,23 @@ store the toggle subscribes to.
 - `ThemedImage` renders a dark and a light version of a picture and lets CSS choose.
 - The home page is locked to dark with `lockTheme="dark"` on `PageShell`.
 
+### The JK logo
+
+The "JK" mark in the header and footer is one soft-gel sprite that every page shares.
+
+- `components/ui/Monogram.tsx` exports `Monogram` (the mark itself, a small `<svg><use>`) and
+  `MonogramDefs` (the sprite: the gradients and the gel filter). `PageShell` renders `MonogramDefs`
+  once, **inside the `.jk` root**. That placement matters: the gradient colours are CSS variables, and
+  they resolve where the gradient is defined, so putting the sprite outside `.jk` would break both the
+  theme colours and the dark lock on the home page. The sprite is hidden with width and height 0
+  (never `display: none`, which stops the filter from drawing).
+- To recolour it, change `--mk0` to `--mk4` (the gradient stops) and `--mkShadow` / `--mkShadowA`
+  (the drop shadow). The dark values are in `styles/tokens.css` (top of the file), the light ones in
+  the `jk-light` block further down the same file, and the home page's dark lock in
+  `styles/theme.css` keeps its own copy of the dark values.
+- Size comes from `Monogram.module.css` (`height: 1.3em`), so it follows the font size of whatever
+  holds it.
+
 ## Styling conventions
 
 - Colours, fonts, radii and spacing are CSS variables in `styles/tokens.css`. Use them rather
@@ -108,7 +125,7 @@ store the toggle subscribes to.
   it (CSS); with touch or the keyboard the button opens it, Escape or a tap outside closes it. On a
   phone it opens in place inside the hamburger menu. Between about 640 and 860px the nav drops
   to two rows so all the links still fit.
-- **Phone footer:** one compact row (logo on the left, three links on the right, sharing a baseline), then the copyright under the logo. No hairlines, and the J's swash is nudged in so its tip lines up with the copyright.
+- **Phone footer:** one compact row (logo on the left, three links on the right, sharing a baseline), then the copyright under the links, flush right. No hairlines, and the J's swash is nudged in so its tip lines up with the page's left edge.
 - **About on a phone:** education is written on the paper and scales with it, "read my bio" is a pill
   under the paper, and the skills are a dropdown per group (`SkillsSection.tsx`).
 - **About on iPad (701 to 1100px):** skills run two groups across, then the photo and the note sit
@@ -120,10 +137,11 @@ store the toggle subscribes to.
 - **Case studies on a phone (640px and under):** long runs are shortened, and nothing changes above
   640px. "How I worked" and the solution cards (`steps`, `solution`, `figureColumns`, and a `pair`
   with `swipe: true`) become a row of cards you swipe sideways, with a small "swipe" label above
-  (`SwipeHint.tsx`). The challenge numbers, technology groups and reflection notes become a tab bar
-  that shows one panel at a time (`TabbedPanels.tsx`, the only client component in the case-study
-  template). The challenge tabs also change when you swipe sideways (or scroll sideways on a
-  trackpad); the other tab bars are tap-only. "More work" becomes a row of three cards you swipe
+  (`SwipeHint.tsx`). While a row really does scroll, `SwipeRail.tsx` gives it a tab stop and a label so a keyboard can move it; where everything fits it adds nothing to the tab order. The challenge numbers, technology groups and reflection notes become a tab bar
+  that shows one panel at a time (`TabbedPanels.tsx`, a client component, as is `SwipeRail.tsx`
+  just below). The challenge tabs also change when you swipe sideways (or scroll sideways on a
+  trackpad), so they carry the same "swipe" label above the tab bar; the other tab bars are
+  tap-only. "More work" becomes a row of three cards you swipe
   through, like the other rails. The hero and closing buttons stack left-aligned, with the text
   link under them on the same line, and the breadcrumb shrinks so it stays on one line. All of it is the last block in
   `CaseStudy.module.css`; on wider screens the tab bar and hint are hidden and every panel lays out

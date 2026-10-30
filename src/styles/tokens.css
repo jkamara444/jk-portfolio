@@ -49,6 +49,15 @@
   );
   --jk-grad-script-paper: linear-gradient(100deg, #6f4b5e 0%, #8a6273 50%, #b88c9e 100%);
 
+  /* the JK monogram (Monogram.tsx): five gradient stops, then its shadow colour and opacity */
+  --mk0: #e3a7c4;
+  --mk1: #fce6f1;
+  --mk2: #f0b9d5;
+  --mk3: #ffffff;
+  --mk4: #d58bb0;
+  --mkShadow: #000000;
+  --mkShadowA: 0.4;
+
   /* lines, radii, shadow, spacing */
   --jk-line: rgba(207, 178, 194, 0.28); /* hairlines on dark */
   --jk-line-paper: rgba(73, 62, 62, 0.22); /* hairlines on paper */
@@ -88,4 +97,11 @@ html.jk-light {
   --jk-grad-title: linear-gradient(180deg, #a67e8d 0%, #8a6273 52%, #6f4b5e 100%);
   --jk-grad-script: linear-gradient(100deg, #6f4b5e 0%, #b5688a 34%, #8a6273 62%, #6f4b5e 100%);
   --jk-shadow-card: 0 30px 60px -34px rgba(86, 48, 66, 0.45);
+  --mk0: #7a3f5e;
+  --mk1: #b15183;
+  --mk2: #b05284;
+  --mk3: #9c4c77;
+  --mk4: #7a3f5e;
+  --mkShadow: #563042;
+  --mkShadowA: 0.28;
 }

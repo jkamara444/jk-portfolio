@@ -137,19 +137,21 @@
     align-self: flex-start;
   }
 
+  /* on a phone and iPad the name is centred, each line on its own */
   .name {
     align-self: stretch;
-    padding-left: 0.2em;
+    width: 100%;
+    padding-left: 0;
     font-size: clamp(64px, 19vw, 140px);
+    text-align: center;
   }
 
+  .name span,
   .name span + span {
-    margin-left: calc(10% - 0.3em);
-  }
-
-  .name span {
     width: max-content;
     max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .actions {
@@ -166,5 +168,32 @@
   /* the name, bio and buttons sit lower, further from the nav */
   .main {
     padding-top: 84px;
+  }
+
+  /* a touch smaller bio, button and links so the stack sits tidier under the name */
+  .actions p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .main .actions :global(.btn) {
+    gap: 8px;
+    padding: 11px 20px;
+    font-size: 10px;
+  }
+
+  .main .actions :global(.btn) svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .main .actions :global(.lnk) {
+    padding-bottom: 3px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+  .actions :global(.cta-links) {
+    gap: 14px 20px;
   }
 }

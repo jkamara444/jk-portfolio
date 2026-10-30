@@ -34,6 +34,20 @@
   color: var(--jk-paper);
 }
 
+@media (max-width: 1100px) {
+  /* a taller invisible hit area for the touch screen, with the same look */
+  .bar a {
+    position: relative;
+    z-index: 1;
+  }
+
+  .bar a::after {
+    content: "";
+    position: absolute;
+    inset: -7px -4px;
+  }
+}
+
 .bar .separator {
   margin: 0 10px;
   opacity: 0.5;
@@ -350,41 +364,53 @@
   max-width: 760px;
 }
 
-/* a link inside a sentence is boxed and carries an arrow, so it reads as a link */
+/* a link inside a sentence is boxed and carries the open-in-new-tab icon, so it reads as a link */
 .inlineLink {
-  color: var(--jk-rose-1);
-  padding: 1px 5px 2px;
+  --hl: #ff93cc;
+  --hl-on: #ff6fbb;
+  color: #2b1722;
+  padding: 1px 6px 2px;
   margin: 0 -1px;
   border-radius: 5px;
-  background: rgba(var(--jk-rose-rgb), 0.2);
+  background: var(--hl);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   text-decoration: underline;
   text-decoration-color: currentColor;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
-  box-shadow: inset 0 0 0 1px rgba(var(--jk-rose2-rgb), 0.45);
+  box-shadow: 0 0 16px -3px rgba(255, 120, 190, 0.5);
+}
+
+:global(html.jk-light) .inlineLink {
+  --hl: #ff86c6;
+  --hl-on: #ff63b4;
+  box-shadow: none;
+}
+
+/* the page's own link colour would otherwise win over the dark ink on the pink */
+:global(.jk) a.inlineLink {
+  color: #2b1722;
 }
 
 .inlineLink::after {
-  content: "\2197";
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.35em;
-  height: 1.35em;
+  content: "";
+  display: inline-block;
+  width: 0.95em;
+  height: 0.95em;
   margin-left: 6px;
-  border-radius: 50%;
-  background: var(--jk-rose-1);
-  color: var(--jk-ink);
-  font-size: 0.78em;
-  line-height: 1;
-  vertical-align: 0.1em;
-  text-decoration: none;
+  vertical-align: -0.12em;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5.5'/%3E%3Cpath d='M14 3h7v7'/%3E%3Cpath d='M21 3 11 13'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5.5'/%3E%3Cpath d='M14 3h7v7'/%3E%3Cpath d='M21 3 11 13'/%3E%3C/svg%3E")
+    center / contain no-repeat;
   transition: translate 0.2s ease;
 }
 
-.inlineLink:hover {
-  color: var(--jk-paper);
-  background: rgba(var(--jk-rose-rgb), 0.4);
+:global(.jk) a.inlineLink:hover {
+  color: #2b1722;
+  background: var(--hl-on);
 }
 
 .inlineLink:hover::after {
@@ -740,18 +766,15 @@
 }
 
 .chipGo::after {
-  content: "\2197";
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  background: var(--jk-rose-1);
-  color: var(--jk-ink);
-  font-size: 11px;
-  letter-spacing: 0;
-  line-height: 1;
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5.5'/%3E%3Cpath d='M14 3h7v7'/%3E%3Cpath d='M21 3 11 13'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5.5'/%3E%3Cpath d='M14 3h7v7'/%3E%3Cpath d='M21 3 11 13'/%3E%3C/svg%3E")
+    center / contain no-repeat;
   transition: translate 0.2s ease;
 }
 
@@ -1562,6 +1585,13 @@
     display: none;
   }
 
+  /* reached with the keyboard, the row shows a ring just inside its edge */
+  .swipe:focus-visible {
+    outline: 2px solid var(--jk-paper);
+    outline-offset: -3px;
+    border-radius: 18px;
+  }
+
   .swipe > * {
     flex: 0 0 78%;
     min-width: 0;
@@ -1682,6 +1712,11 @@
 
   .tabsRoomy {
     margin-bottom: 28px;
+  }
+
+  /* the swipe label sits right above the tab bar */
+  .hint + .tabs {
+    margin-top: 12px;
   }
 
   .tab {
@@ -1811,7 +1846,7 @@
 @media (max-width: 640px) {
   /* breadcrumb and next link: smaller, so each one stays on its line */
   .bar {
-    gap: 8px 16px;
+    gap: 12px 16px;
     font-size: 9px;
     letter-spacing: 0.04em;
   }

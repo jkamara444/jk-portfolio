@@ -11,6 +11,7 @@ import {
 } from "react";
 import { cx } from "@/lib/cx";
 import { scrollsSideways } from "@/lib/scrolls-sideways";
+import { SwipeHint } from "./SwipeHint";
 import styles from "./CaseStudy.module.css";
 
 interface TabbedPanelsProps {
@@ -137,6 +138,7 @@ export function TabbedPanels({ labels, className, roomy, swipe, children }: Tabb
 
   return (
     <>
+      {swipe && <SwipeHint />}
       <div
         className={cx(styles.tabs, roomy && styles.tabsRoomy)}
         role="tablist"

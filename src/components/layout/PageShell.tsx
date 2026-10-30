@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { MonogramDefs } from "@/components/ui/Monogram";
 import { cx } from "@/lib/cx";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
@@ -28,6 +29,7 @@ export function PageShell({
 }: PageShellProps) {
   return (
     <div className={cx("jk", grain && "grain", className)} data-theme-lock={lockTheme}>
+      <MonogramDefs />
       {backdrop}
       <SiteHeader variant={overlayHeader ? "overlay" : "default"} />
       {children}

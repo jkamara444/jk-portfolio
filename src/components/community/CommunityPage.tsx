@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { images } from "@/assets/images";
 import { PageShell } from "@/components/layout/PageShell";
 import { Bloom } from "@/components/ui/Bloom";
@@ -17,6 +18,19 @@ export function CommunityPage() {
 
         <div className={styles.deco} aria-hidden="true">
           <Bloom className={styles.bloom} code={images.bloomCodePink} print={images.halftonePink} />
+          <picture>
+            <source
+              media="(prefers-reduced-motion: reduce)"
+              srcSet={images.communityKittensStill.src}
+            />
+            <Image
+              className={cx(styles.kittens, "jk-dotart")}
+              src={images.communityKittens}
+              alt=""
+              unoptimized
+              draggable={false}
+            />
+          </picture>
         </div>
       </main>
     </PageShell>

@@ -22,6 +22,20 @@
 .crumb a:hover {
   color: var(--jk-paper);
 }
+
+@media (max-width: 1100px) {
+  /* a taller invisible hit area for the touch screen, with the same look */
+  .crumb a {
+    position: relative;
+    z-index: 1;
+  }
+
+  .crumb a::after {
+    content: "";
+    position: absolute;
+    inset: -7px -4px;
+  }
+}
 .crumb .sep {
   margin: 0 10px;
   opacity: 0.5;
@@ -386,5 +400,38 @@
   .stage {
     justify-self: center;
     max-width: 640px;
+  }
+  /* the number-butterfly sits fully inside the board on a phone / iPad (it was hanging off the left edge) */
+  .digits {
+    left: calc(-6 * var(--u));
+  }
+}
+
+/* Desktop (wider than 1100px): the collage as it was arranged by hand. The numbers were measured at a
+   1440px window and are written in --u, so they scale with the board. Phone and iPad keep the layout above. */
+@media (min-width: 1101px) {
+  .digits:global(.jk-dk) {
+    left: calc(-72.34 * var(--u));
+    top: calc(531.7 * var(--u));
+  }
+  .digits:global(.jk-lt) {
+    left: calc(-78.37 * var(--u));
+    top: calc(557.02 * var(--u));
+  }
+  .me {
+    left: calc(312.27 * var(--u));
+    top: calc(393.05 * var(--u));
+  }
+  .keyboard {
+    left: calc(10.85 * var(--u));
+    top: calc(137.45 * var(--u));
+  }
+  .spark1 {
+    left: calc(223.05 * var(--u));
+    top: calc(390.64 * var(--u));
+  }
+  .spark2 {
+    left: calc(575.11 * var(--u));
+    top: calc(601.63 * var(--u));
   }
 }

@@ -4,6 +4,7 @@ import { FlowDiagram } from "../FlowDiagram";
 import { Frame } from "../Figure";
 import { RichText } from "../RichText";
 import { SwipeHint } from "../SwipeHint";
+import { SwipeRail } from "../SwipeRail";
 import type { BlockOf } from "@/data/case-studies/types";
 import styles from "../CaseStudy.module.css";
 
@@ -14,8 +15,9 @@ export function Steps({ block }: { block: BlockOf<"steps"> }) {
   return (
     <>
       <SwipeHint />
-      <div
+      <SwipeRail
         className={cx(styles.steps, styles.swipe)}
+        label="Steps"
         style={cssVars({ "--n": block.steps.length })}
       >
         {block.steps.map((step, i) => (
@@ -33,7 +35,7 @@ export function Steps({ block }: { block: BlockOf<"steps"> }) {
             )}
           </div>
         ))}
-      </div>
+      </SwipeRail>
     </>
   );
 }
@@ -42,7 +44,10 @@ export function Solution({ block }: { block: BlockOf<"solution"> }) {
   return (
     <>
       <SwipeHint />
-      <div className={cx(styles.solution, styles.swipe, block.ruled && styles.solutionRuled)}>
+      <SwipeRail
+        className={cx(styles.solution, styles.swipe, block.ruled && styles.solutionRuled)}
+        label="Solution"
+      >
         {block.items.map((item, i) => (
           <div className={styles.solutionItem} key={i}>
             {item.media && <Frame image={item.media} />}
@@ -52,7 +57,7 @@ export function Solution({ block }: { block: BlockOf<"solution"> }) {
             </p>
           </div>
         ))}
-      </div>
+      </SwipeRail>
     </>
   );
 }
