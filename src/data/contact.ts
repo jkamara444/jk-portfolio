@@ -35,8 +35,7 @@ export const linkStickers: LinkSticker[] = [
   },
   {
     label: "Book a time",
-    /** Placeholder until a booking link exists. */
-    href: "#",
+    href: site.bookingHref,
     tone: "wine",
     left: "8%",
     top: "236px",

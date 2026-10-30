@@ -205,11 +205,18 @@ export const projects: readonly Project[] = [
       "Connected these questions to the legacies of slavery in Ghana, Indigenous resistance and border surveillance in Mexico, and the impacts of tourism in Indonesia.",
       "Designed and published the research as an interactive digital humanities website.",
     ],
-    links: [{ kind: "solid", label: "Read Case Study", href: caseStudyPath("necropolitics") }],
+    links: [
+      { kind: "solid", label: "Read Case Study", href: caseStudyPath("necropolitics") },
+      {
+        kind: "request",
+        label: "Request Access",
+        href: mailtoHref("Request access: Technology & Necropolitics website"),
+      },
+    ],
     cover: {
       image: images.globeDots,
       alt: "A turning globe made of dots",
-      urlLabel: "research site coming soon",
+      urlLabel: "research site, by request",
       fit: "globe",
     },
   },

@@ -5,10 +5,15 @@ export const site = {
     "Portfolio of Jasmine Kamara: computer science and science, technology and society at Brown. Research, product and design at the edge of data, technology and society.",
   email: "jasmine_kamara@brown.edu",
   linkedin: "https://linkedin.com/in/jasmine-kamara",
-  /** Placeholder until the resume PDF is published. */
-  resumeHref: "#",
+  bookingHref: "https://cal.com/jasmine-kamara-gole1n",
   copyright: "©2026 Jasmine Kamara",
 } as const;
+
+/**
+ * The Resume buttons (header, phone menu and footer) are switched off for now. Set this to the
+ * PDF's address, for example "/resume.pdf", and all three come back.
+ */
+export const resumeHref: string | undefined = undefined;
 
 /** One entry in the main navigation: a plain page link, or the Case studies dropdown. */
 export type NavEntry =

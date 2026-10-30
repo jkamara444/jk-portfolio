@@ -118,7 +118,7 @@ The "JK" mark in the header and footer is one soft-gel sprite that every page sh
 
 - **Phone header (640px and under):** the page links fold into a hamburger menu. `SiteHeader.tsx`
   keeps the open/closed state (Escape, a tap outside, or opening a page closes it); the dropdown
-  panel and the bars-to-cross icon are in `SiteHeader.module.css`. Resume sits at the bottom of the menu.
+  panel and the bars-to-cross icon are in `SiteHeader.module.css`. Resume would sit at the bottom of the menu (it is switched off for now, see below).
 - **Case studies menu:** every header has a "Case studies" entry between "Projects & Research" and
   "Community". `components/layout/CaseStudiesMenu.tsx` lists each project in `data/projects.ts`
   (so a new case study shows up there on its own). On a wide screen with a mouse, hovering opens
@@ -149,7 +149,6 @@ The "JK" mark in the header and footer is one soft-gel sprite that every page sh
 
 ## Placeholders to fill in
 
-These links are `#` until the real destinations exist. `grep -rn 'href: "#"' src` finds them all.
+Anything that is not live yet:
 
-- **Resume** (header and footer): `resumeHref` in `src/data/site.ts`
-- **Book a time**: `data/contact.ts`
+- **Resume** (header, phone menu and footer) is switched off. Set `resumeHref` in `src/data/site.ts` to the PDF's address (for example `"/resume.pdf"`) and all three buttons come back.

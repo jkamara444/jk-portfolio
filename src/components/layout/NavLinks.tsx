@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight } from "@/components/ui/Icons";
-import { navEntries, site } from "@/data/site";
+import { navEntries, resumeHref } from "@/data/site";
 import { cssVars } from "@/lib/cssVars";
 import { CaseStudiesMenu } from "./CaseStudiesMenu";
 import styles from "./SiteHeader.module.css";
@@ -17,7 +17,7 @@ interface NavLinksProps {
   onNavigate: () => void;
 }
 
-/** The page links. On a phone this same nav becomes the dropdown panel, with Resume at the bottom. */
+/** The page links. On a phone this same nav becomes the dropdown panel, with Resume at the bottom once it is switched on. */
 export function NavLinks({ id, menuOpen, onNavigate }: NavLinksProps) {
   const pathname = usePathname();
 
@@ -48,14 +48,16 @@ export function NavLinks({ id, menuOpen, onNavigate }: NavLinksProps) {
           />
         ),
       )}
-      <a
-        className={styles.resumeInMenu}
-        href={site.resumeHref}
-        style={cssVars({ "--i": navEntries.length })}
-      >
-        Resume
-        <ArrowUpRight />
-      </a>
+      {resumeHref && (
+        <a
+          className={styles.resumeInMenu}
+          href={resumeHref}
+          style={cssVars({ "--i": navEntries.length })}
+        >
+          Resume
+          <ArrowUpRight />
+        </a>
+      )}
     </nav>
   );
 }

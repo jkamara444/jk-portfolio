@@ -1,5 +1,5 @@
 import { Monogram } from "@/components/ui/Monogram";
-import { site } from "@/data/site";
+import { resumeHref, site } from "@/data/site";
 import styles from "./SiteFooter.module.css";
 
 export function SiteFooter() {
@@ -14,7 +14,7 @@ export function SiteFooter() {
           <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
-          <a href={site.resumeHref}>Resume</a>
+          {resumeHref && <a href={resumeHref}>Resume</a>}
         </nav>
       </div>
       <span className={styles.copyright}>{site.copyright}</span>

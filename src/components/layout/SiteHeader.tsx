@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { ArrowUpRight } from "@/components/ui/Icons";
-import { site } from "@/data/site";
+import { resumeHref } from "@/data/site";
 import { cx } from "@/lib/cx";
 import { HomeLink } from "./HomeLink";
 import { NavLinks } from "./NavLinks";
@@ -61,10 +61,12 @@ export function SiteHeader({ variant = "default" }: SiteHeaderProps) {
       <NavLinks id={menuId} menuOpen={open} onNavigate={close} />
       <div className={styles.end}>
         <ThemeToggle />
-        <a className={styles.resume} href={site.resumeHref}>
-          Resume
-          <ArrowUpRight />
-        </a>
+        {resumeHref && (
+          <a className={styles.resume} href={resumeHref}>
+            Resume
+            <ArrowUpRight />
+          </a>
+        )}
         <button
           type="button"
           className={styles.burger}
