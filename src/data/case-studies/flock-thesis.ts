@@ -102,12 +102,12 @@ export const flockThesis: CaseStudy = {
     },
     {
       label: "Approach",
-      jumpLabel: "Solution",
-      hint: "What was made.",
+      hint: "The method.",
       heading: "How the case is built",
       blocks: [
         {
           type: "solution",
+          label: "Approach",
           items: [
             {
               text: "Build a detailed case study of Flock Safety in a city in Southern California.",

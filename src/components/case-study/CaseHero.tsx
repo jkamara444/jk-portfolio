@@ -41,7 +41,7 @@ export function CaseHero({ study, project }: CaseHeroProps) {
               href={`#${sectionId(i)}`}
               key={section.label}
             >
-              <i>{sectionNumber(i)}</i> {section.jumpLabel ?? section.label}
+              <i>{sectionNumber(i)}</i> {section.label}
             </a>
           ))}
         </nav>
@@ -50,7 +50,7 @@ export function CaseHero({ study, project }: CaseHeroProps) {
           items={study.sections.map((section, i) => ({
             id: sectionId(i),
             number: sectionNumber(i),
-            label: section.jumpLabel ?? section.label,
+            label: section.label,
           }))}
         />
 

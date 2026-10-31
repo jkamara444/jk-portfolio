@@ -15,7 +15,7 @@ export const evBattery: CaseStudy = {
       arrow: true,
     },
     { kind: "ghost", label: "About Station1", href: "https://www.station1.org/", arrow: true },
-    { kind: "text", label: "Jump to the results", href: "#s6" },
+    { kind: "text", label: "Jump to the output", href: "#s6" },
   ],
   facts: [
     { label: "Role", value: "Researcher & project manager" },

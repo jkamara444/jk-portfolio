@@ -5,7 +5,7 @@ export const aiGateway: CaseStudy = {
   slug: "ai-gateway",
   eyebrow: "Project",
   subtitle: "A safety-aware routing system for customer-facing AI.",
-  actions: [{ kind: "text", label: "Jump to the results", href: "#s6" }],
+  actions: [{ kind: "text", label: "Jump to the impact", href: "#s6" }],
   facts: [
     { label: "Role", value: "Built & evaluated the gateway" },
     { label: "Timeline", value: "2026" },

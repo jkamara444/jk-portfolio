@@ -46,7 +46,7 @@ export function Solution({ block }: { block: BlockOf<"solution"> }) {
       <SwipeHint />
       <SwipeRail
         className={cx(styles.solution, styles.swipe, block.ruled && styles.solutionRuled)}
-        label="Solution"
+        label={block.label ?? "Solution"}
       >
         {block.items.map((item, i) => (
           <div className={styles.solutionItem} key={i}>

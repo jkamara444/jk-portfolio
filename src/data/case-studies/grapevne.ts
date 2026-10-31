@@ -13,7 +13,7 @@ export const grapevne: CaseStudy = {
       href: "https://apps.apple.com/us/app/grapevne/id6745459372",
       arrow: true,
     },
-    { kind: "text", label: "Jump to the results", href: "#s6" },
+    { kind: "text", label: "Jump to the impact", href: "#s6" },
   ],
   facts: [
     { label: "Role", value: "Product & growth" },

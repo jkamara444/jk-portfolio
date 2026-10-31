@@ -4,7 +4,7 @@ import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 
 interface SwipeRailProps {
   className: string;
-  /** What the row holds ("Steps", "Solution", ...), read out when it is focused. */
+  /** What the row holds ("Steps", "Solution", "Approach", ...), read out when it is focused. */
   label: string;
   style?: CSSProperties;
   children: ReactNode;

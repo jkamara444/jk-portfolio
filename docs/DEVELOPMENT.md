@@ -134,6 +134,9 @@ The "JK" mark in the header and footer is one soft-gel sprite that every page sh
   With eight tabs, the tabs wrap onto a second row whenever the folder is narrower than 880px
   (a container query in `Projects.module.css`).
 
+- **Section names:** each case-study section has one `label` (in `src/data/case-studies/*.ts`). The left rail, the
+  jump pills, the phone contents list and the aria name of a solution row all use it, so they can't drift apart.
+  The "Jump to …" link in the hero names the same section (impact, output, progress, result).
 - **Case studies on a phone (640px and under):** long runs are shortened, and nothing changes above
   640px. "How I worked" and the solution cards (`steps`, `solution`, `figureColumns`, and a `pair`
   with `swipe: true`) become a row of cards you swipe sideways, with a small "swipe" label above

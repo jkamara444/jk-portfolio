@@ -14,7 +14,7 @@ export const pedagogy: CaseStudy = {
       arrow: true,
     },
     { kind: "ghost", label: "About SRC", href: "https://responsible.cs.brown.edu/", arrow: true },
-    { kind: "text", label: "Jump to the results", href: "#s6" },
+    { kind: "text", label: "Jump to the impact", href: "#s6" },
   ],
   facts: [
     { label: "Role", value: "Socially Responsible Computing TA" },

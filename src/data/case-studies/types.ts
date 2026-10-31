@@ -83,7 +83,13 @@ export type CaseBlock =
       }[];
     }
   /** "Part 01, Part 02..." Each part has a picture, or none. `ruled` puts a line above text-only parts. */
-  | { type: "solution"; items: readonly { text: RichText; media?: CaseImage }[]; ruled?: boolean }
+  | {
+      type: "solution";
+      items: readonly { text: RichText; media?: CaseImage }[];
+      ruled?: boolean;
+      /** What a screen reader calls the row on a phone. Defaults to "Solution"; use the section's name if it differs. */
+      label?: string;
+    }
   | { type: "wide"; figure: CaseImage }
   | { type: "gallery"; images: readonly CaseImage[] }
   | { type: "tech"; groups: readonly TechGroup[] }
@@ -109,10 +115,8 @@ export type CaseBlock =
 export type BlockOf<T extends CaseBlock["type"]> = Extract<CaseBlock, { type: T }>;
 
 export interface CaseSection {
-  /** Name on the left rail and in the jump links. */
+  /** Name on the left rail, in the jump links and in the contents list, so all three always agree. */
   label: string;
-  /** Use when the jump link should say something different from the rail label. */
-  jumpLabel?: string;
   /** Italic line under the rail label. */
   hint: string;
   /** Big heading at the top of the section's content. */
